@@ -136,6 +136,24 @@ function Has-Prop($obj, $name) { ($null -ne $obj) -and ($null -ne $obj.PSObject.
 function Get-Prop($obj, $name) { if (Has-Prop $obj $name) { $obj.PSObject.Properties[$name].Value } else { $null } }
 function Parse-Utc($value) { if ($null -eq $value) { return $null }; try { ([datetime]$value).ToUniversalTime() } catch { $null } }
 function Minutes-ToHHMM([int]$mins) { $ts=[TimeSpan]::FromMinutes($mins); ('{0:00}:{1:00}' -f [int]$ts.TotalHours,$ts.Minutes) }
+function Parse-FormattedDurationMinutes([string]$s) {
+    if ([string]::IsNullOrWhiteSpace($s)) { return 0 }
+    $text = $s.Trim()
+    try {
+        if ($text -match '^\d{1,2}:\d{2}:\d{2}$') {
+            $ts = [TimeSpan]::ParseExact($text, 'hh\:mm\:ss', [System.Globalization.CultureInfo]::InvariantCulture)
+            return [int][math]::Round($ts.TotalMinutes, 0)
+        }
+        if ($text -match '^\d{1,2}:\d{2}$') {
+            $ts = [TimeSpan]::ParseExact($text, 'hh\:mm', [System.Globalization.CultureInfo]::InvariantCulture)
+            return [int][math]::Round($ts.TotalMinutes, 0)
+        }
+        $ts = [TimeSpan]::Parse($text)
+        return [int][math]::Round($ts.TotalMinutes, 0)
+    } catch {
+        return 0
+    }
+}
 function Html-Encode([string]$s) {
     if ($null -eq $s) { return "" }
     return [System.Net.WebUtility]::HtmlEncode($s)
@@ -361,6 +379,7 @@ $ticketRows = $ticketsInWindow | ForEach-Object {
         Customer  = (Get-Prop $_ 'customer_business_then_name')
         CreatedAt = (Get-Prop $_ 'created_at')
         UpdatedAt = (Get-Prop $_ 'updated_at')
+        TotalFormattedBillableTime = (Get-Prop $_ 'total_formatted_billable_time')
     }
 }
 
@@ -406,6 +425,7 @@ $openTicketRows = $openTickets | ForEach-Object {
         Customer  = (Get-Prop $_ 'customer_business_then_name')
         CreatedAt = (Get-Prop $_ 'created_at')
         UpdatedAt = (Get-Prop $_ 'updated_at')
+        TotalFormattedBillableTime = (Get-Prop $_ 'total_formatted_billable_time')
         AgeDays   = $ageDays
         LongOpen  = ($null -ne $ageDays -and $ageDays -ge $longOpenDays)
     }
@@ -592,6 +612,10 @@ $timeTotalsByTech = @{}
 $avgMinsPerTicketByTech = @{}
 $topTimeByTech = @{}
 $timerWindowRows = @()
+$ticketTimeByTechId = @{}
+$ticketTimeByTechNumber = @{}
+$ticketTimeById = @{}
+$ticketTimeByNumber = @{}
 
 function Get-TechFromTimer($tm) {
     # common: timer.user.full_name (guess based on Syncro patterns)
@@ -614,7 +638,7 @@ function Get-TechFromTimer($tm) {
 
 function Get-TimerWhenUtc($tm) {
     # Try likely fields in order
-    foreach ($k in @('updated_at','stopped_at','ended_at','created_at','started_at')) {
+    foreach ($k in @('updated_at','since_updated_at','stopped_at','ended_at','end_time','created_at','started_at','start_time')) {
         $d = Parse-Utc (Get-Prop $tm $k)
         if ($d) { return $d }
     }
@@ -628,11 +652,21 @@ function Get-TimerMinutes($tm) {
         if ($null -ne $v) { try { return [int][math]::Round([double]$v,0) } catch {} }
     }
 
+    # Common Syncro timer fields in seconds
+    foreach ($k in @('active_duration','billable_time','duration_seconds','elapsed_seconds','time_spent_seconds')) {
+        $v = Get-Prop $tm $k
+        if ($null -ne $v) {
+            try { return [int][math]::Round(([double]$v / 60.0), 0) } catch {}
+        }
+    }
+
     # If start/stop timestamps exist, compute minutes
     $start = Parse-Utc (Get-Prop $tm 'started_at')
     if (-not $start) { $start = Parse-Utc (Get-Prop $tm 'start_at') }
+    if (-not $start) { $start = Parse-Utc (Get-Prop $tm 'start_time') }
     $stop  = Parse-Utc (Get-Prop $tm 'stopped_at')
     if (-not $stop) { $stop = Parse-Utc (Get-Prop $tm 'ended_at') }
+    if (-not $stop) { $stop = Parse-Utc (Get-Prop $tm 'end_time') }
 
     if ($start -and $stop -and $stop -ge $start) {
         return [int][math]::Round(($stop - $start).TotalMinutes,0)
@@ -675,9 +709,30 @@ function Get-TimerTicketSubject($tm) {
 }
 
 if ($timeLoggingEnabled -and $timeSource -eq "ticket_timers") {
-    $timersUrlBase = "https://$subdomain.syncromsp.com/api/v1/ticket_timers?api_key=$apiKey&per_page=$timePerPage"
-    $timers = Get-SyncroPaged -UrlBase $timersUrlBase -ItemsKey "ticket_timers" -MaxPages $timeMaxPages
-    Write-Host "Pulled ticket_timers (raw, capped): $($timers.Count)"
+    $timersUrlBase = "https://$subdomain.syncromsp.com/api/v1/ticket_timers?api_key=$apiKey"
+
+    # Pull newest pages first because page 1 is oldest on this endpoint.
+    $probeUrl = "$timersUrlBase&page=1"
+    Write-Host "GET $probeUrl"
+    $probe = Invoke-RestMethod -Method GET -Uri $probeUrl
+    $probeMeta = Get-Prop $probe 'meta'
+    $totalPages = 1
+    if ($probeMeta -and (Has-Prop $probeMeta 'total_pages') -and $probeMeta.total_pages) {
+        $totalPages = [int]$probeMeta.total_pages
+    }
+    $startPage = [Math]::Max(1, $totalPages - $timeMaxPages + 1)
+
+    $timers = New-Object System.Collections.Generic.List[object]
+    for ($p = $startPage; $p -le $totalPages; $p++) {
+        $url = "$timersUrlBase&page=$p"
+        Write-Host "GET $url"
+        $resp = Invoke-RestMethod -Method GET -Uri $url
+        $items = Get-Prop $resp 'ticket_timers'
+        if ($items) {
+            foreach ($it in $items) { $timers.Add($it) }
+        }
+    }
+    Write-Host "Pulled ticket_timers (latest pages $startPage-$totalPages): $($timers.Count)"
 
     if ($timers.Count -gt 0) {
         ($timers | Select-Object -First 1 | ConvertTo-Json -Depth 12) | Out-File $sampleTimerPath -Encoding UTF8
@@ -699,6 +754,29 @@ if ($timeLoggingEnabled -and $timeSource -eq "ticket_timers") {
     } | Where-Object { $_.WhenUtc -and $_.WhenUtc -ge $startUtc -and $_.WhenUtc -lt $endUtc -and $_.Minutes -gt 0 }
 
     Write-Host "Ticket timers in window (with minutes): $(@($timerWindowRows).Count)"
+
+    foreach ($tr in $timerWindowRows) {
+        $techKey = Normalize-Text ([string]$tr.Tech)
+        $mins = [int]$tr.Minutes
+        if ($tr.TicketId) {
+            $k = "$techKey|id:$($tr.TicketId)"
+            if (-not $ticketTimeByTechId.ContainsKey($k)) { $ticketTimeByTechId[$k] = 0 }
+            $ticketTimeByTechId[$k] += $mins
+
+            $kid = "id:$($tr.TicketId)"
+            if (-not $ticketTimeById.ContainsKey($kid)) { $ticketTimeById[$kid] = 0 }
+            $ticketTimeById[$kid] += $mins
+        }
+        if ($tr.TicketNumber) {
+            $k = "$techKey|num:$($tr.TicketNumber)"
+            if (-not $ticketTimeByTechNumber.ContainsKey($k)) { $ticketTimeByTechNumber[$k] = 0 }
+            $ticketTimeByTechNumber[$k] += $mins
+
+            $knum = "num:$($tr.TicketNumber)"
+            if (-not $ticketTimeByNumber.ContainsKey($knum)) { $ticketTimeByNumber[$knum] = 0 }
+            $ticketTimeByNumber[$knum] += $mins
+        }
+    }
 
     $byTech = $timerWindowRows | Group-Object Tech
     foreach ($g in $byTech) {
@@ -779,6 +857,32 @@ if ($hardTopLevelTickets -and @($hardTopLevelTickets).Count -gt 0) {
         $cust = if ($ht.Customer) { $ht.Customer } else { "Unknown Customer" }
         $lines.Add((" - {0} ({1}, {2}d open) {3}— {4}" -f $label, $prio, $ht.AgeDays, $subj, $cust))
     }
+}
+
+function Get-TicketActualMinutes([string]$tech, $ticketId, $ticketNumber) {
+    $techKey = Normalize-Text $tech
+    if ($ticketId) {
+        $k = "$techKey|id:$ticketId"
+        if ($ticketTimeByTechId.ContainsKey($k)) { return [int]$ticketTimeByTechId[$k] }
+        $kid = "id:$ticketId"
+        if ($ticketTimeById.ContainsKey($kid)) { return [int]$ticketTimeById[$kid] }
+    }
+    if ($ticketNumber) {
+        $k = "$techKey|num:$ticketNumber"
+        if ($ticketTimeByTechNumber.ContainsKey($k)) { return [int]$ticketTimeByTechNumber[$k] }
+        $knum = "num:$ticketNumber"
+        if ($ticketTimeByNumber.ContainsKey($knum)) { return [int]$ticketTimeByNumber[$knum] }
+    }
+    return 0
+}
+
+foreach ($r in $ticketRows) {
+    $mins = Get-TicketActualMinutes -tech ([string]$r.Tech) -ticketId $r.TicketId -ticketNumber $r.Number
+    $r | Add-Member -NotePropertyName ActualMinutes -NotePropertyValue ([int]$mins) -Force
+}
+foreach ($r in $openTicketRows) {
+    $mins = Get-TicketActualMinutes -tech ([string]$r.Tech) -ticketId $r.TicketId -ticketNumber $r.Number
+    $r | Add-Member -NotePropertyName ActualMinutes -NotePropertyValue ([int]$mins) -Force
 }
 $lines.Add("")
 
@@ -934,6 +1038,7 @@ function Write-SummaryPage {
     $h.Add("    .ticket-title { font-weight:700; line-height:1.3; }")
     $h.Add("    .ticket-meta { margin-top:5px; color:var(--muted); font-size:12px; }")
     $h.Add("    .status-pill { display:inline-block; margin-top:7px; padding:2px 8px; border-radius:999px; font-size:11px; color:#fff; font-weight:800; }")
+    $h.Add("    .time-pill { background:#0f766e; }")
     $h.Add("    .empty { margin-top:14px; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:16px; color:var(--muted); box-shadow:var(--shadow); }")
     $h.Add("    @media (max-width:700px) { .wrap { padding:18px 12px 26px; } .hero { border-radius:16px; } h1 { font-size:24px; } .kpis { grid-template-columns:1fr 1fr; } }")
     $h.Add("  </style>")
@@ -966,6 +1071,14 @@ function Write-SummaryPage {
                 $statusColor = Get-StatusColor $status
                 $titleText = "#$($t.Number) $prioTxt$($t.Subject)"
                 $metaText = "$cust | Tech: $tech"
+                $actualMins = 0
+                if (Has-Prop $t 'ActualMinutes' -and $null -ne $t.ActualMinutes) {
+                    try { $actualMins = [int]$t.ActualMinutes } catch {}
+                }
+                $syncroTotalMins = 0
+                if (Has-Prop $t 'TotalFormattedBillableTime') {
+                    $syncroTotalMins = Parse-FormattedDurationMinutes ([string]$t.TotalFormattedBillableTime)
+                }
                 $ticketUrl = Get-TicketUrl $subdomain $t.TicketId
                 if ($ticketUrl) {
                     $h.Add("<a class=`"ticket`" style=`"border-left:4px solid $color`" href=`"$(Html-Encode($ticketUrl))`" target=`"_blank`">")
@@ -975,6 +1088,12 @@ function Write-SummaryPage {
                 $h.Add("<div class=`"ticket-title`">$(Html-Encode($titleText))</div>")
                 $h.Add("<div class=`"ticket-meta`">$(Html-Encode($metaText))</div>")
                 $h.Add("<span class=`"status-pill`" style=`"background:$statusColor`">$(Html-Encode($status))</span>")
+                if ($actualMins -gt 0) {
+                    $h.Add("<span class=`"status-pill time-pill`">Actual: $(Minutes-ToHHMM $actualMins)</span>")
+                }
+                if ($syncroTotalMins -gt 0) {
+                    $h.Add("<span class=`"status-pill`" style=`"background:#1d4ed8`">Syncro Total: $(Minutes-ToHHMM $syncroTotalMins)</span>")
+                }
                 if ($ticketUrl) { $h.Add("</a>") } else { $h.Add("</div>") }
             }
             $h.Add("</div>")
@@ -1003,6 +1122,12 @@ function Write-TechOpenPage {
     $techColor = Get-TechColor $Tech
     $openCount = @($Tickets).Count
     $longOpenCount = @($Tickets | Where-Object { $_.LongOpen }).Count
+    $actualMins = 0
+    foreach ($tt in @($Tickets)) {
+        if (Has-Prop $tt 'ActualMinutes' -and $null -ne $tt.ActualMinutes) {
+            try { $actualMins += [int]$tt.ActualMinutes } catch {}
+        }
+    }
 
     $h.Add("<!doctype html>")
     $h.Add("<html lang=`"en`">")
@@ -1051,6 +1176,7 @@ function Write-TechOpenPage {
     $h.Add("<div class=`"kpis`">")
     $h.Add("<div class=`"kpi`"><div class=`"label`">Open Tickets</div><div class=`"value`">$openCount</div></div>")
     $h.Add("<div class=`"kpi`"><div class=`"label`">$longOpenDays+ Day Open</div><div class=`"value`">$longOpenCount</div></div>")
+    $h.Add("<div class=`"kpi`"><div class=`"label`">Actual Time</div><div class=`"value`">$(Minutes-ToHHMM $actualMins)</div></div>")
     if ($windowLocalStart -and $windowLocalEnd) {
         $h.Add("<div class=`"kpi`"><div class=`"label`">Window</div><div class=`"value`" style=`"font-size:16px`">$(Html-Encode($windowLocalStart.ToString('yyyy-MM-dd'))) to $(Html-Encode($windowLocalEnd.AddSeconds(-1).ToString('yyyy-MM-dd')))</div></div>")
     }
@@ -1087,7 +1213,11 @@ function Write-TechOpenPage {
                 $prioTxt = if ($prio) { "($prio) " } else { "" }
                 $ageTxt = if ($null -ne $t.AgeDays) { "$($t.AgeDays)d" } else { "Unknown age" }
                 $title = "#$($t.Number) $prioTxt$($t.Subject)"
-                $meta = "$cust | Age $ageTxt"
+                $actual = if (Has-Prop $t 'ActualMinutes' -and [int]$t.ActualMinutes -gt 0) { " | Actual $(Minutes-ToHHMM ([int]$t.ActualMinutes))" } else { "" }
+                $syncroTotalMins = 0
+                if (Has-Prop $t 'TotalFormattedBillableTime') { $syncroTotalMins = Parse-FormattedDurationMinutes ([string]$t.TotalFormattedBillableTime) }
+                $syncroTxt = if ($syncroTotalMins -gt 0) { " | Syncro Total $(Minutes-ToHHMM $syncroTotalMins)" } else { "" }
+                $meta = "$cust | Age $ageTxt$actual$syncroTxt"
                 $ticketUrl = Get-TicketUrl $subdomain $t.TicketId
                 if ($ticketUrl) {
                     $h.Add("<a class=`"ticket-card`" style=`"border-left:4px solid $statusColor`" href=`"$(Html-Encode($ticketUrl))`" target=`"_blank`">")
@@ -1125,6 +1255,12 @@ function Write-TechClosedPage {
     $p = Join-Path $htmlSummaryDir $FileName
     $h = New-Object System.Collections.Generic.List[string]
     $techColor = Get-TechColor $Tech
+    $actualMins = 0
+    foreach ($tt in @($Tickets)) {
+        if (Has-Prop $tt 'ActualMinutes' -and $null -ne $tt.ActualMinutes) {
+            try { $actualMins += [int]$tt.ActualMinutes } catch {}
+        }
+    }
 
     $h.Add("<!doctype html>")
     $h.Add("<html lang=`"en`">")
@@ -1167,6 +1303,7 @@ function Write-TechClosedPage {
     $h.Add("<p class=`"hero-sub`">Resolved work during the selected reporting window.</p>")
     $h.Add("<div class=`"kpis`">")
     $h.Add("<div class=`"kpi`"><div class=`"label`">Closed Tickets</div><div class=`"value`">$(@($Tickets).Count)</div></div>")
+    $h.Add("<div class=`"kpi`"><div class=`"label`">Actual Time</div><div class=`"value`">$(Minutes-ToHHMM $actualMins)</div></div>")
     $h.Add("<div class=`"kpi`"><div class=`"label`">Window Start</div><div class=`"value`" style=`"font-size:15px`">$(Html-Encode($startUtc.ToString('yyyy-MM-dd')))</div></div>")
     $h.Add("<div class=`"kpi`"><div class=`"label`">Window End</div><div class=`"value`" style=`"font-size:15px`">$(Html-Encode($endUtc.AddSeconds(-1).ToString('yyyy-MM-dd')))</div></div>")
     $h.Add("</div>")
@@ -1183,7 +1320,11 @@ function Write-TechClosedPage {
             $prioTxt = if ($prio) { "($prio) " } else { "" }
             $updated = if ($t.UpdatedAt) { (Parse-Utc $t.UpdatedAt).ToString('yyyy-MM-dd HH:mm') + " UTC" } else { "Unknown" }
             $title = "#$($t.Number) $prioTxt$($t.Subject)"
-            $meta = "$cust | Closed $updated"
+            $actual = if (Has-Prop $t 'ActualMinutes' -and [int]$t.ActualMinutes -gt 0) { " | Actual $(Minutes-ToHHMM ([int]$t.ActualMinutes))" } else { "" }
+            $syncroTotalMins = 0
+            if (Has-Prop $t 'TotalFormattedBillableTime') { $syncroTotalMins = Parse-FormattedDurationMinutes ([string]$t.TotalFormattedBillableTime) }
+            $syncroTxt = if ($syncroTotalMins -gt 0) { " | Syncro Total $(Minutes-ToHHMM $syncroTotalMins)" } else { "" }
+            $meta = "$cust | Closed $updated$actual$syncroTxt"
             $ticketUrl = Get-TicketUrl $subdomain $t.TicketId
             if ($ticketUrl) {
                 $h.Add("<a class=`"ticket-card`" style=`"animation-delay:${delay}ms; border-left:4px solid $(Get-StatusColor 'Resolved')`" href=`"$(Html-Encode($ticketUrl))`" target=`"_blank`">")
@@ -1316,6 +1457,7 @@ $html.Add("<a class=`"card-link`" href=`"Summary_TicketsUpdated.html`"><div clas
 $html.Add("<a class=`"card-link`" href=`"Summary_Resolved.html`"><div class=`"card accent-green`"><div class=`"label`">Closed (Resolved)</div><div class=`"value`">$totalClosed</div></div></a>")
 $html.Add("<a class=`"card-link`" href=`"Summary_Created.html`"><div class=`"card accent-blue`"><div class=`"label`">Tickets Opened</div><div class=`"value`">$(@($ticketsCreated).Count)</div></div></a>")
 $html.Add("<a class=`"card-link`" href=`"Summary_Open.html`"><div class=`"card`"><div class=`"label`">Opened Last Week (Still Open)</div><div class=`"value`">$(@($openLastWeekUnresolved).Count)</div></div></a>")
+$html.Add("<div class=`"card accent-green`"><div class=`"label`">Actual Time Logged</div><div class=`"value`">$(Minutes-ToHHMM $totalTimeMins)</div></div>")
 $html.Add("</div>")
 
 $html.Add("<div class=`"section-title`">Current</div>")
@@ -1433,6 +1575,30 @@ foreach ($t in $techNamesClosed) {
     $html.Add("<div class=`"bar-track`"><div class=`"bar-fill`" style=`"width:$pct%; background:$tColor`"></div></div>")
     $html.Add("<div class=`"bar-val`">$count</div>")
     $html.Add("</a>")
+}
+$html.Add("</div>")
+
+$html.Add("<div class=`"section-title`">Per Technician (Actual Time - Last Work Week)</div>")
+$html.Add("<div class=`"card`">")
+$timeTechNames = @($timeTotalsByTech.Keys | Sort-Object)
+if (@($timeTechNames).Count -gt 0) {
+    $maxTechTime = 0
+    foreach ($t in $timeTechNames) {
+        $mins = [int]$timeTotalsByTech[$t].TotalMins
+        if ($mins -gt $maxTechTime) { $maxTechTime = $mins }
+    }
+    foreach ($t in $timeTechNames) {
+        $mins = [int]$timeTotalsByTech[$t].TotalMins
+        $pct = if ($maxTechTime -gt 0) { [math]::Round(($mins / $maxTechTime) * 100, 0) } else { 0 }
+        $tColor = Get-TechColor $t
+        $html.Add("<div class=`"bar-link`">")
+        $html.Add("<div class=`"bar-label`" style=`"color:$tColor; font-weight:700`">$(Html-Encode($t))</div>")
+        $html.Add("<div class=`"bar-track`"><div class=`"bar-fill`" style=`"width:$pct%; background:$tColor`"></div></div>")
+        $html.Add("<div class=`"bar-val`">$(Minutes-ToHHMM $mins)</div>")
+        $html.Add("</div>")
+    }
+} else {
+    $html.Add("<div class=`"muted`">No timer data in this window.</div>")
 }
 $html.Add("</div>")
 $html.Add("</div></body></html>")
