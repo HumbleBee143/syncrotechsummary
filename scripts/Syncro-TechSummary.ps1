@@ -368,6 +368,45 @@ $ticketsInWindow = $tickets | Where-Object {
 }
 Write-Host "Tickets updated in window: $(@($ticketsInWindow).Count)"
 
+$userIdToName = @{}
+foreach ($t in $tickets) {
+    $u = Get-Prop $t 'user'
+    if ($u) {
+        $uid = Get-Prop $u 'id'
+        $full = Get-Prop $u 'full_name'
+        if ($uid -and -not [string]::IsNullOrWhiteSpace([string]$full)) {
+            $userIdToName[[string]$uid] = [string]$full
+        }
+    }
+}
+try {
+    $usersUrl = "https://$subdomain.syncromsp.com/api/v1/users?api_key=$apiKey"
+    Write-Host "GET $usersUrl"
+    $usersResp = Invoke-RestMethod -Method GET -Uri $usersUrl
+    $usersRows = Get-Prop $usersResp 'users'
+    foreach ($urow in @($usersRows)) {
+        # Syncro often returns users as [id, name]
+        if ($urow -is [System.Array] -and $urow.Length -ge 2) {
+            $uid = [string]$urow[0]
+            $uname = [string]$urow[1]
+            if (-not [string]::IsNullOrWhiteSpace($uid) -and -not [string]::IsNullOrWhiteSpace($uname)) {
+                $userIdToName[$uid] = $uname
+            }
+            continue
+        }
+
+        # Fallback object shape
+        $uidObj = Get-Prop $urow 'id'
+        $nameObj = Get-Prop $urow 'full_name'
+        if (-not $nameObj) { $nameObj = Get-Prop $urow 'name' }
+        if ($uidObj -and -not [string]::IsNullOrWhiteSpace([string]$nameObj)) {
+            $userIdToName[[string]$uidObj] = [string]$nameObj
+        }
+    }
+} catch {
+    Write-Host "Users endpoint lookup failed; falling back to ticket-sourced names only."
+}
+
 $ticketRows = $ticketsInWindow | ForEach-Object {
     [pscustomobject]@{
         Tech      = Get-TechNameFromTicket $_
@@ -408,6 +447,16 @@ foreach ($t in $openTicketsRaw) {
     if ($id -and -not $openById.ContainsKey($id)) { $openById[$id] = $t }
 }
 $openTickets = $openById.Values
+foreach ($t in $openTickets) {
+    $u = Get-Prop $t 'user'
+    if ($u) {
+        $uid = Get-Prop $u 'id'
+        $full = Get-Prop $u 'full_name'
+        if ($uid -and -not [string]::IsNullOrWhiteSpace([string]$full)) {
+            $userIdToName[[string]$uid] = [string]$full
+        }
+    }
+}
 
 $openTicketRows = $openTickets | ForEach-Object {
     $status = [string](Get-Prop $_ 'status')
@@ -631,7 +680,13 @@ function Get-TechFromTimer($tm) {
     if ($un) { return [string]$un }
 
     $uid = Get-Prop $tm 'user_id'
-    if ($uid) { return "UserId:$uid" }
+    if ($uid) {
+        $uidKey = [string]$uid
+        if ($userIdToName.ContainsKey($uidKey) -and -not [string]::IsNullOrWhiteSpace([string]$userIdToName[$uidKey])) {
+            return [string]$userIdToName[$uidKey]
+        }
+        return "UserId:$uid"
+    }
 
     return "Unknown"
 }
@@ -1587,15 +1642,33 @@ if (@($timeTechNames).Count -gt 0) {
         $mins = [int]$timeTotalsByTech[$t].TotalMins
         if ($mins -gt $maxTechTime) { $maxTechTime = $mins }
     }
+    $html.Add("<div class=`"tech-links`">")
+    foreach ($t in $timeTechNames) {
+        $fileName = "Open_" + (Slugify $t) + ".html"
+        $filePath = Join-Path $htmlSummaryDir $fileName
+        $tColor = Get-TechColor $t
+        if (Test-Path $filePath) {
+            $html.Add("<a class=`"tech-link`" style=`"border-color:$tColor; background:$tColor; color:#fff`" href=`"$fileName`">$(Html-Encode($t))</a>")
+        } else {
+            $html.Add("<span class=`"tech-link`" style=`"border-color:$tColor; background:$tColor; color:#fff`">$(Html-Encode($t))</span>")
+        }
+    }
+    $html.Add("</div>")
     foreach ($t in $timeTechNames) {
         $mins = [int]$timeTotalsByTech[$t].TotalMins
         $pct = if ($maxTechTime -gt 0) { [math]::Round(($mins / $maxTechTime) * 100, 0) } else { 0 }
+        $fileName = "Open_" + (Slugify $t) + ".html"
+        $filePath = Join-Path $htmlSummaryDir $fileName
         $tColor = Get-TechColor $t
-        $html.Add("<div class=`"bar-link`">")
+        if (Test-Path $filePath) {
+            $html.Add("<a class=`"bar-link`" href=`"$fileName`">")
+        } else {
+            $html.Add("<div class=`"bar-link`">")
+        }
         $html.Add("<div class=`"bar-label`" style=`"color:$tColor; font-weight:700`">$(Html-Encode($t))</div>")
         $html.Add("<div class=`"bar-track`"><div class=`"bar-fill`" style=`"width:$pct%; background:$tColor`"></div></div>")
         $html.Add("<div class=`"bar-val`">$(Minutes-ToHHMM $mins)</div>")
-        $html.Add("</div>")
+        if (Test-Path $filePath) { $html.Add("</a>") } else { $html.Add("</div>") }
     }
 } else {
     $html.Add("<div class=`"muted`">No timer data in this window.</div>")
