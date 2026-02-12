@@ -1,0 +1,188 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Syncro Tech Summary</title>
+  <style>
+    :root { --ink:#0f172a; --muted:#64748b; --panel:#ffffff; --outline:#e2e8f0; --accent:#0b4aa2; --accent-2:#0f6fb3; --bg1:#071b35; --bg2:#0b4aa2; --bg3:#0f6fb3; }
+    body { margin:0; font-family:"Manrope","Avenir Next","Trebuchet MS",sans-serif; background:linear-gradient(140deg,var(--bg1),var(--bg2) 42%,var(--bg3) 90%); color:var(--ink); background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size:18px 18px; }
+    .wrap { max-width:1240px; margin:0 auto; padding:28px 24px 44px; }
+    .header { position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:10px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); border-radius:18px; padding:18px 18px 14px; box-shadow:0 18px 40px rgba(7,18,36,0.35); }
+    .logo { height:68px; width:auto; }
+    .logo-wrap { width:100%; }
+    .logo-wrap .logo { display:block; margin-left:0; }
+    h1 { margin:0; font-size:28px; letter-spacing:0.02em; }
+    .meta { color:#e2e8f0; margin:14px 0 18px; text-align:left; display:inline-flex; gap:10px; align-items:center; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.2); padding:6px 12px; border-radius:999px; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin-bottom:24px; }
+    .card { background:var(--panel); border-radius:16px; padding:14px 16px; box-shadow:0 10px 30px rgba(15,23,42,0.12); border:1px solid rgba(226,232,240,0.9); }
+    .card-link { display:block; color:inherit; text-decoration:none; }
+    .card-link:hover .card { border-color:#94a3b8; transform:translateY(-1px); }
+    .card .label { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.12em; }
+    .card .value { font-size:22px; font-weight:700; margin-top:8px; }
+    .card.accent-blue { border-color:#bfdbfe; background:linear-gradient(135deg,#f8fafc,#eff6ff); }
+    .card.accent-green { border-color:#bbf7d0; background:linear-gradient(135deg,#f8fafc,#ecfccb); }
+    .card.accent-red { border-color:#fecaca; background:linear-gradient(135deg,#fff1f2,#fee2e2); }
+    .card.accent-orange { border-color:#fdba74; background:linear-gradient(135deg,#fff7ed,#ffedd5); }
+    .card.accent-yellow { border-color:#fde68a; background:linear-gradient(135deg,#fffbeb,#fef3c7); }
+    .summary-card summary { list-style:none; cursor:pointer; }
+    .summary-card summary::-webkit-details-marker { display:none; }
+    .card-list { margin-top:8px; max-height:240px; overflow:auto; padding-right:4px; }
+    .card-list ul { margin:6px 0 0 18px; }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; width:100%; }
+    .chip { display:inline-flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 12px; border-radius:999px; font-size:12px; font-weight:700; border:1px solid rgba(226,232,240,0.9); background:#f8fafc; flex:1 1 190px; }
+    .chip { color:inherit; text-decoration:none; }
+    .chip-blue { border-color:#bfdbfe; background:#eff6ff; }
+    .chip-green { border-color:#bbf7d0; background:#dcfce7; }
+    .chip-red { border-color:#fecaca; background:#fee2e2; }
+    .chip-orange { border-color:#fdba74; background:#ffedd5; }
+    .chip-yellow { border-color:#fde68a; background:#fef3c7; }
+    .chip-purple { border-color:#c4b5fd; background:#ede9fe; }
+    .chip-gray { border-color:#cbd5e1; background:#f1f5f9; }
+    details { background:var(--panel); border-radius:14px; padding:12px 14px; margin-bottom:12px; box-shadow:0 8px 18px rgba(15,23,42,0.1); border:1px solid rgba(226,232,240,0.9); }
+    summary { cursor:pointer; font-weight:700; letter-spacing:0.02em; }
+    .header h1 { color:#ffffff; font-weight:700; }
+    .section-title { margin:22px 0 10px 0; font-size:13px; color:#e2e8f0; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; }
+    ul { margin:8px 0 0 20px; }
+    .muted { color:var(--muted); }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; background:#e2e8f0; font-size:12px; margin-left:6px; }
+    .badge-long { background:#fecaca; border:1px solid #fca5a5; color:#7f1d1d; }
+    .bar-row { display:flex; align-items:center; gap:10px; margin:6px 0; }
+    .bar-label { min-width:140px; font-size:12px; color:var(--muted); }
+    .bar-track { flex:1; background:#e5e7eb; border-radius:999px; height:10px; overflow:hidden; }
+    .bar-fill { height:100%; background:var(--accent); }
+    .bar-val { width:40px; text-align:right; font-size:12px; color:var(--muted); }
+    .bar-link { display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; padding:8px 10px; border-radius:12px; transition:background .15s ease; }
+    .bar-link:hover { background:rgba(255,255,255,0.65); }
+    .tech-links { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 12px 0; }
+    .tech-link { display:inline-block; padding:8px 12px; border-radius:999px; background:#f1f5f9; border:1px solid #e2e8f0; font-size:12px; text-decoration:none; color:inherit; font-weight:700; }
+    .status-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .status-col { background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); border-radius:14px; padding:12px; box-shadow:0 8px 18px rgba(15,23,42,0.08); }
+    .status-col h4 { margin:0 0 10px 0; font-size:14px; letter-spacing:0.02em; }
+    .status-col ul { margin:0 0 0 18px; }
+    .status-list { max-height:420px; overflow:auto; padding-right:4px; }
+    .status-open { border-color:#f59e0b; background:#fef3c7; }
+    .status-waiting { border-color:#f97316; background:#ffedd5; }
+    .status-customer { border-color:#ef4444; background:#fee2e2; }
+    .status-resolved { border-color:#22c55e; background:#dcfce7; }
+    .status-inprogress { border-color:#3b82f6; background:#dbeafe; }
+    .status-quotebilling { border-color:#8b5cf6; background:#ede9fe; }
+    .ticket-card { background:#ffffff; border:1px solid rgba(226,232,240,0.9); border-radius:12px; padding:10px 12px; margin:10px 0; box-shadow:0 6px 16px rgba(15,23,42,0.08); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .ticket-card.status-customer { background:#fecaca; }
+    .ticket-card.status-waiting { background:#fed7aa; }
+    .ticket-card.status-inprogress { background:#bfdbfe; }
+    .ticket-card.status-quotebilling { background:#ddd6fe; }
+    .ticket-card.status-resolved { background:#bbf7d0; }
+    .ticket-card.status-open { background:#fde68a; }
+    .ticket-card summary { list-style:none; cursor:pointer; }
+    .ticket-card summary::-webkit-details-marker { display:none; }
+    .ticket-title { font-weight:700; }
+    .ticket-sub { color:var(--muted); font-size:12px; }
+    .ticket-card:hover { border-color:#94a3b8; box-shadow:0 10px 20px rgba(15,23,42,0.12); transform:translateY(-1px); }
+    .ticket-body { margin-top:6px; font-size:13px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+<div class="header">
+<div class="logo-wrap"><img class="logo" src="logo.png" alt="Bigfoot Networks logo" /></div>
+<h1>Weekly Technician Summary (Syncro)</h1>
+</div>
+<div class="meta">Week: 2026-02-02 → 2026-02-06</div>
+<div class="section-title">Last Week</div>
+<div class="cards">
+<a class="card-link" href="Summary_TicketsUpdated.html"><div class="card accent-blue"><div class="label">Tickets Updated</div><div class="value">126</div></div></a>
+<a class="card-link" href="Summary_Resolved.html"><div class="card accent-green"><div class="label">Closed (Resolved)</div><div class="value">125</div></div></a>
+<a class="card-link" href="Summary_Created.html"><div class="card accent-blue"><div class="label">Tickets Opened</div><div class="value">89</div></div></a>
+<a class="card-link" href="Summary_Open.html"><div class="card"><div class="label">Opened Last Week (Still Open)</div><div class="value">8</div></div></a>
+</div>
+<div class="section-title">Current</div>
+<div class="cards">
+<a class="card-link" href="Summary_StaleNoUpdate.html"><div class="card accent-yellow"><div class="label">Stale (No Update)</div><div class="value">1</div></div></a>
+<a class="card-link" href="Summary_CustomerReply.html"><div class="card accent-red"><div class="label">Customer Reply &gt; 8 h</div><div class="value">0</div></div></a>
+<a class="card-link" href="Summary_WaitingOnCustomer.html"><div class="card accent-orange"><div class="label">Waiting on Customer &gt; 5 d</div><div class="value">1</div></div></a>
+<a class="card-link" href="Summary_LongOpen.html"><div class="card accent-red"><div class="label">Long Open &gt;= 14 d</div><div class="value">23</div></div></a>
+</div>
+<div class="section-title">Per Technician (Open Tickets)</div>
+<div class="card">
+<div class="tech-links">
+<a class="tech-link" style="border-color:#1d4ed8; background:#1d4ed8; color:#fff" href="Open_daniel-clement.html">Daniel Clement</a>
+<a class="tech-link" style="border-color:#0f766e; background:#0f766e; color:#fff" href="Open_david-aitken.html">David Aitken</a>
+<a class="tech-link" style="border-color:#0ea5e9; background:#0ea5e9; color:#fff" href="Open_ethan-rayne.html">Ethan Rayne</a>
+<a class="tech-link" style="border-color:#16a34a; background:#16a34a; color:#fff" href="Open_joe-stone.html">Joe Stone</a>
+<a class="tech-link" style="border-color:#be123c; background:#be123c; color:#fff" href="Open_matthew-humble.html">Matthew Humble</a>
+<a class="tech-link" style="border-color:#7c3aed; background:#7c3aed; color:#fff" href="Open_unassigned.html">Unassigned</a>
+</div>
+<a class="bar-link" href="Open_daniel-clement.html">
+<div class="bar-label" style="color:#1d4ed8; font-weight:700">Daniel Clement</div>
+<div class="bar-track"><div class="bar-fill" style="width:28%; background:#1d4ed8"></div></div>
+<div class="bar-val">5</div>
+</a>
+<a class="bar-link" href="Open_david-aitken.html">
+<div class="bar-label" style="color:#0f766e; font-weight:700">David Aitken</div>
+<div class="bar-track"><div class="bar-fill" style="width:100%; background:#0f766e"></div></div>
+<div class="bar-val">18</div>
+</a>
+<a class="bar-link" href="Open_ethan-rayne.html">
+<div class="bar-label" style="color:#0ea5e9; font-weight:700">Ethan Rayne</div>
+<div class="bar-track"><div class="bar-fill" style="width:56%; background:#0ea5e9"></div></div>
+<div class="bar-val">10</div>
+</a>
+<a class="bar-link" href="Open_joe-stone.html">
+<div class="bar-label" style="color:#16a34a; font-weight:700">Joe Stone</div>
+<div class="bar-track"><div class="bar-fill" style="width:33%; background:#16a34a"></div></div>
+<div class="bar-val">6</div>
+</a>
+<a class="bar-link" href="Open_matthew-humble.html">
+<div class="bar-label" style="color:#be123c; font-weight:700">Matthew Humble</div>
+<div class="bar-track"><div class="bar-fill" style="width:78%; background:#be123c"></div></div>
+<div class="bar-val">14</div>
+</a>
+<a class="bar-link" href="Open_unassigned.html">
+<div class="bar-label" style="color:#7c3aed; font-weight:700">Unassigned</div>
+<div class="bar-track"><div class="bar-fill" style="width:0%; background:#7c3aed"></div></div>
+<div class="bar-val">0</div>
+</a>
+</div>
+<div class="section-title">Per Technician (Closed Tickets - Last Work Week)</div>
+<div class="card">
+<div class="tech-links">
+<a class="tech-link" style="border-color:#1d4ed8; background:#1d4ed8; color:#fff" href="Closed_daniel-clement.html">Daniel Clement</a>
+<a class="tech-link" style="border-color:#0f766e; background:#0f766e; color:#fff" href="Closed_david-aitken.html">David Aitken</a>
+<a class="tech-link" style="border-color:#0ea5e9; background:#0ea5e9; color:#fff" href="Closed_ethan-rayne.html">Ethan Rayne</a>
+<a class="tech-link" style="border-color:#16a34a; background:#16a34a; color:#fff" href="Closed_joe-stone.html">Joe Stone</a>
+<a class="tech-link" style="border-color:#be123c; background:#be123c; color:#fff" href="Closed_matthew-humble.html">Matthew Humble</a>
+<a class="tech-link" style="border-color:#7c3aed; background:#7c3aed; color:#fff" href="Closed_unassigned.html">Unassigned</a>
+</div>
+<a class="bar-link" href="Closed_daniel-clement.html">
+<div class="bar-label" style="color:#1d4ed8; font-weight:700">Daniel Clement</div>
+<div class="bar-track"><div class="bar-fill" style="width:44%; background:#1d4ed8"></div></div>
+<div class="bar-val">24</div>
+</a>
+<a class="bar-link" href="Closed_david-aitken.html">
+<div class="bar-label" style="color:#0f766e; font-weight:700">David Aitken</div>
+<div class="bar-track"><div class="bar-fill" style="width:100%; background:#0f766e"></div></div>
+<div class="bar-val">54</div>
+</a>
+<a class="bar-link" href="Closed_ethan-rayne.html">
+<div class="bar-label" style="color:#0ea5e9; font-weight:700">Ethan Rayne</div>
+<div class="bar-track"><div class="bar-fill" style="width:31%; background:#0ea5e9"></div></div>
+<div class="bar-val">17</div>
+</a>
+<a class="bar-link" href="Closed_joe-stone.html">
+<div class="bar-label" style="color:#16a34a; font-weight:700">Joe Stone</div>
+<div class="bar-track"><div class="bar-fill" style="width:9%; background:#16a34a"></div></div>
+<div class="bar-val">5</div>
+</a>
+<a class="bar-link" href="Closed_matthew-humble.html">
+<div class="bar-label" style="color:#be123c; font-weight:700">Matthew Humble</div>
+<div class="bar-track"><div class="bar-fill" style="width:44%; background:#be123c"></div></div>
+<div class="bar-val">24</div>
+</a>
+<a class="bar-link" href="Closed_unassigned.html">
+<div class="bar-label" style="color:#7c3aed; font-weight:700">Unassigned</div>
+<div class="bar-track"><div class="bar-fill" style="width:2%; background:#7c3aed"></div></div>
+<div class="bar-val">1</div>
+</a>
+</div>
+</div></body></html>

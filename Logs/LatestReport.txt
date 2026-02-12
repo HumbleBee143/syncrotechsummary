@@ -1,0 +1,297 @@
+﻿Weekly Technician Summary (Syncro)
+Window (Local): 2026-02-02 00:00 -> 2026-02-07 00:00
+Window (UTC): 2026-02-02 00:00 -> 2026-02-07 00:00
+Total tickets updated in window: 126
+Generated (local): 2026-02-12 22:24:32
+=== Executive Summary ===
+Tickets updated: 126 | Closed (Resolved): 125
+Current open (unresolved): 53 | Long open >= 14 days: 23
+Time logged in window: 00:00 (Billable 00:00, Non-billable 00:00)
+Hard tickets (High priority, open >= 3 days): 0
+
+=== Stale / Needs Attention ===
+No update in last 48h (and not Resolved): 1
+Customer Reply older than 8h: 0
+Waiting on Customer older than 5 days: 1
+
+=== Per Technician ===
+
+=== Daniel Clement ===
+Tickets updated: 24
+Tickets closed (Resolved): 24
+Status breakdown: Resolved: 24
+Time logged in window: 0 (no timers found in window OR mapping differs)
+ - #43420 [Resolved] Syncro activation— Tanglewood Games
+ - #43438 [Resolved] Port Forwarding @ Atlas Care Homes - Kingston park — ATLAS CARE HOMES LTD
+ - #43328 [Resolved] Efacs issue— PINNACLE RE-TEC LTD
+ - #43375 [Resolved] (2 Normal) E-mail access— Heera Healthcare Ltd
+ - #43403 [Resolved] Query— Newcastle NE1
+ - #43404 [Resolved] New Ticket— AUTO DATA GURU LTD
+ - #43369 [Resolved] (2 Normal) Server running slow— COLEMAN JAMES LTD
+ - #42902 [Resolved] New Soft-Phone's— SKILLS OFFICE NETWORK
+ - #43242 [Resolved] (2 Normal) Fwd: Undelivered Mail Returned to Sender— Cai Taylor
+ - #43343 [Resolved] NE1 Ltd- Possible Phishing Mail— Newcastle NE1
+ - #43365 [Resolved] (2 Normal) James Turner password reset— The Toby Henderson Trust
+ - #43357 [Resolved] (2 Normal) COJ-CIVILS— COLEMAN JAMES LTD
+ - #43332 [Resolved] Payroll Manager Update— Rona Kerr
+ - #43331 [Resolved] Dodds Brown drives— Robertson Simpson
+ - #43336 [Resolved] (3 Low) User Rename— CONSOLE DOCTOR LIMITED
+ - #43322 [Resolved] Print Issue— Robertson Simpson
+ - #43324 [Resolved] Leaver Form Submission - Sunderland Software City— SUNDERLAND SOFTWARE CITY
+ - #43323 [Resolved] New Starter Form - Sunderland Software City— SUNDERLAND SOFTWARE CITY
+ - #43320 [Resolved] Outlook/teams— CLARAND ACCOUNTANTS LIMITED
+ - #43327 [Resolved] New VPN licenses— Tanglewood Games
+ - #43319 [Resolved] Sage— Robertson Simpson
+ - #43321 [Resolved] Continuing email problems— BLYTH TALL SHIP
+ - #43135 [Resolved] Printer Issues— NWR Hygiene Group
+ - #43087 [Resolved] (2 Normal) Telephone Transfer— AUTO DATA GURU LTD
+Current open tickets (all unresolved): 5
+ - #43266 [Waiting on Customer] Conferencing facilities— Robertson Simpson (Age 14.3d) [LONG OPEN]
+ - #43316 [Waiting on Customer] Thank you— THE MORTGAGE GENIE LIMITED (Age 10.6d)
+ - #43377 [Waiting on Customer] Home PC— UK Food Packers (Age 9.3d)
+ - #43627 [Customer Reply] (2 Normal) Prep laptops— OPEN CLASP THEATRE COMPANY (Age 0.4d)
+ - #43638 [Customer Reply] (empty subject)— M5tec (Age 0.3d)
+
+=== David Aitken ===
+Tickets updated: 54
+Tickets closed (Resolved): 54
+Status breakdown: Resolved: 54
+Time logged in window: 0 (no timers found in window OR mapping differs)
+ - #43394 [Resolved] (2 Normal) Signature Change— COLEMAN JAMES LTD
+ - #43475 [Resolved] (2 Normal) Out of office message— CLARAND ACCOUNTANTS LIMITED
+ - #43469 [Resolved] (2 Normal) Grant access— The Toby Henderson Trust
+ - #43364 [Resolved] (2 Normal) Telephone Numbers— Rona Kerr
+ - #43467 [Resolved] (2 Normal) Leaver Form Submission - Sunderland Software City— SUNDERLAND SOFTWARE CITY
+ - #43443 [Resolved] (2 Normal) AirCall App — ION INDUSTRIES LTD
+ - #43461 [Resolved] (2 Normal) Kepier Inbox— DASH
+ - #43446 [Resolved] (2 Normal) Laptop issue— The Toby Henderson Trust
+ - #43453 [Resolved] (2 Normal) Admin access— ATLAS CARE HOMES LTD
+ - #43367 [Resolved] (2 Normal) Men's competitions— Whitley Bay Golf Club
+ - #43368 [Resolved] (2 Normal) Shared drive sync issues— WHICKHAM PLUMBING & HEATING SERVICES LTD
+ - #43099 [Resolved] (2 Normal) Sharepoint access and CCTV issues— THE ORIGINAL BAKEHOUSE LIMITED
+ - #43240 [Resolved] (2 Normal) Slow device— Newcastle NE1
+ - #43356 [Resolved] (2 Normal) New PC teething problems!— DASH
+ - #43437 [Resolved] (2 Normal) VPN setup— M5tec
+ - #43402 [Resolved] (3 Low) Copilot— ATLAS CARE HOMES LTD
+ - #43378 [Resolved] (2 Normal) Remote Desktop— PINNACLE RE-TEC LTD
+ - #43432 [Resolved] (2 Normal) Microsoft Password— Robertson Simpson
+ - #43342 [Resolved] (2 Normal) Merging calendars— Whitley Bay Golf Club
+ - #43285 [Resolved] (2 Normal) Single Sign On with Nimbus— Chris Fleming
+ - #43335 [Resolved] (2 Normal) Staff Leaving / Archive Request— Robertson Simpson
+ - #42877 [Resolved] (2 Normal) FW: Secure Invoice— PHYSIOTHERAPY MATTERS
+ - #43417 [Resolved] (2 Normal) Outlook issue— CLARAND ACCOUNTANTS LIMITED
+ - #43414 [Resolved] (2 Normal) no-reply@support.rocktime.co.uk Are these getting blocked?— NLS SECURITY LTD
+ - #43413 [Resolved] (2 Normal) Standard Security - 19/2/26— Beth Knowles
+ - #43409 [Resolved] (2 Normal) Martin Crawford Password— PINNACLE RE-TEC LTD
+ - #43412 [Resolved] (2 Normal) Alert: A server Server offline (SERVER)— FULLWELL MILL LIMITED
+ - #43410 [Resolved] (2 Normal) Sage payroll issues— VHS
+ - #43411 [Resolved] (2 Normal) AVG update— SWIM EXCELLENCE ACADEMY
+ - #43406 [Resolved] (2 Normal) Sound issues— MIDLAND COUNTIES FENCING
+ - #43325 [Resolved] (2 Normal) New laptop— FUTURA MEDICAL PLC
+ - #43399 [Resolved] (2 Normal) Fw: Order Processing Issue (34443)— NLS SECURITY LTD
+ - #42318 [Resolved] (2 Normal) WiFi mesh enquiry— Kieran Gill
+ - #43400 [Resolved] (2 Normal) Downloaded word documents— ELITE CONSULT GROUP LTD
+ - #43090 [Resolved] (2 Normal) New Starter Form - Lucy Doig— OPEN CLASP THEATRE COMPANY
+ - #43382 [Resolved] (2 Normal) Group email— DASH
+ - #43381 [Resolved] (2 Normal) autoreply a.holman@themortgagegenie— THE MORTGAGE GENIE LIMITED
+ - #43374 [Resolved] (2 Normal) Asset ID— DASH
+ - #43289 [Resolved] (2 Normal) Onedrive issue— GT PIPING SOLUTIONS LIMITED
+ - #43177 [Resolved] (2 Normal) New Starter Form - CRT Packaging (UK) Ltd— CRT Packaging
+ - #43352 [Resolved] (2 Normal) FW: printing— CORBRIDGE BUSINESS CENTRE
+ - #43212 [Resolved] (2 Normal) Assistance with Adding Printer to My Laptop— APNA GHAR WOMENS CENTRE
+ - #43359 [Resolved] (2 Normal) Sage— Robertson Simpson
+ - #43358 [Resolved] (2 Normal) Device setup— COLEMAN JAMES LTD
+ - #43361 [Resolved] (2 Normal) Sound issues— MIDLAND COUNTIES FENCING
+ - #43268 [Resolved] (2 Normal) Alert: A server Server offline (PR-FS-01)— PINNACLE RE-TEC LTD
+ - #43340 [Resolved] (2 Normal) Leaver Form Submission - Danny McGloin— Robertson Simpson
+ - #42944 [Resolved] (2 Normal) New Starter (James Harrison)— M5tec
+ - #43302 [Resolved] (2 Normal) New Starter Form - Hannah Robson— MITCHELLS CHARTERED ACCOUNTANTS
+ - #43326 [Resolved] (2 Normal) Device setup— The Toby Henderson Trust
+ - #43329 [Resolved] (2 Normal) Screen grab— ELITE CONSULT GROUP LTD
+ - #43301 [Resolved] (2 Normal) Leaver Form Submission - Courtney Dumble— MITCHELLS CHARTERED ACCOUNTANTS
+ - #43294 [Resolved] (2 Normal) Missing Font— CLOTHING FOR WORK
+ - #43158 [Resolved] (2 Normal) Laptop setup— PINNACLE RE-TEC LTD
+Current open tickets (all unresolved): 18
+ - #42987 [Waiting on Customer] (2 Normal) Laptop keeps restarting randomly through the day— M5tec (Age 21.5d) [LONG OPEN]
+ - #43010 [Waiting on Customer] (2 Normal) Email problem— KC ENGINEERING BEARINGS LTD (Age 21.3d) [LONG OPEN]
+ - #43022 [Waiting on Customer] (2 Normal) Help!— NLS SECURITY LTD (Age 21.2d) [LONG OPEN]
+ - #43082 [Customer Reply] (2 Normal) Slow device— Robertson Simpson (Age 17.5d) [LONG OPEN]
+ - #43126 [In Progress] (2 Normal) FW:— INDUSTRIAL WORKWEAR LIMITED (Age 16.5d) [LONG OPEN]
+ - #43429 [Scheduled] (2 Normal) Out Of Office— NLS SECURITY LTD (Age 7.6d)
+ - #43470 [Waiting on Customer] (2 Normal) New Users— Robertson Simpson (Age 6.4d)
+ - #43468 [Waiting on Customer] (2 Normal) Northeast Awnings— Robertson Simpson (Age 6.4d)
+ - #43486 [Waiting on Customer] (2 Normal) Leaver Form Submission - Graham Byrne— XR THERAPEUTICS (Age 4d)
+ - #43522 [In Progress] (2 Normal) New Starter Form - FACTION HEALTH AND SAFETY GROUP LIMITED— FACTION HEALTH AND SAFETY GROUP LIMITED (Age 3.2d)
+ - #43560 [Waiting on Customer] (2 Normal) Teams issues— COLEMAN JAMES LTD (Age 2.3d)
+ - #43613 [Customer Reply] (2 Normal) New computer— VHS (Age 0.6d)
+ - #43618 [Waiting on Customer] (2 Normal) Support for emails— Jackie Fitzgerald (Age 0.5d)
+ - #43619 [Customer Reply] (2 Normal) VHS / Tinman separation— VHS (Age 0.5d)
+ - #43616 [Waiting on Customer] (2 Normal) Diary access— HOMES OR HOUSES LIMITED (Age 0.5d)
+ - #43636 [Waiting on Customer] (2 Normal) Ella Hughes— PINNACLE RE-TEC LTD (Age 0.3d)
+ - #43632 [Customer Reply] (2 Normal) Password— CLOTHING FOR WORK (Age 0.3d)
+ - #43635 [Customer Reply] (2 Normal) Add password to folder— GLENN FORD PRIVATE FINANCE LIMITED (Age 0.3d)
+
+=== Ethan Rayne ===
+Tickets updated: 17
+Tickets closed (Resolved): 17
+Status breakdown: Resolved: 17
+Time logged in window: 0 (no timers found in window OR mapping differs)
+ - #43473 [Resolved] (2 Normal) Re access to info@heerahealthcare.com— PHYSIOTHERAPY MATTERS
+ - #43471 [Resolved] (2 Normal) Alert: A server Server offline (PR-AD-01)— PINNACLE RE-TEC LTD
+ - #43462 [Resolved] (2 Normal) Missing email address— PHYSIOTHERAPY MATTERS
+ - #43435 [Resolved] (2 Normal) Stephen Brown teams— Robertson Simpson
+ - #43460 [Resolved] (2 Normal) Locked for Editing— MITCHELLS CHARTERED ACCOUNTANTS
+ - #43408 [Resolved] (2 Normal) Email Forwarding — AUTO DATA GURU LTD
+ - #43421 [Resolved] (2 Normal) List of User accounts — AUTO DATA GURU LTD
+ - #43457 [Resolved] (2 Normal) Daily Backup Failure Report— Bigfoot Networks Limited
+ - #43451 [Resolved] (2 Normal) Calendar issues — The Toby Henderson Trust
+ - #43428 [Resolved] (2 Normal) Mailbox full — ACORN CATERING EQUIPMENT
+ - #43433 [Resolved] (2 Normal) Alert: A server Server offline (AC2022-SRV01)— ACORN CATERING EQUIPMENT
+ - #43430 [Resolved] (2 Normal) Outlook issue— COLEMAN JAMES LTD
+ - #43427 [Resolved] (2 Normal) Access— PHYSIOTHERAPY MATTERS
+ - #43424 [Resolved] (2 Normal) Daily Backup Failure Report— Bigfoot Networks Limited
+ - #41593 [Resolved] (2 Normal) List of User accounts — AUTO DATA GURU LTD
+ - #42528 [Resolved] (2 Normal) FW: New desktop quote - Lisa— PINNACLE RE-TEC LTD
+ - #43291 [Resolved] (2 Normal) Alert: A server's disk space is near full (RDSERVER)— INDUSTRIAL WORKWEAR LIMITED
+Current open tickets (all unresolved): 10
+ - #41275 [Customer Reply] (2 Normal) PC Crash— CONSOLE DOCTOR LIMITED (Age 93.4d) [LONG OPEN]
+ - #42587 [Waiting on Customer] (2 Normal) Purchase of tablet— WOMEN'S HEALTH IN SOUTH TYNESIDE (WHIST) (Age 37.3d) [LONG OPEN]
+ - #42858 [Waiting on Customer] (2 Normal) Laptop not charging— M5tec (Age 24.6d) [LONG OPEN]
+ - #43053 [Waiting on Customer] (2 Normal) FW: Veille de marché ESS - WAttelse— Saft (Age 20.3d) [LONG OPEN]
+ - #43464 [Waiting on Customer] (2 Normal) PDFX support - URGENT— Saft (Age 6.5d)
+ - #43523 [Customer Reply] (2 Normal) Alert: A server Server offline (DOM-01)— Tanglewood Games (Age 3.2d)
+ - #43583 [Customer Reply] (2 Normal) Internet Problems— FACTION HEALTH AND SAFETY GROUP LIMITED (Age 1.5d)
+ - #43620 [Waiting on Customer] (2 Normal) Keyboard keys — CLOTHING FOR WORK (Age 0.5d)
+ - #43626 [Waiting on Customer] (2 Normal) issue has returned— Robertson Simpson (Age 0.4d)
+ - #43631 [Waiting on Customer] (2 Normal) Aberdeen— PINNACLE RE-TEC LTD (Age 0.3d)
+
+=== Joe Stone ===
+Tickets updated: 6
+Tickets closed (Resolved): 5
+Status breakdown: Resolved: 5 | Waiting on Customer: 1
+Time logged in window: 0 (no timers found in window OR mapping differs)
+ - #41685 [Waiting on Customer] [VH#2025090276004841] Gosforth Eldon Dobson Ltd (NE3 3PW) - Port 443 Vulnerability - Malicious Activity— Checked and Vetted
+ - #43422 [Resolved] (2 Normal) lockshopdirect.co.uk DNS records— NLS SECURITY LTD
+ - #42729 [Resolved] (2 Normal) Cyber Security Awarness— AUTO DATA GURU LTD
+ - #43334 [Resolved] (2 Normal) Fw: PBIT Cyber Protect - 3 dark web breaches detected— Osborne Orthodontics
+ - #43330 [Resolved] (1 High) North East Commercial email issue— Robertson Simpson
+ - #43058 [Resolved] (2 Normal) FW: Booking Rate Inquiry— Coco Luminaire
+Current open tickets (all unresolved): 6
+ - #41685 [Waiting on Customer] [VH#2025090276004841] Gosforth Eldon Dobson Ltd (NE3 3PW) - Port 443 Vulnerability - Malicious Activity— Checked and Vetted (Age 79.4d) [LONG OPEN]
+ - #42768 [Escalation] (2 Normal) New Server— PINNACLE RE-TEC LTD (Age 29.5d) [LONG OPEN]
+ - #42788 [Waiting on Customer] (1 High) FW: New vulnerabilities notification from Microsoft Defender for Endpoint— ION INDUSTRIES LTD (Age 29.2d) [LONG OPEN]
+ - #43245 [Scheduled] (2 Normal) Screens— CLARAND ACCOUNTANTS LIMITED (Age 14.3d) [LONG OPEN]
+ - #43578 [Customer Reply] (2 Normal) FW: Vulnerabilities have public disclosed exploit notification from Microsoft Defender for Endpoint— ION INDUSTRIES LTD (Age 1.6d)
+ - #43598 [Waiting on Customer] (1 High) NHS contract - Cyber security— MCBRYDE AND CO (Age 1.2d)
+
+=== Matthew Humble ===
+Tickets updated: 24
+Tickets closed (Resolved): 24
+Status breakdown: Resolved: 24
+Time logged in window: 0 (no timers found in window OR mapping differs)
+ - #43050 [Resolved] (2 Normal) Teams Account— AUTO DATA GURU LTD
+ - #43278 [Resolved] (2 Normal) OpenClasp - 2 New laptops for new starters— OPEN CLASP THEATRE COMPANY
+ - #43345 [Resolved] (2 Normal) Outlook blocking outbound mail (S3150)— FACTION HEALTH AND SAFETY GROUP LIMITED
+ - #43339 [Resolved] (2 Normal) Website Query— FORUM CENTRESPACE LIMITED
+ - #42948 [Resolved] (3 Low) Introductions— WEST END WOMEN AND GIRLS
+ - #43241 [Resolved] (2 Normal) Fw: Call on softphone— SKILLS OFFICE NETWORK
+ - #43393 [Resolved] (2 Normal) Outlook calendar— Robertson Simpson
+ - #43415 [Resolved] (2 Normal) CCTV Screen Issue— THE ORIGINAL BAKEHOUSE LIMITED
+ - #42373 [Resolved] (2 Normal) RE: UPS— Osborne Orthodontics
+ - #43181 [Resolved] (2 Normal) Fwd: Undelivered Mail Returned to Sender— ROAR Digital Marketing
+ - #43344 [Resolved] (2 Normal) My Pound Signs!— FORUM CENTRESPACE LIMITED
+ - #43287 [Resolved] (2 Normal) New Mediacastle Ltd— Robertson Simpson
+ - #43370 [Resolved] (2 Normal) FW: New Estimate Created— Mays Group
+ - #43355 [Resolved] (2 Normal) Printer not connecting— DASH
+ - #43156 [Resolved] (2 Normal) Cyber Essentials Certification— EDUCATION WORLD
+ - #43347 [Resolved] (2 Normal) Alert: A server Server offline (PR-HV-01) - Power Cut— PINNACLE RE-TEC LTD
+ - #43354 [Resolved] (2 Normal) Networks— PINNACLE RE-TEC LTD
+ - #43333 [Resolved] (2 Normal) Character Glitch in emails— FORUM CENTRESPACE LIMITED
+ - #43159 [Resolved] (2 Normal) Priority Service request: Aapna Services Limited (C2193VP37): In-year Certificate of Sponsorship (CoS) allocation (additional CoS allocation)— AAPNA SERVICES LTD
+ - #43167 [Resolved] (2 Normal) Toby Henderson trust— The Toby Henderson Trust
+ - #43165 [Resolved] (2 Normal) Re: Account not being found when trying to login— no-reply@business.avg.com
+ - #43317 [Resolved] (2 Normal) Password Expiry— VHS
+ - #43315 [Resolved] (2 Normal) Outook Issue— Rona Kerr
+ - #43286 [Resolved] (2 Normal) VOIP Phone - Remove warning message— MIDLAND COUNTIES FENCING
+Current open tickets (all unresolved): 14
+ - #36207 [Waiting on Customer] (2 Normal) SAFT LTD - PURCHASE AUTHORISATION ISSUE— MILLER Neil (Age 282.4d) [LONG OPEN]
+ - #39540 [Escalation] (2 Normal) Teams meeting— COLEMAN JAMES LTD (Age 155.3d) [LONG OPEN]
+ - #41295 [Waiting on Customer] (2 Normal) Assure Survey NAS— Assure Building Control (Age 92.6d) [LONG OPEN]
+ - #41734 [Waiting on Customer] (2 Normal) RE: Automated Statement Reconciliation Solution with NXG Forensics— Andrew Styles (Age 78.4d) [LONG OPEN]
+ - #41979 [Waiting on Customer] (2 Normal) SOGEA lines query (Customer Number) 21064-21566-2E— MITCHELLS CHARTERED ACCOUNTANTS (Age 70.4d) [LONG OPEN]
+ - #42806 [Waiting on Customer] (2 Normal) RE: Capture Health Telephony Migration— Mays Group (Age 28.4d) [LONG OPEN]
+ - #43047 [Quote/Billing] (2 Normal) Arden House - Reception— Mays Group (Age 20.4d) [LONG OPEN]
+ - #43076 [Waiting for Parts] (2 Normal) Charging Port Issue - Urgent Support— Robertson Simpson (Age 17.6d) [LONG OPEN]
+ - #43101 [Waiting on Supplier] (2 Normal) Saft - SharePoint leave requests— Saft (Age 17.4d) [LONG OPEN]
+ - #43363 [Waiting on Customer] (2 Normal) Original Bakehouse - Bakery Account— THE ORIGINAL BAKEHOUSE LIMITED (Age 9.5d)
+ - #43450 [Waiting on Customer] (2 Normal) SAGE PAYROLL ON SERVER— MITCHELLS CHARTERED ACCOUNTANTS (Age 7.3d)
+ - #43559 [Quote/Billing] (2 Normal) Ticket - Employee Monitoring System— AUTO DATA GURU LTD (Age 2.3d)
+ - #43624 [Waiting on Customer] (2 Normal) Inbox.— Robertson Simpson (Age 0.4d)
+ - #43630 [Customer Reply] (2 Normal) Remarkable— CLARAND ACCOUNTANTS LIMITED (Age 0.3d)
+
+=== Unassigned ===
+Tickets updated: 1
+Tickets closed (Resolved): 1
+Status breakdown: Resolved: 1
+Time logged in window: 0 (no timers found in window OR mapping differs)
+ - #43376 [Resolved] [CYBER ALERT] Low Risk - Process Monitoring - Bigfoot Networks - eu - SaaS— Bigfoot Networks Limited
+Current open tickets (all unresolved): 0
+
+=== Tech Summaries (Automated) ===
+Window (Local): 2026-02-02 00:00 -> 2026-02-07 00:00
+Window (UTC): 2026-02-02 00:00 -> 2026-02-07 00:00
+Generated (local): 2026-02-12 22:24:32
+
+=== Daniel Clement ===
+Messages analyzed: 90
+Top themes: Accounts/Access (24), Email/Outlook (23), Scheduling/Follow-up (17), Servers/Network (11)
+Focus areas included Accounts/Access, Email/Outlook, Scheduling/Follow-up, Servers/Network.
+Representative updates:
+ - Support, Can you give: aiman.ahmad@rosewoodcare.co.uk He needs to add and remove some PC's to active. directory at one of the sites. Rosewood HR Services Ltd Unit 8, Airport Industrial Estate, Newcastle upon Tyne, NE3 2EN. (0191) 824 9000
+ - Okay, so extension 202 is Julian and 203 is now Daria Dmytriieva. Are both office extensions set to ring at the same time? The test calls made seemed to suggest the message box wasn’t clicking in, but I can‘t say for certain? Jerome
+ - Yes please Laura Rice Ba (hons) Head of Accounts 01642 616616 Portland Dodds Brown — Varsity House, 2 Falcon Court, Stockton on Tees, TS18 3TS This is a confidential and privileged transmission intended only for the named recipient…
+
+=== Unassigned ===
+Messages analyzed: 2
+Top themes: Security (2), Hardware/Devices (1), Servers/Network (1), Accounts/Access (1)
+Focus areas included Security, Hardware/Devices, Servers/Network, Accounts/Access.
+Representative updates:
+ - [CYBER ALERT]
+ - [CYBER ALERT] Cynet Security Alert Low Risk Process Monitoring threat Detected on Bigfoot Networks - eu - SaaS on Tue, 03 Feb 2026 14:01:21 GMT. [View Alert $B"*(B]( Summary Severity Low Remediation Action N\A Remediation Action Status N\A Site Name [Bigfoot Networks - eu - SaaS]( Package All-In-One Host ID 2 Host Name BFN-LT-JS User bfn\js Tactics TA0007 Technique T1018 Attack Details Host ID 2 OS Version Windows 11 x64 Process Path c:\\program files (x86)\\advanced ip scanner\\advanced_ip_scanner.exe File SHA256 4B036CC9930BB42454172F888B8FDE1087797FC0C9D31AB546748BD2496BD3E5 Rule Name CyAlert Heuristic Activity - IP Scanner Process Command Line c:\\program files (x86)\\advanced ip scanner\\advanced_ip_scanner.exe \"C:\\Program Files (x86)\\Advanced IP Scanner\\advanced_ip_scanner.exe\" Need Help? SOC Email soc@cynet.com SOC Phone US: +1-347-474-0048 Host ID 2 Hostname Host Ip 192.168.77.169 OS Version Windows 11 x64 CynetEPS Version 4.30.1.19100 Agent Configuration Date 2026-02-02T17:04:22 2026-02-03T14:01:21.238 Incident detected on (UTC) 2026-02-03T14:01:21.238 Process Monitoring EPS Prevention NotSet Related Process Occurrence Id 5E474693-1595-DC01-F85B-0000D19BF240 Process Cert Trust Result Related Parent Process Occurrence Id 566AECE5-D091-DC01-C033-0000D19BF240 Parent Cert Trust Result Nothing Actual EPS Prevention Nothing 2026-02-03 14:01:21 Detection Time Local 2026-02-03 14:01:21 CyAlert Heuristic Activity - IP Scanner T1018: This behavior may indicate adversaries are attempting to get a listing of other systems by IP address, hostname, or other logical identifiers on a network that may be used for Lateral Movement from the current system mechanism NewProcess PID 23544 NewProcess Path c:\\program files (x86)\\advanced ip scanner\\advanced_ip_scanner.exe NewProcess CmdLine \"C:\\Program Files (x86)\\Advanced IP Scanner\\advanced_ip_scanner.exe\" NewProcess SessionId NewProcess SessionName Console NewProcess UserName NewProcess TokenSid S-1-12-1-188069858-1311256120-1220995738-1004767588 NewProcess OriginalFilename NewProcess IntegrityLevel Present NewProcess VerifyStatus Verified NewProcess ConfigSignStatus NotSet NewProcess CertTrustResult 0 NewProcess PublisherName Famatech Corp. NewProcess PublisherThumbprint VeriSign Class 3 Public Primary Certification Authority - G5 NewProcess RootCaThumbprint 4EB6D578499B1CCF5F581EAD56BE3D9B6744A5E5 NewProcess CreationTime 2026-02-03 14:01:21 NewProcess SHA256 4B036CC9930BB42454172F888B8FDE1087797FC0C9D31AB546748BD2496BD3E5 CreatorIsParent Process PID 13248 Process Path c:\\windows\\explorer.exe Process CmdLine C:\\windows\\Explorer.EXE Process SessionId Process SessionName Console Process UserName Process TokenSid S-1-12-1-188069858-1311256120-1220995738-1004767588 Process OriginalFilename Process IntegrityLevel Present Process VerifyStatus Verified Process ConfigSignStatus NotSet Process CertTrustResult 0 Process PublisherName Process PublisherThumbprint FACDE3D80E99AFCC15E08AC5A69BD22785287F79 Process RootCaName Process RootCaThumbprint 3B1EFD3A66EA28B16697394703A72CA340A05BD5 Process CreationTime 2026-01-30 10:12:11 Process SHA256 11AEF65EF73C2D8FDF6688FBBD16F60C1B58641C46405A1B0FB0F9C2C5B35402 MS running for 0d 5h 14m 50s tactic TA0007 technique Process Details Process SHA256 4B036CC9930BB42454172F888B8FDE1087797FC0C9D31AB546748BD2496BD3E5 Process PID Process Running User S-1-12-1-188069858-1311256120-1220995738-1004767588 Process Path c:\\program files (x86)\\advanced ip scanner\\advanced_ip_scanner.exe Process Params \"C:\\Program Files (x86)\\Advanced IP Scanner\\advanced_ip_scanner.exe\" Process is signed Signed and verified Process CreationTime 2026-02-03 14:01:21.198 Parent Process Details Process SHA256 11AEF65EF73C2D8FDF6688FBBD16F60C1B58641C46405A1B0FB0F9C2C5B35402 Process PID Process Running User S-1-12-1-188069858-1311256120-1220995738-1004767588 Process Path c:\\windows\\explorer.exe Process Params C:\\windows\\Explorer.EXE Process is signed Signed and verified Process CreationTime 2026-01-30 10:12:11.097 2026-02-03T14:01:21.7593043+00:00 Incident received on (UTC) 2026-02-03T14:01:21.7593043Z Cynet 360 AutoXDR ( ( ( (
+
+=== Matthew Humble ===
+Messages analyzed: 127
+Top themes: Email/Outlook (37), Accounts/Access (21), Scheduling/Follow-up (18), Servers/Network (13)
+Focus areas included Email/Outlook, Accounts/Access, Scheduling/Follow-up, Servers/Network.
+Representative updates:
+ - Julian, We can use admin@ if you would prefer, meeting bots normally have dedicated accounts, but don't specifically need it. Just following up on my last email, we may need to get a Microsoft Basic license for it to access Teams. Thanks
+ - Yes please Laura Rice Ba (hons) Head of Accounts 01642 616616 Portland Dodds Brown — Varsity House, 2 Falcon Court, Stockton on Tees, TS18 3TS This is a confidential and privileged transmission intended only for the named recipient…
+ - Laura Rice Ba (hons) Head of Accounts 01642 616616 Portland Dodds Brown — Varsity House, 2 Falcon Court, Stockton on Tees, TS18 3TS This is a confidential and privileged transmission intended only for the named recipient…
+
+=== Ethan Rayne ===
+Messages analyzed: 68
+Top themes: Accounts/Access (18), Email/Outlook (15), Hardware/Devices (9), Security (8)
+Focus areas included Accounts/Access, Email/Outlook, Hardware/Devices, Security.
+Representative updates:
+ - Thanks Paula Carolan Receptionist and Administrator [ARDEN HOUSE, REGENT CENTRE, GOSFORTH, NE3 3LU]( 0191 285 8701 –Phone lines open between 8:00am-7.30pm Mon & Fri and 8:30am -12:30pm Saturday [www.physiotherapymatters.co.uk](
+ - Yes all the red ones can be deleted completely please. Thanks Les Les Elliott [0191 4065115](tel:%200191%204065115) [07484248086](tel:07484248086) leslie.elliott@auto-guru.co.uk [www.auto-guru.co.uk](
+ - Vicky, We can pop in this afternoon and drop this machine off, if this works for you? While we are here ,we will also bring the portable laptop power station. Thanks,
+
+=== David Aitken ===
+Messages analyzed: 229
+Top themes: Accounts/Access (70), Email/Outlook (53), Hardware/Devices (41), Syncro/Agents (24)
+Focus areas included Accounts/Access, Email/Outlook, Hardware/Devices, Syncro/Agents.
+Representative updates:
+ - Thanks for this. Louise Office F1 Tanfield Lea Business Centre Tanfield Lea North Industrial Estate Stanley Co. Durham [www.ronakerr.co.uk]( Rona Kerr FCCA is a registered member of the Association of Chartered Certified Accountants (ACCA).
+ - Reception (reception@physiotherapymatters.co.uk) has sent you a protected message. [Read the message]( [Learn about messages protected by Microsoft Purview Message Encryption.]( [Privacy Statement]( [Learn More]( on email encryption.
+ - zsh: no such file or directory: /Applications/Aircall.app/Contents/MacOS/Aircall Jon Maddock Software and Education Specialist 0191 466 1231DD - 0191 466 1766 The CFO’s Choice for Financial Transformation [Book time to meet with me](
+
+=== Joe Stone ===
+Messages analyzed: 54
+Top themes: Security (23), Accounts/Access (17), Email/Outlook (13), Scheduling/Follow-up (10)
+Focus areas included Security, Accounts/Access, Email/Outlook, Scheduling/Follow-up.
+Representative updates:
+ - Just a quick reminder. Could you confirm please that Iwill be taking over responsibility of the USecure security awareness? Office Administrator [0191 4065115](tel:%200191%204065115) daria.dmytrieva@auto-guru.co.uk [www.auto-guru.co.uk](
+ - See below from Bigfoot is this something that needs doing at your end? Stephen Montgomery-Wylde ( 0191 2386000 / 0191 226 7230 * stephen@nlssecurity.co.uk l Fort House, 173 West Road, Newcastle Upon Tyne, Tyne & Wear, NE15 6PQ
+ - Just CC'ing Les for confirmation of this. Les could you confirm that Daria will be taking over responsibility of the USecure security awareness, and I will set Daria up with background access to monitor this. Thanks
+

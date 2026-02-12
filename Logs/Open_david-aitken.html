@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>David Aitken - Open Tickets</title>
+  <style>
+    :root { --ink:#0f172a; --muted:#64748b; --panel:#ffffff; --outline:#e2e8f0; --accent:#0b4aa2; --accent-2:#0f6fb3; --bg1:#0b2a57; --bg2:#0b4aa2; --bg3:#0f6fb3; }
+    body { margin:0; font-family:"Manrope","Avenir Next","Trebuchet MS",sans-serif; background:linear-gradient(140deg,var(--bg1),var(--bg2) 40%,var(--bg3) 85%); color:var(--ink); background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size:18px 18px; }
+    .wrap { max-width:1200px; margin:0 auto; padding:28px 24px 40px; }
+    .card { background:var(--panel); border-radius:16px; padding:16px 18px; box-shadow:0 10px 30px rgba(15,23,42,0.12); border:1px solid rgba(226,232,240,0.9); }
+    .nav-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); color:#0f172a; text-decoration:none; font-weight:700; letter-spacing:0.02em; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .nav-btn:hover { border-color:#94a3b8; box-shadow:0 8px 18px rgba(15,23,42,0.12); transform:translateY(-1px); }
+    .muted { color:#e2e8f0; }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; background:#e2e8f0; font-size:12px; margin-left:6px; }
+    .badge-long { background:#fecaca; border:1px solid #fca5a5; color:#7f1d1d; }
+    .status-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; align-items:start; margin-top:12px; }
+    .status-col { background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); border-radius:14px; padding:12px; box-shadow:0 8px 18px rgba(15,23,42,0.08); }
+    .status-col h4 { margin:0 0 10px 0; font-size:14px; letter-spacing:0.02em; }
+    .status-list { max-height:520px; overflow:auto; padding-right:6px; }
+    .status-open { border-color:#f59e0b; background:#fef3c7; }
+    .status-waiting { border-color:#f97316; background:#ffedd5; }
+    .status-customer { border-color:#ef4444; background:#fee2e2; }
+    .status-resolved { border-color:#22c55e; background:#dcfce7; }
+    .status-inprogress { border-color:#3b82f6; background:#dbeafe; }
+    .status-quotebilling { border-color:#8b5cf6; background:#ede9fe; }
+    .ticket-card { display:block; background:#ffffff; border:1px solid rgba(226,232,240,0.9); border-radius:12px; padding:10px 12px; margin:10px 0; color:inherit; text-decoration:none; box-shadow:0 6px 16px rgba(15,23,42,0.08); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .ticket-card:hover { border-color:#94a3b8; box-shadow:0 10px 20px rgba(15,23,42,0.12); transform:translateY(-1px); }
+  </style>
+</head>
+<body><div class="wrap">
+<div class="card" style="background:#e6f2fb; color:#111827; border-color:#cfe2f3">
+<div><a class="nav-btn" href="LatestReport.html">Return to Summary</a></div>
+<div style="background:#0f766e; color:#ffffff; font-weight:700; padding:8px 10px; border-radius:8px; margin-top:8px;">David Aitken - Current Open Tickets</div>
+<div style="background:#0077c0; color:#ffffff; padding:6px 10px; border-radius:8px; margin-top:6px; display:inline-block;">Open: 18 | 14+ day open: 5</div>
+</div>
+<div class="status-grid">
+<div class="status-col status-customer" style="border-color:#ef4444; background:#e6f2fb">
+<h4><span style="color:#ef4444">Customer Reply</span> <span class="badge">5</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #ef4444" href="https://bigfootnetworks.syncromsp.com/tickets/104184346" target="_blank">#43082 [Customer Reply] (2 Normal) Slow device — Robertson Simpson (Age 17.5d) | Tech: David Aitken <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #ef4444" href="https://bigfootnetworks.syncromsp.com/tickets/104919195" target="_blank">#43613 [Customer Reply] (2 Normal) New computer — VHS (Age 0.6d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #ef4444" href="https://bigfootnetworks.syncromsp.com/tickets/104923703" target="_blank">#43619 [Customer Reply] (2 Normal) VHS / Tinman separation — VHS (Age 0.5d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #ef4444" href="https://bigfootnetworks.syncromsp.com/tickets/104933555" target="_blank">#43632 [Customer Reply] (2 Normal) Password — CLOTHING FOR WORK (Age 0.3d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #ef4444" href="https://bigfootnetworks.syncromsp.com/tickets/104934778" target="_blank">#43635 [Customer Reply] (2 Normal) Add password to folder — GLENN FORD PRIVATE FINANCE LIMITED (Age 0.3d) | Tech: David Aitken</a>
+</div>
+</div>
+<div class="status-col status-waiting" style="border-color:#f97316; background:#e6f2fb">
+<h4><span style="color:#f97316">Waiting on Customer</span> <span class="badge">10</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104068869" target="_blank">#42987 [Waiting on Customer] (2 Normal) Laptop keeps restarting randomly through the day — M5tec (Age 21.5d) | Tech: David Aitken <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104074587" target="_blank">#43010 [Waiting on Customer] (2 Normal) Email problem — KC ENGINEERING BEARINGS LTD (Age 21.3d) | Tech: David Aitken <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104080726" target="_blank">#43022 [Waiting on Customer] (2 Normal) Help! — NLS SECURITY LTD (Age 21.2d) | Tech: David Aitken <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104665172" target="_blank">#43470 [Waiting on Customer] (2 Normal) New Users — Robertson Simpson (Age 6.4d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104662212" target="_blank">#43468 [Waiting on Customer] (2 Normal) Northeast Awnings — Robertson Simpson (Age 6.4d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104721219" target="_blank">#43486 [Waiting on Customer] (2 Normal) Leaver Form Submission - Graham Byrne — XR THERAPEUTICS (Age 4d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104792055" target="_blank">#43560 [Waiting on Customer] (2 Normal) Teams issues — COLEMAN JAMES LTD (Age 2.3d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104922735" target="_blank">#43618 [Waiting on Customer] (2 Normal) Support for emails — Jackie Fitzgerald (Age 0.5d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104920878" target="_blank">#43616 [Waiting on Customer] (2 Normal) Diary access — HOMES OR HOUSES LIMITED (Age 0.5d) | Tech: David Aitken</a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104936642" target="_blank">#43636 [Waiting on Customer] (2 Normal) Ella Hughes — PINNACLE RE-TEC LTD (Age 0.3d) | Tech: David Aitken</a>
+</div>
+</div>
+<div class="status-col status-inprogress" style="border-color:#3b82f6; background:#e6f2fb">
+<h4><span style="color:#3b82f6">In Progress</span> <span class="badge">2</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #3b82f6" href="https://bigfootnetworks.syncromsp.com/tickets/104230702" target="_blank">#43126 [In Progress] (2 Normal) FW: — INDUSTRIAL WORKWEAR LIMITED (Age 16.5d) | Tech: David Aitken <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #3b82f6" href="https://bigfootnetworks.syncromsp.com/tickets/104748082" target="_blank">#43522 [In Progress] (2 Normal) New Starter Form - FACTION HEALTH AND SAFETY GROUP LIMITED — FACTION HEALTH AND SAFETY GROUP LIMITED (Age 3.2d) | Tech: David Aitken</a>
+</div>
+</div>
+<div class="status-col status-open" style="border-color:#0ea5e9; background:#e6f2fb">
+<h4><span style="color:#0ea5e9">Scheduled</span> <span class="badge">1</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #0ea5e9" href="https://bigfootnetworks.syncromsp.com/tickets/104617300" target="_blank">#43429 [Scheduled] (2 Normal) Out Of Office — NLS SECURITY LTD (Age 7.6d) | Tech: David Aitken</a>
+</div>
+</div>
+</div>
+</div></body></html>

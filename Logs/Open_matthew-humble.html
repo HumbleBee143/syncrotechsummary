@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matthew Humble - Open Tickets</title>
+  <style>
+    :root { --ink:#0f172a; --muted:#64748b; --panel:#ffffff; --outline:#e2e8f0; --accent:#0b4aa2; --accent-2:#0f6fb3; --bg1:#0b2a57; --bg2:#0b4aa2; --bg3:#0f6fb3; }
+    body { margin:0; font-family:"Manrope","Avenir Next","Trebuchet MS",sans-serif; background:linear-gradient(140deg,var(--bg1),var(--bg2) 40%,var(--bg3) 85%); color:var(--ink); background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size:18px 18px; }
+    .wrap { max-width:1200px; margin:0 auto; padding:28px 24px 40px; }
+    .card { background:var(--panel); border-radius:16px; padding:16px 18px; box-shadow:0 10px 30px rgba(15,23,42,0.12); border:1px solid rgba(226,232,240,0.9); }
+    .nav-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); color:#0f172a; text-decoration:none; font-weight:700; letter-spacing:0.02em; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .nav-btn:hover { border-color:#94a3b8; box-shadow:0 8px 18px rgba(15,23,42,0.12); transform:translateY(-1px); }
+    .muted { color:#e2e8f0; }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; background:#e2e8f0; font-size:12px; margin-left:6px; }
+    .badge-long { background:#fecaca; border:1px solid #fca5a5; color:#7f1d1d; }
+    .status-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; align-items:start; margin-top:12px; }
+    .status-col { background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); border-radius:14px; padding:12px; box-shadow:0 8px 18px rgba(15,23,42,0.08); }
+    .status-col h4 { margin:0 0 10px 0; font-size:14px; letter-spacing:0.02em; }
+    .status-list { max-height:520px; overflow:auto; padding-right:6px; }
+    .status-open { border-color:#f59e0b; background:#fef3c7; }
+    .status-waiting { border-color:#f97316; background:#ffedd5; }
+    .status-customer { border-color:#ef4444; background:#fee2e2; }
+    .status-resolved { border-color:#22c55e; background:#dcfce7; }
+    .status-inprogress { border-color:#3b82f6; background:#dbeafe; }
+    .status-quotebilling { border-color:#8b5cf6; background:#ede9fe; }
+    .ticket-card { display:block; background:#ffffff; border:1px solid rgba(226,232,240,0.9); border-radius:12px; padding:10px 12px; margin:10px 0; color:inherit; text-decoration:none; box-shadow:0 6px 16px rgba(15,23,42,0.08); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .ticket-card:hover { border-color:#94a3b8; box-shadow:0 10px 20px rgba(15,23,42,0.12); transform:translateY(-1px); }
+  </style>
+</head>
+<body><div class="wrap">
+<div class="card" style="background:#e6f2fb; color:#111827; border-color:#cfe2f3">
+<div><a class="nav-btn" href="LatestReport.html">Return to Summary</a></div>
+<div style="background:#be123c; color:#ffffff; font-weight:700; padding:8px 10px; border-radius:8px; margin-top:8px;">Matthew Humble - Current Open Tickets</div>
+<div style="background:#0077c0; color:#ffffff; padding:6px 10px; border-radius:8px; margin-top:6px; display:inline-block;">Open: 14 | 14+ day open: 9</div>
+</div>
+<div class="status-grid">
+<div class="status-col status-customer" style="border-color:#ef4444; background:#e6f2fb">
+<h4><span style="color:#ef4444">Customer Reply</span> <span class="badge">1</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #ef4444" href="https://bigfootnetworks.syncromsp.com/tickets/104932567" target="_blank">#43630 [Customer Reply] (2 Normal) Remarkable — CLARAND ACCOUNTANTS LIMITED (Age 0.3d) | Tech: Matthew Humble</a>
+</div>
+</div>
+<div class="status-col status-waiting" style="border-color:#f97316; background:#e6f2fb">
+<h4><span style="color:#f97316">Waiting on Customer</span> <span class="badge">8</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/94559583" target="_blank">#36207 [Waiting on Customer] (2 Normal) SAFT LTD - PURCHASE AUTHORISATION ISSUE — MILLER Neil (Age 282.4d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/101441023" target="_blank">#41295 [Waiting on Customer] (2 Normal) Assure Survey NAS — Assure Building Control (Age 92.6d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/101970110" target="_blank">#41734 [Waiting on Customer] (2 Normal) RE: Automated Statement Reconciliation Solution with NXG Forensics — Andrew Styles (Age 78.4d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/102304106" target="_blank">#41979 [Waiting on Customer] (2 Normal) SOGEA lines query (Customer Number) 21064-21566-2E — MITCHELLS CHARTERED ACCOUNTANTS (Age 70.4d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/103794073" target="_blank">#42806 [Waiting on Customer] (2 Normal) RE: Capture Health Telephony Migration — Mays Group (Age 28.4d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104527869" target="_blank">#43363 [Waiting on Customer] (2 Normal) Original Bakehouse - Bakery Account — THE ORIGINAL BAKEHOUSE LIMITED (Age 9.5d) | Tech: Matthew Humble</a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104627045" target="_blank">#43450 [Waiting on Customer] (2 Normal) SAGE PAYROLL ON SERVER — MITCHELLS CHARTERED ACCOUNTANTS (Age 7.3d) | Tech: Matthew Humble</a>
+<a class="ticket-card" style="border-left:4px solid #f97316" href="https://bigfootnetworks.syncromsp.com/tickets/104927787" target="_blank">#43624 [Waiting on Customer] (2 Normal) Inbox. — Robertson Simpson (Age 0.4d) | Tech: Matthew Humble</a>
+</div>
+</div>
+<div class="status-col status-quotebilling" style="border-color:#8b5cf6; background:#e6f2fb">
+<h4><span style="color:#8b5cf6">Quote/Billing</span> <span class="badge">2</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #8b5cf6" href="https://bigfootnetworks.syncromsp.com/tickets/104118254" target="_blank">#43047 [Quote/Billing] (2 Normal) Arden House - Reception — Mays Group (Age 20.4d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+<a class="ticket-card" style="border-left:4px solid #8b5cf6" href="https://bigfootnetworks.syncromsp.com/tickets/104791790" target="_blank">#43559 [Quote/Billing] (2 Normal) Ticket - Employee Monitoring System — AUTO DATA GURU LTD (Age 2.3d) | Tech: Matthew Humble</a>
+</div>
+</div>
+<div class="status-col status-open" style="border-color:#be123c; background:#e6f2fb">
+<h4><span style="color:#be123c">Escalation</span> <span class="badge">1</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #be123c" href="https://bigfootnetworks.syncromsp.com/tickets/99234652" target="_blank">#39540 [Escalation] (2 Normal) Teams meeting — COLEMAN JAMES LTD (Age 155.3d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+</div>
+</div>
+<div class="status-col status-open" style="border-color:#f59e0b; background:#e6f2fb">
+<h4><span style="color:#f59e0b">Waiting for Parts</span> <span class="badge">1</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #f59e0b" href="https://bigfootnetworks.syncromsp.com/tickets/104182962" target="_blank">#43076 [Waiting for Parts] (2 Normal) Charging Port Issue - Urgent Support — Robertson Simpson (Age 17.6d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+</div>
+</div>
+<div class="status-col status-open" style="border-color:#f59e0b; background:#e6f2fb">
+<h4><span style="color:#f59e0b">Waiting on Supplier</span> <span class="badge">1</span></h4>
+<div class="status-list">
+<a class="ticket-card" style="border-left:4px solid #f59e0b" href="https://bigfootnetworks.syncromsp.com/tickets/104189992" target="_blank">#43101 [Waiting on Supplier] (2 Normal) Saft - SharePoint leave requests — Saft (Age 17.4d) | Tech: Matthew Humble <span class="badge badge-long">LONG OPEN</span></a>
+</div>
+</div>
+</div>
+</div></body></html>

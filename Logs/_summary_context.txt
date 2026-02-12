@@ -1,0 +1,243 @@
+TECH: Daniel Clement
+COUNT: 120
+
+Hi Aiman, I have setup a domain admin account for you to use on the PCs. The credentials are in the below link: Let me know if you need anything else. Daniel
+---
+Hi Support, Can you give: aiman.ahmad@rosewoodcare.co.uk He needs to add and remove some PC's to active. directory at one of the sites. M Afzal Ahmad Director Atlas Care Homes Ltd Rosewood HR Services Ltd Email: afzal@rosewoodcare.co.uk Address: Unit 8, Airport Industrial Estate, Diamond Court, Newcastle upon Tyne, NE3 2EN. Tel: 07971 837267 (0191) 824 9000
+---
+Hi, it's Aiman Ahmad with rosewood care, just spoke to David. I'm just trying to login with admin privileges to a pc that's been added to the active directory, but I'm not sure what the details are for the IT Admin account. Could you please take a look and let me know? Thank you.
+---
+Hi David, I've double checked the asset and Syncro is working on the device. Let me know if there's any further issues. Daniel
+---
+Hi Daniel, I've just checked the laptop, and Syncro isn't showing in the icon tray, I'm not sure if this means it isn't working correctly though Thanks,
+---
+Hi David, I can see this device is appearing in Syncro now and looks to be working, are there any further issues with this? Daniel
+---
+Hi David, It came through and I have accepted the device. Let me know if Syncro appears now. Daniel
+---
+Hi Daniel, I rebooted the laptop and reinstalled. Please could you accept the machine join on your end Thanks,
+---
+Hi David, If you reboot the laptop and then try to run the syncro installer again it should show up for me to accept it again. Daniel
+---
+Hi Daniel, I've downloaded the script successfully and have run it on the affected laptop, am I okay to just re-run the syncro installer again now? Thanks,
+---
+Hi David, Could you try this WeTransfer link instead? I suspect it might have gotten blocked over e-mail. Let me know if this works. Daniel
+---
+Hi Daniel, Sorry, I don't seem to have received the email in which you included the zip file for some reason. Would you mind sending that over again? Thanks,
+---
+Hi David, Did you manage to run the script on the device? I haven't seen it pop in Syncro yet. Daniel
+---
+Hi David, No problem, I've attached the .zip containing the script. I will delete the device out of syncro, if you run the script provided, restart the device and then reinstall Syncro I'll accept it again. Daniel
+---
+Hi Daniel, Syncro hasn't shown up on the laptop yet. Please could you provide the script to remove the registry entries? Thanks,
+---
+Hi David, I accepted the laptop when it came in earlier - has it not showed up in the system tray yet? I can delete it out of Syncro so it can be re-added in, but you may need to run a script to fully clear out the registry entries that it creates. I can either provide you the script to do it or I can jump on the machine and do it? Let me know which you'd prefer. Daniel
+---
+Hello, Please could Syncro be accepted/activated on TG-HPL-LAP-003 please Thanks, David Clegg IT Technician he/him W: www.tanglewoodgames.com UK Studio in Hartlepool
+---
+Hi Julian, These permissions have been added for Daria, they should appear in Outlook shortly. Any issues please let me know. Daniel
+---
+Hi guys, Could you please add to Daria’s outlook the following addresses: -  enquiries@auto-guru.co.uk (separate inbox) -  admin@auto-guru.co.uk (separate inbox) -  accounts@auto-guru.co.uk (separate inbox) Les knows about that. He is Cc’d. Thank you Julian Gjoni Vehicle Data Editor
+---
+Hi Bec, Thanks for confirming, let me know if you have any other queries. Daniel
+---
+Hi Daniel, That is great, I have done a couple of tests, and it seems to be working fine when I use the browser. Thanks so much for your help. Bec Lealman Office Manager Newcastle NE1 Limited Suite A8, Milburn House Dean Street Newcastle Upon Tyne NE1 1LE +44 (0)191 2113954 [www.newcastlene1ltd.com]( [Instagram]( |[LinkedIn]( | [Facebook]( |[X](
+---
+Hi Bec, In the desktop version of outlook it appears like it's not possible to hide the invitees. However, I've went into the web version of Outlook and setup a test meeting in there. There is a tick box you can select which hides the attendees list. I've attached a screenshot of it. I tested it and the colleague I invited to the meeting could not see my personal e-mail address that was also invited to the meeting. You could try testing this also to see if it works for you? Other alternatives would be to invite each person individually (not really feasible if you have loads of people to invite) or you could create the meeting not inviting anyone, copy the meeting link and then e-mail the meeting link over via BCC. Let me know if this is of any help or if you need anything else. Daniel
+---
+Hi, I wonder if you could help me with a question rather than a problem with the system. I need to set up a meeting in Outlook, and I know I cannot Bcc attendees. Is there a way that I can create a meeting and not have the individuals’ details showing? I have tried compiling a distribution list but have realised that if there is any issue at all with any email address it shows all contacts in the attendee list. Do you know if there is a solution to this? Thanks Bec Lealman Office Manager Newcastle NE1 Limited Suite A8, Milburn House Dean Street Newcastle Upon Tyne NE1 1LE +44 (0)191 2113954 [www.newcastlene1ltd.com]( [Instagram]( |[LinkedIn]( | [Facebook]( | [X](
+---
+Some disks are low on space Drive C: space below 20.00 GB of 700.51 GB Capacity: 700.51 GB Remaining: 5.25 GB (0.75%)
+---
+Great – thanks Daniel😊 Louise Ridsdale Operations Manager Please note my working days are Tuesday, Wednesday, Thursday and Friday Tel: 0191 384 5073 Mob: 07492 599897 Web:[www.dashorg.co.uk]( We believe thateveryone, regardless of circumstances, should have a fundamental right to a place ofshelter, and help to rebuild their life EQUALITY DIVERSITY and INCLUSION – NO BARRIERS -DASH endeavours to be an organisation in which no-one experiences discrimination
+---
+Hi Louise, No problem, we will sent a quote over for a new laptop. Daniel
+---
+Hi Please could we order a further laptop for a new starter. They will be starting at the end of the month. Louise Louise Ridsdale Operations Manager Please note my working days are Tuesday, Wednesday, Thursday and Friday Tel: 0191 384 5073 Mob: 07492 599897 Web:[www.dashorg.co.uk]( We believe thateveryone, regardless of circumstances, should have a fundamental right to a place ofshelter, and help to rebuild their life EQUALITY DIVERSITY and INCLUSION – NO BARRIERS -DASH endeavours to be an organisation in which no-one experiences discrimination
+---
+Hi Joanne, No problem, we'll get it resent over. Daniel
+---
+Hi I got this estimate from you in December for 2 APC batteries, but I don’t think I accepted it, sorry! Can you please refresh it and send it to me again and I’ll accept it. Thank you Joanne Joanne White Office Manager Tel:   + 44 (0) 1207 588731 DDI:  + 44 (0) 1207 585641 Mob: + 44 (0) 7946 389097 Pinnacle Re-Tec Ltd Hownsgill Drive Delves Lane Industrial Estate Consett Co Durham DH8 9HU W:[www.pinnacleretec.com](
+---
+Fab thanks Daniel Danielle Young Admin Manager Working times- Tuesday and Thursday 08.00am- 18.00pm [ARDEN HOUSE, REGENT CENTRE, GOSFORTH, NE3 3LU]( 0191 285 8701 – Phone lines open between 8:00am-19.45pm Mon- Fri and 08.00am-12.45pm Saturdays danielle@physiotherapymatters.co.uk [www.physiotherapymatters.co.uk]( Any views or opinions presented are solely those of the author and do not necessarily represent those of Physiotherapy Matters Ltd. If you are not the intended recipient, be advised that you have received this e-mail in error and that any use, dissemination, forwarding, printing, or copying of this mail is strictly prohibited. Cc: Danielle Young <Danielle@physiotherapymatters.co.uk>
+---
+Hi Danielle, It's been added to reception 1 and Nikki's PC now. Daniel
+---
+You can hop onto Nikki’s now😊 Danielle Young Admin Manager Working times- Tuesday and Thursday 08.00am- 18.00pm [ARDEN HOUSE, REGENT CENTRE, GOSFORTH, NE3 3LU]( 0191 285 8701 – Phone lines open between 8:00am-19.45pm Mon- Fri and 08.00am-12.45pm Saturdays danielle@physiotherapymatters.co.uk [www.physiotherapymatters.co.uk]( Any views or opinions presented are solely those of the author and do not necessarily represent those of Physiotherapy Matters Ltd. If you are not the intended recipient, be advised that you have received this e-mail in error and that any use, dissemination, forwarding, printing, or copying of this mail is strictly prohibited. Cc: Danielle Young <Danielle@physiotherapymatters.co.uk>
+---
+Hey You can log on now thanks Many thanks Danielle Young Admin Manager Working times- Tuesday and Thursday 08.00am- 18.00pm [ARDEN HOUSE, REGENT CENTRE, GOSFORTH, NE3 3LU]( 0191 285 8701 – Phone lines open between 8:30am-5.00pm Mon & Fri and 8:30am-7:30pm Tues, Wed & Thurs danielle@physiotherapymatters.co.uk [www.physiotherapymatters.co.uk]( Any views or opinions presented are solely those of the author and do not necessarily represent those of Physiotherapy Matters Ltd. If you are not the intended recipient, be advised that you have received this e-mail in error and that any use, dissemination, forwarding, printing, or copying of this mail is strictly prohibited. Cc: Danielle Young <Danielle@physiotherapymatters.co.uk>
+---
+Hi Danielle, As discussed I've added it to your PC as well could you let me know when Reception 1 is ready for it to be done. Daniel
+---
+Yes of course, if you could then do reception1 please Danielle Young Admin Manager Working times- Tuesday and Thursday 08.00am- 18.00pm [ARDEN HOUSE, REGENT CENTRE, GOSFORTH, NE3 3LU]( 0191 285 8701 – Phone lines open between 8:00am-19.45pm Mon- Fri and 08.00am-12.45pm Saturdays danielle@physiotherapymatters.co.uk [www.physiotherapymatters.co.uk]( Any views or opinions presented are solely those of the author and do not necessarily represent those of Physiotherapy Matters Ltd. If you are not the intended recipient, be advised that you have received this e-mail in error and that any use, dissemination, forwarding, printing, or copying of this mail is strictly prohibited. Cc: Danielle Young <Danielle@physiotherapymatters.co.uk>
+---
+Hi Danielle, I've added the e-mail to the reception 2 PC, would I be able to sort your PC out now? Daniel
+---
+Hey guys Can you please install Cindy’s emails onto the following profiles please: -Mine -Reception -Nikki You can dial into mine and receptions now, if you can use reception 2 to do it please and then let me know when it is done and I can check it works ok. Please leave Nikki for now as she is busy but I’ll let you know when she’s free Danielle Young Admin Manager Working times- Tuesday and Thursday 08.00am- 18.00pm [ARDEN HOUSE, REGENT CENTRE, GOSFORTH, NE3 3LU]( 0191 285 8701 – Phone lines open between 8:00am-19.45pm Mon- Fri and 08.00am-12.45pm Saturdays danielle@physiotherapymatters.co.uk [www.physiotherapymatters.co.uk]( Any views or opinions presented are solely those of the author and do not necessarily represent those of Physiotherapy Matters Ltd. If you are not the intended recipient, be advised that you have received this e-mail in error and that any use, dissemination, forwarding, printing, or copying of this mail is strictly prohibited. Cc: Cindy Haresnape <cindy@heerahealthcare.com> Importance: High Hi Danielle, Can you please share this with the team and implement it into the admin functions working day. Any questions, please let me know. Kindest regards Nikki Nikki Verow-Cargan Business Manager [" [ARDEN HOUSE, REGENT CENTRE, GOSFORTH, NE3 3LU]( 0191 285 8701 – Phone lines open between 8:00am-8.00pm Monday- Friday and 8:00am-1pm Saturday 07949 026696 [nikki@physiotherapymatters.co.uk](mailto:neeraj@physiotherapymatters.co.uk) [www.physiotherapymatters.co.uk]( [" [" [" [" [" [embedded image] [embedded image] Hi, Please see attached the log indetials for info@ account. Is it possible for the admin to check this every 1-2 hours? The google ads are still pending , but we may receove some queries about the memberships. And to call back etc. Im happy to chat to you about scripts for admin and how to escleate queries etc if that would be useful.
+---
+Hi Cindy, Has the info@ box appeared for yourself or are you still having issues with this? Let me know if you need me to dial into your machine to assist. Daniel
+---
+Hi Cindy, Here are the login details for the info@ mailbox: You can give this to the staff who need this, if the info@ box is not visible in your Outlook, let me know and I can dial into your machine to add it. Daniel
+---
+Cindy needs access to info@ Also needs the password for it so she can give it to the marketing and admin team.
+---
+Hi Daniel, All seems to be ok now – thank you. Best regards ​​​​ Hannah Copcutt	‑ Compliance & Systems Manager Coleman James Ltd t: e: w: 0191 300 6360 m:	[07904 535027](tel:07904%20535027) hannah.copcutt@coleman-james.com [www.coleman-james.com]( Newcastle / Doncaster / London
+---
+Hi Hannah, Have there been any further issues with the server running slow? Daniel
+---
+Thanks Daniel. Best regards ​​​​ Hannah Copcutt	‑ Compliance & Systems Manager Coleman James Ltd t: e: w: 0191 300 6360 m:	[07904 535027](tel:07904%20535027) hannah.copcutt@coleman-james.com [www.coleman-james.com]( Newcastle / Doncaster / London
+---
+Hi Hannah, Yes, I can restart it tonight. I'll let you know when it has been done. Daniel
+---
+Hi Daniel, It seems to be ok now, please could it be restarted out of hours? Best regards ​​​​ Hannah Copcutt	‑ Compliance & Systems Manager Coleman James Ltd t: e: w: 0191 300 6360 m:	[07904 535027](tel:07904%20535027) hannah.copcutt@coleman-james.com [www.coleman-james.com]( Newcastle / Doncaster / London
+---
+Hi Hannah, I am trying to investigate the issue with the server slowness and it looks to have fully locked up on my side (stuck on a black screen). Would it be possible for us to restart the server? Daniel
+---
+Hannah called advising that the server is running really slowly for all users. Seems to be specific to the RDS and outside of the server is running fine.
+---
+Lesley has asked if we can reset James Turner's password as he can't access his e-mail.
+---
+That is now all sorted, thank you Best regards ​​​​ Sophie Ash	‑ Senior Delivery Consultant	‑ Construction Coleman James Ltd t: e: w: [0191 300 6360](tel:0191%20300%206360)	m:	[07784 400122](tel:07784%20400122) sophie.ash@coleman-james.com [www.coleman-james.com]( NEWCASTLE: Studio 8 (Door 26), The Old Forge, Hoults Yard, Walker Road, Newcastle upon Tyne. NE6 1AB
+---
+Hi Sophie, COJ-CIVILS should now be back on can you test it and see if you can connect. Daniel
+---
+COJ-CIVILS is offline
+---
+Hi Daniel, Thanks for sorting- it just didn't feel right. Rich Richard Turner Business Support Manager Newcastle NE1 Limited Suite A8, Milburn House Dean Street Newcastle Upon Tyne NE1 1LE +44 (0)191 235 7090 | 07716 637529 [www.newcastlene1ltd.com]( [Facebook]( |[Twitter]( |[Instagram]( Newcastle NE1 Limited, Registered in England and Wales, Registration Number 6500486. Registered Office, Suite A8, Milburn House, Dean Street, Newcastle upon Tyne, NE1 1LE Cc: Annabel Carter <annabel.carter@newcastlene1ltd.com>
+---
+Hi Rich, I have blocked the senders of these e-mails for you. Let me know if you need anything further. Daniel
+---
+HI Team, Hope all is well. A few team members have been getting emails from the attcahed orgsanisation. These appear to be unsolicited and not something we have asked for. Lots of tempting links and clicks but there is a steady stream coming through. Have attached correspondance for information. Wondered if you could take a look and log if required. As it stands not going to engage and have advised colleagues the same. Rich Richard Turner Business Support Manager Newcastle NE1 Limited Suite A8, Milburn House Dean Street Newcastle Upon Tyne NE1 1LE +44 (0)191 235 7090 | 07716 637529 [www.newcastlene1ltd.com]( [Facebook]( |[Twitter]( |[Instagram]( Newcastle NE1 Limited, Registered in England and Wales, Registration Number 6500486. Registered Office, Suite A8, Milburn House, Dean Street, Newcastle upon Tyne, NE1 1LE
+---
+Thanks Daniel Richard Nicholson Network & Systems Admin 0191 580 1838 rich@consoledoctor.co.uk [consoledoctor.co.uk]( Date: Monday, 2 February 2026 at 14:28
+---
+Hi Rich, I've changed the account name to Chenbo Lin as requested - I've also swapped the email address over so it's now c.lin@consoledoctor.co.uk. Any issues please let me know. Daniel
+---
+Hey so an account was setup recently for 'Lin Chenbo' It turns out the information I was givne was incorrect and it should actually be 'Chenbo Lin' instead. This account has not actually been used/signed into yet so we can simply rename/change email etc without keeping the original/alt mailbox etc All other details (groups/department etc are all fine) Apologies
+---
+Hi Louise, The update has been completed as requested. Daniel
+---
+Hi Louise, I will schedule this in to be done tonight. Daniel
+---
+Hi There I a payroll Manager update, could this be done after 5pm tonight? Thanks Louise Office F1 Tanfield Lea Business Centre Tanfield Lea North Industrial Estate Stanley Co. Durham DH9 9DB Tel: 01207 291 271 Email: louise@ronakerr.co.uk [www.ronakerr.co.uk]( Rona Kerr FCCA is a registered member of the Association of Chartered Certified Accountants (ACCA). This e-mail and any attachments are confidential and intended solely for the addressee. If you are not the addressee, or have received this e-mail in error, please notify the sender immediately, delete it from your system and do not copy, disclose or otherwise act upon any part of this e-mail or its attachments.
+---
+Yes please Laura Rice Ba (hons) Head of Accounts 01642 616616 Please log all maintenance issues to the 24/7 helpdesk by emailing portlanddoddsbrown.cafm@vantify.com or calling 01480 781265. Portland Dodds Brown — Varsity House, 2 Falcon Court, Stockton on Tees, TS18 3TS This is a confidential and privileged transmission intended only for the named recipient…
+---
+Hi Laura, Would I be able to dial in and I'll add the Dodds Brown drives? Daniel
+---
+Hi Would you be able to give me access to the Dodds Brown drives? Laura Rice Ba (hons) Head of Accounts 01642 616616 Please log all maintenance issues to the 24/7 helpdesk by emailing portlanddoddsbrown.cafm@vantify.com or calling 01480 781265. Portland Dodds Brown — Varsity House, 2 Falcon Court, Stockton on Tees, TS18 3TS This is a confidential and privileged transmission intended only for the named recipient…
+---
+Hi Vicky, Thanks for confirming. Daniel
+---
+Hi Daniel Yes its working fine now, sorry I did mean to reply. Thanks Vicky
+---
+Hi Vicky, Just wanted to follow up to see if this was still an issue? Daniel
+---
+Hi Vicky, Is the EFACS server working fine now? Daniel
+---
+Hi Vicky, Sorry for the delay in coming back to you - I have checked the EFACS server and it seems to be running normally. Is it working for Joanne now or are there still ongoing issues with accessing the server? Daniel
+---
+Good morning, Would you be able to check the Efacs Server please as Joanne cannot access Efacs It has gone off. I have checked round the office and other people seem to be ok at the moment. Vicky Patterson Systems Co-ordinator PINNACLE RE-TEC LTD Hownsgill Drive Delves Lane Industrial Estate Consett Co. Durham DH8 9HU Tel: + 44 (0) 1207 588731 DDI: + 44 (0) 1207 585654
+---
+Hi David, Those licenses have been added in now. Any issues let me know. Daniel
+---
+Morning, Please could we get an Azure premium P1 license added for 2 new starters? The accounts are: Lilian.Roberts@tanglewoodgames.com Natalia.Slomczynska@tanglewoodgames.com Thanks, David Clegg IT Technician he/him W: www.tanglewoodgames.com UK Studio in Hartlepool
+---
+Hi Robert, I have disabled Max's account and processed the leaver form accordingly. Any issues please let me know. Daniel
+---
+Leaver Info Company name: Sunderland Software City Requestor: Robert Currie Requestors email: anonymous Leaver: Max Henson Last day: 2026-01-30 Email forwarding or mailbox access: Forwarding Name of account that requires access: Jon Park Does the leaver use a company owned device? Yes Will this device be re-used in the next 30 days? Yes Additional Info: Form response ID: 144 View all Form responses: [Here](
+---
+Hi Robert, I have set up Jason's e-mail account as requested, here is the login info: Any issues please let me know. Daniel
+---
+New Starters Info Company name: Sunderland Software City Requestor: Robert Currie Requestors email:  robert.currie@sunderlandsofwarecity.com New starter: Jason Sapikit Start date: 2026-02-05 Job title: Junior Software Developer Department: Skills Is e-mail required:  Yes Email address:  jason.sapikit@sunderlandsoftwarecity.com License requirements:  E-Mail and Office apps Office location:  Sunderland Remote access:  Maybe Manager/Supervisor:  Jon Park Phone number: Duplicate access/security from user: Existing device to be assigned: Additional info: Form response ID: 220 View all Form responses [HERE](
+---
+Hi Ellie, No problem - let me know if the issue reoccurs and I'll have a look. Daniel
+---
+Hi, I have sorted it now. Thank you, Ellie Carter Accounts Assistant 01642 616616 ecarter@portlanddoddsbrown.co.uk Please log all maintenance issues to the 24/7 helpdesk by emailing portlanddoddsbrown.cafm@vantify.com or calling 01480 781265. Portland Dodds Brown — Varsity House, 2 Falcon Court, Stockton on Tees, TS18 3TS This is a confidential and privileged transmission intended only for the named recipient…
+---
+Hi Ellie, Would it be OK for me to dial in and I'll take a look at the issue with printing? Daniel
+---
+Hiya, I am trying to print from tramps but it won't let me. Laura has been able to do it this morning so I don't think its an issue with the software. Thanks, Ellie Carter Accounts Assistant 01642 616616 ecarter@portlanddoddsbrown.co.uk Please log all maintenance issues to the 24/7 helpdesk by emailing portlanddoddsbrown.cafm@vantify.com or calling 01480 781265. Portland Dodds Brown — Varsity House, 2 Falcon Court, Stockton on Tees, TS18 3TS This is a confidential and privileged transmission intended only for the named recipient…
+---
+045445530 Sounds great, here's the code
+---
+Hi Charlotte, Would I be able to dial into your computer to take a look at this issue for you? Daniel
+---
+Hi, Last week - had a company wide problem with emails that was rectified. I have access to 2 emails, hello@ and this one - I couldn't have hello@ open in the desktop outlook. Bigfoot managed to get hello@ to open along side my regular email in my desktop outlook. Now: all emails I send from hello@ are being sent via charlotte@, meaning all replies are coming into charlotte@. When I click on an email in hello@, the email isn't opening in the reading window and I have to click out for it to work Could I have a hand please?
+---
+Hi Claire, Thanks for confirming - please let me know if there are any further issues. Daniel
+---
+Hello I’ve restarted everything and it seems to be ok now. Claire Email communications are not secure, for this reason Clarand Accountants Limited cannot guarantee the security of the email or its contents or that it remains virus free once sent. This email, including any attachments, is strictly confidential and intended solely for the person(s) or organisation to whom it is addressed. It may contain privileged and confidential information and if you are not the intended recipient(s), you must not copy, distribute or take any action in reference to it and please notify us immediately on 03301 244450. If you have received this email in error please delete the message from your system. Please review our privacy policy at Please do not reply to or act upon any email you might receive purporting to advise you that our bank account details have changed. Please always speak to us to check any changes to payment arrangements. Clarand Accountants Limited is registered in England and Wales with company registration number 08338461. Registered office address is Burnside House, Hexham Business Park, Burn Lane, Hexham, NE46 3RU. Clarand Accountants is the trading name of Clarand Accountants Limited. A list of directors is available for inspection at the registered office.
+---
+Hi Claire, Would it be ok for me to dial in now and I'll take a look at this? Daniel
+---
+Hello My whole system seems to be running very slowly. When I logged into Outlook I didn’t have to put the password and code from my phone, Teams isn’t working, I have this message… Normally I have to put my password in for Teams too but it didn’t ask for this. Please can you have a look😊 Claire Email communications are not secure, for this reason Clarand Accountants Limited cannot guarantee the security of the email or its contents or that it remains virus free once sent. This email, including any attachments, is strictly confidential and intended solely for the person(s) or organisation to whom it is addressed. It may contain privileged and confidential information and if you are not the intended recipient(s), you must not copy, distribute or take any action in reference to it and please notify us immediately on 03301 244450. If you have received this email in error please delete the message from your system. Please review our privacy policy at Please do not reply to or act upon any email you might receive purporting to advise you that our bank account details have changed. Please always speak to us to check any changes to payment arrangements. Clarand Accountants Limited is registered in England and Wales with company registration number 08338461. Registered office address is Burnside House, Hexham Business Park, Burn Lane, Hexham, NE46 3RU. Clarand Accountants is the trading name of Clarand Accountants Limited. A list of directors is available for inspection at the registered office.
+---
+Hi Tracey, You should be able to login now - let me know if there are any issues. Daniel
+---
+Hi Matthew Are you logged into sage ? If you let me know when you are out so I can run my import. Tracey Tracey Milne Assistant Accountant Method Valuation UK Limited 4 The Staithes Watermark, Gateshead Tyne & Wear NE11 9SN T: 01642 269 306 E: tmilne@method-vm.co.uk T: 01642 269 306 W: www.method-vm.co.uk [Winner Best Valuation Partner 2022 Bridging & Commercial]( This is a confidential and privileged transmission for the sole use of the individual/s named above. Access to this electronic message by anyone else is unauthorised. If you are not the intended recipient, you are hereby notified that any disclosure, copying distribution of the information is strictly prohibited. Please immediately notify us by return email and then delete the email. Any information contained herein has been obtained from sources which we believe to be reliable, but we do not represent its accuracy or its completeness
+---
+Hi Olly, Are you able to show me the camera that is currently being used at the Portland office for conferencing there? Daniel
+---
+Hi Joe, It's a decent sized room, please find attached, the TV is a Samsung, yes it's in Darlington Olly Lawson Operations & Marketing Orchid House Four Riggs Darlington County Durham DL3 6LH T: 0191 435 6915 W:[www.186-ps.com]( PSave a tree. Don't print this email unless it's really necessary Company Registered Number: 07589623. Registered Address: 4 Staithes, The Watermark, Gateshead, Tyne & Wear NE11 9SN. Internet communications are not secure and therefore 186 Investments Limited does not accept legal responsibility for the contents of this message. Although 186 Investments Limited operates anti-virus programmes, it does not accept responsibility for any damage whatsoever by viruses being passed. Any views or opinions presented are solely those of the author and do not necessarily represent those of 186 Investments Limited. Replies to this email may be monitored by 186 Investments Limited for operational or business reasons.
+---
+Hi Olly, Could you confirm the make and model of the TV? also could you send a picture of the conference room so we can assess how big a range the mic etc needs to span. Just to be clear this is at the Darlington site? Thanks
+---
+Hi Olly, I have raised this with the sales team and they will get a quote sent out. Daniel
+---
+Hi Bigfoot, Conferencing facilities, we currently have a large tv that we use in our board room, we cast to it from our laptops using 'windows K' However we have to then use our laptop camera and microphone which looks unprofessional to clients. At Portland we have a battery operated bluetooth speaker / mic (Jabra) which we can plug into our laptops and a bluetooth camera which we plug into the tv to charge it and a dongle which we plug into our laptops to use while we cast. Please can you price up an appropriate speaker / mic and a web camera. Thanks, Olly Olly Lawson Operations & Marketing Orchid House Four Riggs Darlington County Durham DL3 6LH T: 0191 435 6915 W:[www.186-ps.com]( PSave a tree. Don't print this email unless it's really necessary Company Registered Number: 07589623. Registered Address: 4 Staithes, The Watermark, Gateshead, Tyne & Wear NE11 9SN. Internet communications are not secure and therefore 186 Investments Limited does not accept legal responsibility for the contents of this message. Although 186 Investments Limited operates anti-virus programmes, it does not accept responsibility for any damage whatsoever by viruses being passed. Any views or opinions presented are solely those of the author and do not necessarily represent those of 186 Investments Limited. Replies to this email may be monitored by 186 Investments Limited for operational or business reasons.
+---
+Hi Cai, Thanks for bearing with us while we’ve looked into this. We’ve confirmed that the issue is down to Google being very strict about email authentication. In this case, emails sent from @me.com addresses are being blocked before they reach the recipient’s email system, so there isn’t a way for us to allow or release them on their side. The @me.com address is an older Apple iCloud email domain that’s fully owned and managed by Apple. Because of that, it isn’t possible to change or improve how it authenticates, and Google won’t accept these messages if they don’t meet its current security requirements. As a workaround, do you have another email address you could try sending from (for example @caiand.co.uk, @onceuponatown.co.uk, Gmail, or similar)? That should go through without any issues. Thanks
+---
+Hi DAniel I just tried sending another email to Kyle and Josh, but I'm still receiving a undelivered message. Cai Designer Founder of Once Upon a Town 07966 264 122 [ [
+---
+Hi Cai, It seems that there issues with @me.com e-mail addresses having trouble sending to Gmail based e-mail addresses. I have added additional rules to try and get these allowed. Can you try this again and let me know if there are still issues. Daniel
+---
+Hi Daniel. There were no attachments, and yes I receive the same message every time I try to email them. I’ve never experienced this while sending emails to anyone else. Thanks Cai Designer Founder of Once Upon a Town 07966 264 122 [ [
+---
+Hi Cai, Were there any attachments sent in the e-mail that you received a bounceback for? Does this happen every time you try to e-mail them? Daniel
+---
+Hi Matthew Thanks for looking into this. I tried to send Kyle & Josh an email but received another undelivered message. Below Cai Designer Founder of Once Upon a Town 07966 264 122 [ [ Begin forwarded message: Date: 29 January 2026 at 12:58:22 GMT This is a system-generated message to inform you that your email could not be delivered to one or more recipients. Details of the email and the error are as follows: <kyle@roardigitalmarketing.co.uk>: host aspmx.l.google.com[64.233.180.26] said: 550-5.7.1 The user or domain that you are sending to (or from) has a policy that 550-5.7.1 prohibited the mail that you sent. Please contact your domain 550-5.7.1 administrator for further details. For more information, go to 550 5.7.1 d75a77b69052e-503380f1dd1si52848051cf.416 - gsmtp (in reply to end of DATA command) <joshua@roardigitalmarketing.co.uk>: host aspmx.l.google.com[64.233.180.26] said: 550-5.7.1 The user or domain that you are sending to (or from) has a policy that 550-5.7.1 prohibited the mail that you sent. Please contact your domain 550-5.7.1 administrator for further details. For more information, go to 550 5.7.1 6a1803df08f44-894d36f63edsi55651636d6.82 - gsmtp (in reply to end of DATA command) Reporting-MTA: dns; outbound.st.icloud.com X-Postfix-Queue-ID: 919991800C0A X-Postfix-Sender: rfc822; caitaylor@me.com Arrival-Date: Thu, 29 Jan 2026 12:58:21 +0000 (UTC) Final-Recipient: rfc822; ****@************************** Original-Recipient: rfc822;kyle@roardigitalmarketing.co.uk Action: failed Status: 5.7.1 Remote-MTA: dns; aspmx.l.google.com Diagnostic-Code: smtp; 550-5.7.1 The user or domain that you are sending to (or from) has a policy that 550-5.7.1 prohibited the mail that you sent. Please contact your domain 550-5.7.1 administrator for further details. For more information, go to 550 5.7.1 d75a77b69052e-503380f1dd1si52848051cf.416 - gsmtp Final-Recipient: rfc822; ******@************************** Original-Recipient: rfc822;joshua@roardigitalmarketing.co.uk Action: failed Status: 5.7.1 Remote-MTA: dns; aspmx.l.google.com Diagnostic-Code: smtp; 550-5.7.1 The user or domain that you are sending to (or from) has a policy that 550-5.7.1 prohibited the mail that you sent. Please contact your domain 550-5.7.1 administrator for further details. For more information, go to 550 5.7.1 6a1803df08f44-894d36f63edsi55651636d6.82 - gsmtp Return-Path: <caitaylor@me.com> Received: from outbound.st.icloud.com (unknown [127.0.0.2]) by p00-icloudmta-asmtp-us-east-1a-100-percent-12 (Postfix) with ESMTPS id 919991800C0A; Thu, 29 Jan 2026 12:58:21 +0000 (UTC) Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=me.com; s=1a1hai; t=1769691501; x=1772283501; bh=rtGG/KvQSapKiCz3P9moWaeid1tmryU6NqC6IC43ybk=; h=From:Content-Type:Mime-Version:Subject:Message-Id:Date:To:x-icloud-hme; b=g1OgXGjFKob2mWjxf39THD2yhEbAZhoIb060diUoUhMw8WaGcT6n+AgkGQ0+H6MQjLXTTcs3lArfXnvs+T2Ups0wR4MQNhR4+OD0EYzf+QlSm5sitz5dGEhEjKXsMELPW79USL6PqwTLA5bZY4IL9Yp9XV6z76RgNBGUrGz3gojjlY2V2ifky/s5EW8wAcEsF4nMy55loGVaTrU4DgILI+S1sqrUdsN7kWDM/zBGkjxQ+nhiH1V9hgSziLmGUr1rdMeH9mbZ0epyl+WNEXRpf/+ne34Px5hlnxRF40EpuKC5VSo48lYSW2D9p8HIUQva6sHEmEuuSlXasyOQgpuQyw== mail-dsid: 1046312043 mail-created-date: 1290276333000 X-Auth-Type: ATOKEN2 X-Mail-Address-Is-Alias: yes Received: from smtpclient.apple (unknown [17.42.251.67]) by p00-icloudmta-asmtp-us-east-1a-100-percent-12 (Postfix) with ESMTPSA id 0C89518003F2; Thu, 29 Jan 2026 12:58:20 +0000 (UTC) Content-Type: multipart/alternative; boundary="Apple-Mail=_69D84A6E-E89A-4AE2-88E9-3AA81185D592" Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\)) Message-Id: <B47FB556-53E4-4D22-93CC-B6AEB34F7252@me.com> Date: Thu, 29 Jan 2026 12:58:09 +0000 Joshua Lee <joshua@roardigitalmarketing.co.uk> X-Mailer: Apple Mail (2.3826.400.131.1.6) X-Proofpoint-GUID: 4xY25qlegX8Qcmv2W93x3jZ7zlS2jGxQ X-Proofpoint-ORIG-GUID: 4xY25qlegX8Qcmv2W93x3jZ7zlS2jGxQ X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI5MDA4NyBTYWx0ZWRfX3ElXoB1oprNe 3pHF/aTP5e5vMffQFKOscHnKlN3cBDQsWk4AoctdmhwiqwGBpvd81qTZ33IHlfHJg1626Cm3pbW AGcKm+bbfG7lpRDRalG7Mt9soBB7kNAx87uxIEgcrdlBPVVqw5bn/POC9qUwxs/RQydqIuSoXcm WHLb3UKCrVbTVm1UcvX0BoiEHpWHgNAdiWoMlikgeipxSvpMHld9jGsiWP9LscUVh7h5PH0geDB qaQbjDxqSXk9oRA5E8MR52bxcCWixThvXGqpkBgQ7U0vlbhxT22GnOl5tYUFhAZGrCFGSXprLw7 5+GsHWw8gR6zq5vNvKrae6oUCInngqncFT4OBuk74UXvYg2sNN1F0YzpVheg0s= X-Authority-Info-Out: v=2.4 cv=Cv2ys34D c=1 sm=1 tr=0 ts=697b596d cx=c_apl:c_apl_out:c_pps a=YrL12D//S6tul8v/L+6tKg==:117 a=YrL12D//S6tul8v/L+6tKg==:17 a=vUbySO9Y5rIA:10 a=x7bEGLp0ZPQA:10 a=oPyq7i6iOcAA:10 a=VkNPw1HP01LnGYTKEx00:22 a=xRRUggpgAAAA:8 a=1o6JvlFWAAAA:8 a=vad32JMlX6Dq17fY96sA:9 a=QEXdDO2ut3YA:10 a=ZXulRonScM0A:10 a=iiZbYTx6RA7s79fe7_0A:9 a=pZRbzlcca-49jLkT:21 a=_W_S_7VecoQA:10 a=_Lhn9IvzY2Xg0hrA6fzx:22 a=3XK5h3-u4NKVfqcHlySK:22 X-Proofpoint-Virus-Version: vendor=baseguard engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49 definitions=2026-01-29_02,2026-01-28_03,2025-10-01_01 X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 adultscore=0 phishscore=0 malwarescore=0 spamscore=0 suspectscore=0 mlxscore=0 mlxlogscore=696 classifier=spam authscore=0 adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601290087 X-JNJ: AAAAAAABfs16D9EdF+PLQ3s+vgmcNDHB2M6pzRtz4chW1TwhaoI2oIkc/ccsZd4Xvn0PR/soJ4GFJTwh08Zdv7roTD4U+kYKpgnqBprGVL+IPwnxJwN1do16YUTdKigTT/Ix8dhhyqTc/9D2XF7GF6prgUHmv1AvPNfgzQ2TlfKcLpg0ezexMwG5afJmTGI7gprcCl5SKgNUINx7qtafVN5F4zlDjk+gQuZ1xkYuWC5tBB8MIbmxQZens4xISvPCX+kUktTm8oRhm7SELkJdkmAoroiSgGGidfENv1bReBViGsXaz+HRhXR28vmyXQFvq2I2NceSUV82HO1otIiYbrAsR4UjfSfTjdI7ZT3pTrh6anqKAWwnN/YbsdEiL8vRkx0YSk+5lkZ8px/xoJmWEIPYiT+3c/7RZ+I8AoRPpreR8a4nvvw/0xwbmHDSklA9QScGO021PMNSsKklJw4RSpP9S8Abk5cTIKajAon1DlHLLgnRku6cmMbYc1rpFRdtc6YdDUqBENjxz2nJBk7N9jF2/6StPET/rygPz6uFGqlNEBRKBPlm8m6d/rOax65rrRpJc4kmKHax+zGlMtkJUkq4Z/r+KmJ4Z8m98E9SJ7/akk7A47XX/UYevU2TdSd7EMpv
+---
+Dear Rachael, We hope this message finds you well. We’ve made several attempts to reach out regarding your IT support ticket, but unfortunately, we have not received a response. To ensure we effectively manage our queue and assist others in a timely manner, we are now closing this ticket. Should you still require assistance, please don’t hesitate to reply to this email to reopen the ticket or submit a new one at your convenience. We’ll be happy to help you further. Thank you for your understanding. Best regards,
+---
+Hi Racheal, Is the same error message still occurring on the scanner? Daniel
+---
+Hi Racheal, I am looking in the restricted users in the Microsoft portal and there are no blocked users - is this still not working with the same error messages? Daniel
+---
+There is an error of 1411 for scanning again on the printer, the engineer is here from document solutions, and he said we have it blocked from our side, it needs to be removed from restricted users from Microsoft firewall R Wray-Whiteford Racheal Wray-Whiteford SWS Scaffolding Ltd Operations Manager Tel: 07888 377178 Email: info@sws-scaffolding.co.uk [www.sws-scaffolding.co.uk]( This email and all information contained within it, is confidential and intended solely for the use of the individual, or entity, to whom it is addressed. If the reader of this message is not the intended recipient, you are hereby notified that any use, copying, dissemination or disclosure of this information is strictly prohibited. For a copy of our Privacy Policy please request it from our offices. If you have received this email in error then please notify the sender in the first instance, so that our records can be amended and please delete the original from your system. Whilst SWS Scaffolding Limited have taken every reasonable precaution to minimise the risk of this email and any attachments containing computer viruses, we advise that any attachments should be scanned by a reputable and up to date anti-virus tool before they are opened. Any view or opinions within this email are solely those of the author and do not necessarily represent those of SWS Scaffolding Limited and its subsidiaries.For any email error related queries please contact us atinfo@sws-scaffolding.co.uk. SWS Scaffolding Limited. Registered office: 17-25 Station Road, Stanley, DH9 0JL Registered number 13668277. Country of registration: England and Wales
+---
+Hi Jerome, No problem I have made the changes so it is now: Monday–Friday (9:00am–5:30pm) -Office phones (20s) -Mobiles (20s) -Voicemail Mailbox Friday–Monday (5:30pm–9:00am) -Mobiles (20s) -Voicemail Mailbox Please let me know if the voicemail gives you issues and we can further investigate. Thanks
+---
+Hi Matthew, Could you amend the times to the following: Monday–Friday (9:00am–5:30pm) • Ring the office phones (both) for 20 seconds • Then ring the mobiles (both) for 20 seconds • Then divert to the voicemail mailbox Friday–Monday (5:30pm–9:00am) • Ring the mobiles (both) for 20 seconds • Then divert to the voicemail mailbox Let me know and we’ll then check the mailbox is clicking in (it seemed to be a problem). Jerome
+---
+Hi Jerome, Yes, that’s correct. The call flow would be as follows: Monday–Friday (8:00am–6:00pm) • Ring the office phones (both) for 20 seconds • Then ring the mobiles (both) for 20 seconds • Then divert to the voicemail mailbox Friday–Monday (6:00pm–8:00am) • Ring the mobiles (both) for 20 seconds • Then divert to the voicemail mailbox
+---
+Hi Matthew, Just to check your message does the system ring the numbers in sequence - office (both), mobiles (both) then the mailbox? The OOH plan sounds fine – if that also covers Friday 6:00pm to Monday 8:00am. Jerome
+---
+Hi Jerome, Hope you are well, I have made the following changes: - I have renamed EXT 203 to Daria - Added a time profile which points phones to main phones in hours (8-6 Mon-Fri) and mobiles out of hours Both phones would ring at the same time when the call hits the main phone group and both mobiles would ring when the mobile group is hit. It would take around 50-60 seconds to hit the voicemail due to the 20-second ring on both main phones and mobiles. Does this sound OK? Thanks
+---
+Hi Daniel, Okay, so extension 202 is Julian and 203 is now Daria Dmytriieva. Are both office extensions set to ring at the same time? Do calls go to both mobile numbers at the same time or one after the other? The test calls made seemed to suggest the message box wasn’t clicking in, but I can‘t say for certain? Are you able to set the phones to go directly to the mobiles out of hours week days and weekends – eg after 6:00pm and before 8:00am Monday to Friday. Jerome
+---
+Hi Jerome, Currently the phones are set to ring the main group, which goes to extensions 202 and 203 (labelled Julian and Ashleigh), but these are set to be active 24/7 with a failover going to Les and Julian's mobiles if they're not answered after 20 seconds. Daniel
+---
+Hi Daniel, It is reported that the calls were just dropping off, not going to voicemail. But I wasn’t doing the testing so I can’t say for sure what was happening. I thought if we checked what’s set up we could see if that’s what is happening. Jerome
+---
+Hi Jerome, Was it immediately going to voicemail when calling during the weekend? Daniel
+---
+Hi, We wanted to check the phone transfer pattern. There was some testing over the weekend and calls dropped out before ringing. Are you able to provide the call pattern set currently so we can check it. Many thanks, Jerome
+---
+Hi Matthew, I have attached the QR code for the setup for April's softphone. Her extension is 222 Daniel
+---
+Hi Daniel, Could we also have a new soft-phone created for April Thirlaway. Matthew Smith Head of Data Skills Office Network 0191 466 1615 matthew.smith@skillsofficenetwork.co.uk 7 & 8 Delta Bank, Metro Riverside Business Park, NE11 9DJ
+---
+Hi Matthew, I have set up the softphones for Brendan and Linda as requested: Brendan is extension 220 Linda is extension 221 I've attached the softphone QR codes too so they can set it up. Any issue or questions please let me know. Daniel
+---
+Hi Daniel, If they can just normal office number and extension. Matthew Smith Head of Data Skills Office Network 0191 466 1615 matthew.smith@skillsofficenetwork.co.uk 7 & 8 Delta Bank, Metro Riverside Business Park, NE11 9DJ
+---
+Hi Matthew, Do the new starters require their own direct number, or will they be using the normal office number? Daniel
+---
+Hi Matthew, I will set these up for you and I will let you know when it has been done or if I require any further information. Daniel
+---
+Hi there, Could we have soft-phones set up for two of our new staff, Brendan Sheppard and Linda Campbell please. If there's anything else you need please let me know. Matthew Smith Head of Data Skills Office Network 0191 466 1615 matthew.smith@skillsofficenetwork.co.uk 7 & 8 Delta Bank, Metro Riverside Business Park, NE11 9DJ
+---

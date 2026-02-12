@@ -1,0 +1,48 @@
+﻿{
+    "Subdomain":  "bigfootnetworks",
+    "ApiKey":  "REDACTED_SYNCRO_API_KEY",
+    "DaysBack":  7,
+    "Window":  {
+                   "Mode":  "LastWorkWeek"
+               },
+    "Output":  {
+                   "ReportPath":  "C:\\Scripts\\SyncroTechSummary\\Logs\\LatestReport.txt"
+               },
+    "TopTicketsPerTech":  10,
+    "TopTimeTicketsPerTech":  5,
+    "Stale":  {
+                  "NoUpdateHours":  48,
+                  "CustomerReplyHours":  8,
+                  "WaitingOnCustomerDays":  5
+              },
+    "TimeLogging":  {
+                        "Enable":  true,
+                        "Source":  "ticket_timers",
+                        "PerPage":  200,
+                        "MaxPages":  10
+                    },
+    "HardTickets":  {
+                        "Priorities":  [
+                                           "High",
+                                           "Urgent",
+                                           "Emergency"
+                                       ],
+                        "MinAgeDays":  3,
+                        "PerTech":  0,
+                        "TopLevel":  0
+                    },
+    "OpenTickets":  {
+                        "Statuses":  [
+                                         "Customer Reply",
+                                         "Waiting on Customer",
+                                         "Waiting on Supplier",
+                                         "Waiting for Parts",
+                                         "In Progress",
+                                         "Scheduled",
+                                         "Quote/Billing",
+                                         "Open",
+                                         "Escalation"
+                                     ],
+                        "LongOpenDays":  14
+                    }
+}
