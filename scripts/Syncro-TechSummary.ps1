@@ -891,6 +891,17 @@ function Write-SummaryPage {
         [Parameter(Mandatory=$true)][string]$Accent
     )
 
+    $heroFrom = "#111827"
+    $heroTo = "#374151"
+    $heroGlow = "rgba(245,158,11,0.34)"
+    switch ($Accent) {
+        "accent-green"  { $heroFrom = "#0f3d2e"; $heroTo = "#0f766e"; $heroGlow = "rgba(45,212,191,0.34)" }
+        "accent-red"    { $heroFrom = "#3f1d1d"; $heroTo = "#991b1b"; $heroGlow = "rgba(248,113,113,0.34)" }
+        "accent-orange" { $heroFrom = "#4a2a0e"; $heroTo = "#9a3412"; $heroGlow = "rgba(251,146,60,0.34)" }
+        "accent-yellow" { $heroFrom = "#3f3310"; $heroTo = "#92400e"; $heroGlow = "rgba(250,204,21,0.34)" }
+        default         { $heroFrom = "#111827"; $heroTo = "#374151"; $heroGlow = "rgba(59,130,246,0.34)" }
+    }
+
     $p = Join-Path $htmlSummaryDir $FileName
     $h = New-Object System.Collections.Generic.List[string]
     $h.Add("<!doctype html>")
@@ -900,53 +911,82 @@ function Write-SummaryPage {
     $h.Add("  <meta name=`"viewport`" content=`"width=device-width, initial-scale=1`" />")
     $h.Add("  <title>$(Html-Encode($Title))</title>")
     $h.Add("  <style>")
-    $h.Add("    :root { --ink:#0f172a; --muted:#64748b; --panel:#ffffff; --outline:#e2e8f0; --accent:#0b4aa2; --accent-2:#0f6fb3; --bg1:#0b2a57; --bg2:#0b4aa2; --bg3:#0f6fb3; }")
-    $h.Add("    body { margin:0; font-family:`"Manrope`",`"Avenir Next`",`"Trebuchet MS`",sans-serif; background:linear-gradient(140deg,var(--bg1),var(--bg2) 40%,var(--bg3) 85%); color:var(--ink); background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size:18px 18px; }")
-    $h.Add("    .wrap { max-width:1200px; margin:0 auto; padding:28px 24px 40px; }")
-    $h.Add("    .card { background:var(--panel); border-radius:16px; padding:16px 18px; box-shadow:0 10px 30px rgba(15,23,42,0.12); border:1px solid rgba(226,232,240,0.9); }")
-    $h.Add("    .nav-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); color:#0f172a; text-decoration:none; font-weight:700; letter-spacing:0.02em; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }")
-    $h.Add("    .nav-btn:hover { border-color:#94a3b8; box-shadow:0 8px 18px rgba(15,23,42,0.12); transform:translateY(-1px); }")
-    $h.Add("    .accent-blue { border-color:#93c5fd; background:#eff6ff; }")
-    $h.Add("    .accent-green { border-color:#86efac; background:#dcfce7; }")
-    $h.Add("    .accent-red { border-color:#fca5a5; background:#fee2e2; }")
-    $h.Add("    .accent-orange { border-color:#fdba74; background:#ffedd5; }")
-    $h.Add("    .accent-yellow { border-color:#fde68a; background:#fef3c7; }")
-    $h.Add("    .muted { color:#64748b; }")
-    $h.Add("    .ticket { margin:10px 0; padding:10px 12px; border:1px solid rgba(226,232,240,0.9); border-radius:12px; background:#fff; box-shadow:0 6px 16px rgba(15,23,42,0.08); }")
-    $h.Add("    .tech-head { margin:12px 0 6px 0; padding:8px 12px; border-radius:12px; color:#fff; font-weight:700; letter-spacing:0.02em; }")
-    $h.Add("    .status-pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; color:#fff; margin-left:6px; }")
-    $h.Add("    a { color:var(--accent-2); text-decoration:none; }")
+    $h.Add("    :root { --ink:#111827; --muted:#4b5563; --line:#d9e2ec; --paper:#ffffff; --canvas:#f3f4f6; --shadow:0 12px 30px rgba(17,24,39,0.12); }")
+    $h.Add("    * { box-sizing:border-box; }")
+    $h.Add("    body { margin:0; font-family:`"Sora`",`"Avenir Next`",`"Trebuchet MS`",sans-serif; color:var(--ink); background:radial-gradient(1200px 620px at -10% -25%, rgba(245,158,11,0.16), transparent 62%), radial-gradient(1000px 560px at 112% -20%, rgba(59,130,246,0.14), transparent 62%), linear-gradient(162deg,var(--canvas),#f8fafc 45%,#eef2f7 100%); }")
+    $h.Add("    .wrap { max-width:1240px; margin:0 auto; padding:28px 22px 40px; }")
+    $h.Add("    .hero { position:relative; overflow:hidden; background:linear-gradient(130deg,$heroFrom 0%,$heroTo 100%); border:1px solid rgba(255,255,255,0.18); border-radius:20px; padding:18px 18px 14px; color:#f8fafc; box-shadow:0 20px 46px rgba(17,24,39,0.34); }")
+    $h.Add("    .hero:before { content:''; position:absolute; width:340px; height:340px; border-radius:50%; right:-120px; top:-200px; background:radial-gradient(circle at center, $heroGlow, rgba(0,0,0,0)); }")
+    $h.Add("    .hero-inner { position:relative; z-index:1; }")
+    $h.Add("    .nav-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 13px; border-radius:999px; background:#ffffff; border:1px solid #e5e7eb; color:#111827; text-decoration:none; font-weight:800; letter-spacing:0.02em; transition:transform .16s ease, box-shadow .16s ease; }")
+    $h.Add("    .nav-btn:hover { transform:translateY(-1px); box-shadow:0 8px 18px rgba(15,23,42,0.18); }")
+    $h.Add("    h1 { margin:10px 0 0; font-size:28px; letter-spacing:0.02em; }")
+    $h.Add("    .meta { margin-top:8px; color:#e5e7eb; font-size:13px; }")
+    $h.Add("    .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin-top:12px; }")
+    $h.Add("    .kpi { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.22); border-radius:12px; padding:10px 12px; }")
+    $h.Add("    .kpi .label { color:#d1d5db; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; }")
+    $h.Add("    .kpi .value { margin-top:5px; color:#ffffff; font-size:24px; font-weight:800; }")
+    $h.Add("    .group { margin-top:14px; background:var(--paper); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); overflow:hidden; }")
+    $h.Add("    .group-head { padding:10px 12px; color:#ffffff; font-size:13px; font-weight:800; letter-spacing:0.02em; }")
+    $h.Add("    .group-body { padding:10px; }")
+    $h.Add("    .ticket { display:block; margin:0 0 10px; padding:10px 11px; border:1px solid #dde5ef; border-radius:10px; background:#fff; color:inherit; text-decoration:none; box-shadow:0 6px 14px rgba(15,23,42,0.08); transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease; }")
+    $h.Add("    .ticket:hover { transform:translateY(-1px); border-color:#8aa7c7; box-shadow:0 12px 24px rgba(15,23,42,0.14); }")
+    $h.Add("    .ticket-title { font-weight:700; line-height:1.3; }")
+    $h.Add("    .ticket-meta { margin-top:5px; color:var(--muted); font-size:12px; }")
+    $h.Add("    .status-pill { display:inline-block; margin-top:7px; padding:2px 8px; border-radius:999px; font-size:11px; color:#fff; font-weight:800; }")
+    $h.Add("    .empty { margin-top:14px; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:16px; color:var(--muted); box-shadow:var(--shadow); }")
+    $h.Add("    @media (max-width:700px) { .wrap { padding:18px 12px 26px; } .hero { border-radius:16px; } h1 { font-size:24px; } .kpis { grid-template-columns:1fr 1fr; } }")
     $h.Add("  </style>")
     $h.Add("</head>")
-    $h.Add("<body><div class=`"wrap`">")
-    $h.Add("<div class=`"card $Accent`">")
-    $h.Add("<div class=`"muted`"><a class=`"nav-btn`" href=`"LatestReport.html`">Return to Summary</a></div>")
+    $h.Add("<body>")
+    $h.Add("<div class=`"wrap`">")
+    $h.Add("<section class=`"hero`"><div class=`"hero-inner`">")
+    $h.Add("<a class=`"nav-btn`" href=`"LatestReport.html`">Return to Summary</a>")
     $h.Add("<h1>$(Html-Encode($Title))</h1>")
     if ($windowLocalStart -and $windowLocalEnd) {
-        $h.Add("<div class=`"muted`">Window (Local): $(Html-Encode($windowLocalStart.ToString('yyyy-MM-dd HH:mm'))) → $(Html-Encode($windowLocalEnd.ToString('yyyy-MM-dd HH:mm')))</div>")
+        $h.Add("<div class=`"meta`">Window (Local): $(Html-Encode($windowLocalStart.ToString('yyyy-MM-dd HH:mm'))) to $(Html-Encode($windowLocalEnd.ToString('yyyy-MM-dd HH:mm')))</div>")
     }
-    $h.Add("<div class=`"muted`">Window (UTC): $(Html-Encode($startUtc.ToString('yyyy-MM-dd HH:mm'))) → $(Html-Encode($endUtc.ToString('yyyy-MM-dd HH:mm')))</div>")
-    $h.Add("<div class=`"muted`">Total: $(@($Tickets).Count)</div>")
-    $h.Add("</div>")
+    $h.Add("<div class=`"meta`">Window (UTC): $(Html-Encode($startUtc.ToString('yyyy-MM-dd HH:mm'))) to $(Html-Encode($endUtc.ToString('yyyy-MM-dd HH:mm')))</div>")
+    $h.Add("<div class=`"kpis`"><div class=`"kpi`"><div class=`"label`">Total Tickets</div><div class=`"value`">$(@($Tickets).Count)</div></div></div>")
+    $h.Add("</div></section>")
+
     if (@($Tickets).Count -gt 0) {
         $byTech = $Tickets | Group-Object Tech | Sort-Object Name
         foreach ($g in $byTech) {
             $tech = $g.Name
             $color = Get-TechColor $tech
-            $h.Add("<div class=`"tech-head`" style=`"background:$color`">$(Html-Encode($tech))</div>")
+            $h.Add("<section class=`"group`">")
+            $h.Add("<div class=`"group-head`" style=`"background:$color`">$(Html-Encode($tech)) ($($g.Count))</div>")
+            $h.Add("<div class=`"group-body`">")
             foreach ($t in $g.Group) {
-                $cust = if ($t.Customer) { $t.Customer } else { "Unknown Customer" }
-                $prio = if ($t.Priority) { $t.Priority } else { "" }
+                $cust = if ($t.Customer) { [string]$t.Customer } else { "Unknown Customer" }
+                $prio = if ($t.Priority) { [string]$t.Priority } else { "" }
                 $prioTxt = if ($prio) { "($prio) " } else { "" }
-                $statusColor = Get-StatusColor $t.Status
-                $statusPill = "<span class=`"status-pill`" style=`"background:$statusColor`">$(Html-Encode($t.Status))</span>"
-                $h.Add("<div class=`"ticket`" style=`"border-left:4px solid $color`">#$(Html-Encode($t.Number)) $statusPill $(Html-Encode($prioTxt + $t.Subject)) — $(Html-Encode($cust)) <span class=`"muted`">| Tech: $(Html-Encode($tech))</span></div>")
+                $status = if ($t.Status) { [string]$t.Status } else { "Open" }
+                $statusColor = Get-StatusColor $status
+                $titleText = "#$($t.Number) $prioTxt$($t.Subject)"
+                $metaText = "$cust | Tech: $tech"
+                $ticketUrl = Get-TicketUrl $subdomain $t.TicketId
+                if ($ticketUrl) {
+                    $h.Add("<a class=`"ticket`" style=`"border-left:4px solid $color`" href=`"$(Html-Encode($ticketUrl))`" target=`"_blank`">")
+                } else {
+                    $h.Add("<div class=`"ticket`" style=`"border-left:4px solid $color`">")
+                }
+                $h.Add("<div class=`"ticket-title`">$(Html-Encode($titleText))</div>")
+                $h.Add("<div class=`"ticket-meta`">$(Html-Encode($metaText))</div>")
+                $h.Add("<span class=`"status-pill`" style=`"background:$statusColor`">$(Html-Encode($status))</span>")
+                if ($ticketUrl) { $h.Add("</a>") } else { $h.Add("</div>") }
             }
+            $h.Add("</div>")
+            $h.Add("</section>")
         }
     } else {
-        $h.Add("<div class=`"muted`">No tickets.</div>")
+        $h.Add("<div class=`"empty`">No tickets.</div>")
     }
-    $h.Add("</div></body></html>")
+
+    $h.Add("</div>")
+    $h.Add("</body>")
+    $h.Add("</html>")
     ($h -join "`r`n") | Out-File -FilePath $p -Encoding UTF8
 }
 
@@ -960,6 +1000,10 @@ function Write-TechOpenPage {
 
     $p = Join-Path $htmlSummaryDir $FileName
     $h = New-Object System.Collections.Generic.List[string]
+    $techColor = Get-TechColor $Tech
+    $openCount = @($Tickets).Count
+    $longOpenCount = @($Tickets | Where-Object { $_.LongOpen }).Count
+
     $h.Add("<!doctype html>")
     $h.Add("<html lang=`"en`">")
     $h.Add("<head>")
@@ -967,36 +1011,51 @@ function Write-TechOpenPage {
     $h.Add("  <meta name=`"viewport`" content=`"width=device-width, initial-scale=1`" />")
     $h.Add("  <title>$(Html-Encode($Tech)) - Open Tickets</title>")
     $h.Add("  <style>")
-    $h.Add("    :root { --ink:#0f172a; --muted:#64748b; --panel:#ffffff; --outline:#e2e8f0; --accent:#0b4aa2; --accent-2:#0f6fb3; --bg1:#0b2a57; --bg2:#0b4aa2; --bg3:#0f6fb3; }")
-    $h.Add("    body { margin:0; font-family:`"Manrope`",`"Avenir Next`",`"Trebuchet MS`",sans-serif; background:linear-gradient(140deg,var(--bg1),var(--bg2) 40%,var(--bg3) 85%); color:var(--ink); background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size:18px 18px; }")
-    $h.Add("    .wrap { max-width:1200px; margin:0 auto; padding:28px 24px 40px; }")
-    $h.Add("    .card { background:var(--panel); border-radius:16px; padding:16px 18px; box-shadow:0 10px 30px rgba(15,23,42,0.12); border:1px solid rgba(226,232,240,0.9); }")
-    $h.Add("    .nav-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); color:#0f172a; text-decoration:none; font-weight:700; letter-spacing:0.02em; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }")
-    $h.Add("    .nav-btn:hover { border-color:#94a3b8; box-shadow:0 8px 18px rgba(15,23,42,0.12); transform:translateY(-1px); }")
-    $h.Add("    .muted { color:#e2e8f0; }")
-    $h.Add("    .badge { display:inline-block; padding:2px 8px; border-radius:999px; background:#e2e8f0; font-size:12px; margin-left:6px; }")
-    $h.Add("    .badge-long { background:#fecaca; border:1px solid #fca5a5; color:#7f1d1d; }")
-    $h.Add("    .status-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; align-items:start; margin-top:12px; }")
-    $h.Add("    .status-col { background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); border-radius:14px; padding:12px; box-shadow:0 8px 18px rgba(15,23,42,0.08); }")
-    $h.Add("    .status-col h4 { margin:0 0 10px 0; font-size:14px; letter-spacing:0.02em; }")
-    $h.Add("    .status-list { max-height:520px; overflow:auto; padding-right:6px; }")
-    $h.Add("    .status-open { border-color:#f59e0b; background:#fef3c7; }")
-    $h.Add("    .status-waiting { border-color:#f97316; background:#ffedd5; }")
-    $h.Add("    .status-customer { border-color:#ef4444; background:#fee2e2; }")
-    $h.Add("    .status-resolved { border-color:#22c55e; background:#dcfce7; }")
-    $h.Add("    .status-inprogress { border-color:#3b82f6; background:#dbeafe; }")
-    $h.Add("    .status-quotebilling { border-color:#8b5cf6; background:#ede9fe; }")
-    $h.Add("    .ticket-card { display:block; background:#ffffff; border:1px solid rgba(226,232,240,0.9); border-radius:12px; padding:10px 12px; margin:10px 0; color:inherit; text-decoration:none; box-shadow:0 6px 16px rgba(15,23,42,0.08); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }")
-    $h.Add("    .ticket-card:hover { border-color:#94a3b8; box-shadow:0 10px 20px rgba(15,23,42,0.12); transform:translateY(-1px); }")
+    $h.Add("    :root { --ink:#111827; --muted:#4b5563; --line:#d6dee8; --paper:#ffffff; --canvas:#f3f4f6; --shadow:0 12px 30px rgba(17,24,39,0.12); }")
+    $h.Add("    * { box-sizing:border-box; }")
+    $h.Add("    body { margin:0; font-family:`"Sora`",`"Avenir Next`",`"Trebuchet MS`",sans-serif; color:var(--ink); background:radial-gradient(1200px 580px at -8% -18%, rgba(245,158,11,0.16), transparent 62%), radial-gradient(900px 540px at 110% -20%, rgba(59,130,246,0.14), transparent 62%), linear-gradient(160deg,var(--canvas),#f9fafb 44%,#eef2f7 100%); }")
+    $h.Add("    .wrap { max-width:1280px; margin:0 auto; padding:28px 22px 40px; }")
+    $h.Add("    .hero { background:linear-gradient(130deg,#111827 0%,#1f2937 58%,#374151 100%); border:1px solid rgba(255,255,255,0.2); border-radius:20px; padding:18px 18px 14px; color:#f9fafb; box-shadow:0 20px 46px rgba(17,24,39,0.32); position:relative; overflow:hidden; }")
+    $h.Add("    .hero:before { content:''; position:absolute; width:360px; height:360px; border-radius:50%; right:-130px; top:-210px; background:radial-gradient(circle at center, rgba(245,158,11,0.35), rgba(245,158,11,0)); }")
+    $h.Add("    .hero-top { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; position:relative; z-index:1; }")
+    $h.Add("    .nav-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 13px; border-radius:999px; background:#ffffff; border:1px solid #e5e7eb; color:#111827; text-decoration:none; font-weight:800; letter-spacing:0.02em; transition:transform .18s ease, box-shadow .18s ease; }")
+    $h.Add("    .nav-btn:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(15,23,42,0.18); }")
+    $h.Add("    .tech-name { margin:12px 0 0; display:inline-block; background:$techColor; color:#ffffff; padding:9px 14px; border-radius:12px; font-weight:800; letter-spacing:0.02em; }")
+    $h.Add("    .hero-sub { margin:8px 0 0; color:#e5e7eb; font-size:13px; }")
+    $h.Add("    .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin-top:14px; position:relative; z-index:1; }")
+    $h.Add("    .kpi { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.22); border-radius:12px; padding:10px 12px; }")
+    $h.Add("    .kpi .label { color:#d1d5db; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; }")
+    $h.Add("    .kpi .value { margin-top:5px; font-size:24px; font-weight:800; color:#ffffff; }")
+    $h.Add("    .status-grid { margin-top:16px; display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:14px; align-items:start; }")
+    $h.Add("    .status-col { background:var(--paper); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); animation:slideup .35s ease both; }")
+    $h.Add("    .status-head { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 12px; border-bottom:1px solid var(--line); background:#f8fafc; }")
+    $h.Add("    .status-title { font-size:13px; font-weight:800; letter-spacing:0.02em; }")
+    $h.Add("    .count { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:800; border:1px solid currentColor; }")
+    $h.Add("    .status-list { max-height:60vh; overflow:auto; padding:10px 10px 8px; }")
+    $h.Add("    .ticket-card { display:block; background:#ffffff; border:1px solid #dde5ef; border-radius:10px; padding:10px 11px; margin:0 0 10px; color:inherit; text-decoration:none; box-shadow:0 6px 14px rgba(15,23,42,0.08); transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease; }")
+    $h.Add("    .ticket-card:hover { transform:translateY(-1px); border-color:#8aa7c7; box-shadow:0 12px 24px rgba(15,23,42,0.14); }")
+    $h.Add("    .ticket-title { font-weight:700; line-height:1.3; }")
+    $h.Add("    .ticket-meta { margin-top:5px; color:var(--muted); font-size:12px; }")
+    $h.Add("    .pill-long { display:inline-block; margin-top:7px; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:800; color:#7c2d12; background:#ffedd5; border:1px solid #fdba74; }")
+    $h.Add("    .empty { margin-top:14px; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:16px; color:var(--muted); box-shadow:var(--shadow); }")
+    $h.Add("    @keyframes slideup { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }")
+    $h.Add("    @media (max-width:700px) { .wrap { padding:18px 12px 26px; } .hero { border-radius:16px; padding:14px; } .kpi .value { font-size:20px; } .status-grid { grid-template-columns:1fr; } }")
     $h.Add("  </style>")
     $h.Add("</head>")
-    $h.Add("<body><div class=`"wrap`">")
-    $techColor = Get-TechColor $Tech
-    $h.Add("<div class=`"card`" style=`"background:#e6f2fb; color:#111827; border-color:#cfe2f3`">")
-    $h.Add("<div><a class=`"nav-btn`" href=`"LatestReport.html`">Return to Summary</a></div>")
-    $h.Add("<div style=`"background:$techColor; color:#ffffff; font-weight:700; padding:8px 10px; border-radius:8px; margin-top:8px;`">$(Html-Encode($Tech)) - Current Open Tickets</div>")
-    $h.Add("<div style=`"background:#0077c0; color:#ffffff; padding:6px 10px; border-radius:8px; margin-top:6px; display:inline-block;`">Open: $(@($Tickets).Count) | $longOpenDays+ day open: $(@($Tickets | Where-Object { $_.LongOpen }).Count)</div>")
+    $h.Add("<body>")
+    $h.Add("<div class=`"wrap`">")
+    $h.Add("<section class=`"hero`">")
+    $h.Add("<div class=`"hero-top`"><a class=`"nav-btn`" href=`"LatestReport.html`">Return to Summary</a></div>")
+    $h.Add("<div class=`"tech-name`">$(Html-Encode($Tech))</div>")
+    $h.Add("<p class=`"hero-sub`">Current open workload grouped by status. Click any ticket to open it in Syncro.</p>")
+    $h.Add("<div class=`"kpis`">")
+    $h.Add("<div class=`"kpi`"><div class=`"label`">Open Tickets</div><div class=`"value`">$openCount</div></div>")
+    $h.Add("<div class=`"kpi`"><div class=`"label`">$longOpenDays+ Day Open</div><div class=`"value`">$longOpenCount</div></div>")
+    if ($windowLocalStart -and $windowLocalEnd) {
+        $h.Add("<div class=`"kpi`"><div class=`"label`">Window</div><div class=`"value`" style=`"font-size:16px`">$(Html-Encode($windowLocalStart.ToString('yyyy-MM-dd'))) to $(Html-Encode($windowLocalEnd.AddSeconds(-1).ToString('yyyy-MM-dd')))</div></div>")
+    }
     $h.Add("</div>")
+    $h.Add("</section>")
 
     if (@($Tickets).Count -gt 0) {
         $byStatus = $Tickets | Group-Object Status
@@ -1007,47 +1066,52 @@ function Write-TechOpenPage {
                 if ($idx -ge 0) { $idx } else { 999 }
             }, Name
 
-        $h.Add("<div class=`"status-grid`">")
+        $h.Add("<section class=`"status-grid`">")
+        $statusIndex = 0
         foreach ($sg in $byStatus) {
             $statusName = [string]$sg.Name
-            $statusClass = "status-open"
-            switch ($statusName) {
-                "Resolved" { $statusClass = "status-resolved" }
-                "Customer Reply" { $statusClass = "status-customer" }
-                "Waiting on Customer" { $statusClass = "status-waiting" }
-                "In Progress" { $statusClass = "status-inprogress" }
-                "Quote/Billing" { $statusClass = "status-quotebilling" }
-                default { $statusClass = "status-open" }
-            }
-
             $statusColor = Get-StatusColor $statusName
-            $bg = "#e6f2fb"
-            $h.Add("<div class=`"status-col $statusClass`" style=`"border-color:$statusColor; background:$bg`">")
-            $h.Add("<h4><span style=`"color:$statusColor`">$(Html-Encode($statusName))</span> <span class=`"badge`">$($sg.Count)</span></h4>")
+            $panelBg = "#f8fbff"
+            $statusIndex++
+            $delayMs = $statusIndex * 40
+
+            $h.Add("<div class=`"status-col`" style=`"animation-delay:${delayMs}ms; border-top:4px solid $statusColor; background:$panelBg`">")
+            $h.Add("<div class=`"status-head`">")
+            $h.Add("<div class=`"status-title`" style=`"color:$statusColor`">$(Html-Encode($statusName))</div>")
+            $h.Add("<span class=`"count`" style=`"color:$statusColor`">$($sg.Count)</span>")
+            $h.Add("</div>")
             $h.Add("<div class=`"status-list`">")
             foreach ($t in ($sg.Group | Sort-Object AgeDays -Descending)) {
-                $cust = if ($t.Customer) { $t.Customer } else { "Unknown Customer" }
-                $prio = if ($t.Priority) { $t.Priority } else { "" }
+                $cust = if ($t.Customer) { [string]$t.Customer } else { "Unknown Customer" }
+                $prio = if ($t.Priority) { [string]$t.Priority } else { "" }
                 $prioTxt = if ($prio) { "($prio) " } else { "" }
                 $ageTxt = if ($null -ne $t.AgeDays) { "$($t.AgeDays)d" } else { "Unknown age" }
-                $badge = if ($t.LongOpen) { " <span class=`"badge badge-long`">LONG OPEN</span>" } else { "" }
-                $line = "#$($t.Number) [$($t.Status)] $prioTxt$($t.Subject) — $cust (Age $ageTxt) | Tech: $Tech"
+                $title = "#$($t.Number) $prioTxt$($t.Subject)"
+                $meta = "$cust | Age $ageTxt"
                 $ticketUrl = Get-TicketUrl $subdomain $t.TicketId
                 if ($ticketUrl) {
-                    $h.Add("<a class=`"ticket-card`" style=`"border-left:4px solid $statusColor`" href=`"$(Html-Encode($ticketUrl))`" target=`"_blank`">$(Html-Encode($line))$badge</a>")
+                    $h.Add("<a class=`"ticket-card`" style=`"border-left:4px solid $statusColor`" href=`"$(Html-Encode($ticketUrl))`" target=`"_blank`">")
                 } else {
-                    $h.Add("<div class=`"ticket-card`" style=`"border-left:4px solid $statusColor`">$(Html-Encode($line))$badge</div>")
+                    $h.Add("<div class=`"ticket-card`" style=`"border-left:4px solid $statusColor`">")
                 }
+                $h.Add("<div class=`"ticket-title`">$(Html-Encode($title))</div>")
+                $h.Add("<div class=`"ticket-meta`">$(Html-Encode($meta))</div>")
+                if ($t.LongOpen) {
+                    $h.Add("<span class=`"pill-long`">LONG OPEN</span>")
+                }
+                if ($ticketUrl) { $h.Add("</a>") } else { $h.Add("</div>") }
             }
             $h.Add("</div>")
             $h.Add("</div>")
         }
-        $h.Add("</div>")
+        $h.Add("</section>")
     } else {
-        $h.Add("<div class=`"muted`">No open tickets.</div>")
+        $h.Add("<div class=`"empty`">No open tickets for this technician.</div>")
     }
 
-    $h.Add("</div></body></html>")
+    $h.Add("</div>")
+    $h.Add("</body>")
+    $h.Add("</html>")
     ($h -join "`r`n") | Out-File -FilePath $p -Encoding UTF8
 }
 
@@ -1060,6 +1124,8 @@ function Write-TechClosedPage {
 
     $p = Join-Path $htmlSummaryDir $FileName
     $h = New-Object System.Collections.Generic.List[string]
+    $techColor = Get-TechColor $Tech
+
     $h.Add("<!doctype html>")
     $h.Add("<html lang=`"en`">")
     $h.Add("<head>")
@@ -1067,45 +1133,76 @@ function Write-TechClosedPage {
     $h.Add("  <meta name=`"viewport`" content=`"width=device-width, initial-scale=1`" />")
     $h.Add("  <title>$(Html-Encode($Tech)) - Closed Tickets</title>")
     $h.Add("  <style>")
-    $h.Add("    :root { --ink:#0f172a; --muted:#64748b; --panel:#ffffff; --outline:#e2e8f0; --accent:#0b4aa2; --accent-2:#0f6fb3; --bg1:#0b2a57; --bg2:#0b4aa2; --bg3:#0f6fb3; }")
-    $h.Add("    body { margin:0; font-family:`"Manrope`",`"Avenir Next`",`"Trebuchet MS`",sans-serif; background:linear-gradient(140deg,var(--bg1),var(--bg2) 40%,var(--bg3) 85%); color:var(--ink); background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size:18px 18px; }")
-    $h.Add("    .wrap { max-width:1200px; margin:0 auto; padding:28px 24px 40px; }")
-    $h.Add("    .card { background:var(--panel); border-radius:16px; padding:16px 18px; box-shadow:0 10px 30px rgba(15,23,42,0.12); border:1px solid rgba(226,232,240,0.9); }")
-    $h.Add("    .nav-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); color:#0f172a; text-decoration:none; font-weight:700; letter-spacing:0.02em; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }")
-    $h.Add("    .nav-btn:hover { border-color:#94a3b8; box-shadow:0 8px 18px rgba(15,23,42,0.12); transform:translateY(-1px); }")
-    $h.Add("    .muted { color:#e2e8f0; }")
-    $h.Add("    .ticket-card { display:block; background:#ffffff; border:1px solid rgba(226,232,240,0.9); border-radius:12px; padding:10px 12px; margin:10px 0; color:inherit; text-decoration:none; box-shadow:0 6px 16px rgba(15,23,42,0.08); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }")
-    $h.Add("    .ticket-card:hover { border-color:#94a3b8; box-shadow:0 10px 20px rgba(15,23,42,0.12); transform:translateY(-1px); }")
+    $h.Add("    :root { --ink:#111827; --muted:#4b5563; --line:#d6e3dd; --paper:#ffffff; --canvas:#f2f7f4; --shadow:0 12px 30px rgba(17,24,39,0.12); }")
+    $h.Add("    * { box-sizing:border-box; }")
+    $h.Add("    body { margin:0; font-family:`"Sora`",`"Avenir Next`",`"Trebuchet MS`",sans-serif; color:var(--ink); background:radial-gradient(900px 460px at -5% -15%, rgba(16,185,129,0.2), transparent 62%), radial-gradient(1100px 560px at 108% -15%, rgba(20,184,166,0.16), transparent 62%), linear-gradient(160deg,var(--canvas),#f6fbf8 46%,#eef2f4 100%); }")
+    $h.Add("    .wrap { max-width:1080px; margin:0 auto; padding:28px 22px 40px; }")
+    $h.Add("    .hero { background:linear-gradient(130deg,#0f3d2e 0%,#155e4a 48%,#0f766e 100%); border:1px solid rgba(255,255,255,0.26); border-radius:20px; padding:18px 18px 14px; color:#ecfeff; box-shadow:0 20px 46px rgba(15,61,46,0.33); position:relative; overflow:hidden; }")
+    $h.Add("    .hero:before { content:''; position:absolute; width:320px; height:320px; border-radius:50%; right:-110px; top:-180px; background:radial-gradient(circle at center, rgba(45,212,191,0.34), rgba(45,212,191,0)); }")
+    $h.Add("    .hero-top { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; position:relative; z-index:1; }")
+    $h.Add("    .nav-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 13px; border-radius:999px; background:#ffffff; border:1px solid #e5e7eb; color:#0f172a; text-decoration:none; font-weight:800; letter-spacing:0.02em; transition:transform .18s ease, box-shadow .18s ease; }")
+    $h.Add("    .nav-btn:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(15,23,42,0.18); }")
+    $h.Add("    .tech-name { margin:12px 0 0; display:inline-block; background:$techColor; color:#ffffff; padding:9px 14px; border-radius:12px; font-weight:800; letter-spacing:0.02em; }")
+    $h.Add("    .hero-sub { margin:8px 0 0; color:#ccfbf1; font-size:13px; }")
+    $h.Add("    .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin-top:14px; position:relative; z-index:1; }")
+    $h.Add("    .kpi { background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.22); border-radius:12px; padding:10px 12px; }")
+    $h.Add("    .kpi .label { color:#99f6e4; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; }")
+    $h.Add("    .kpi .value { margin-top:5px; font-size:22px; font-weight:800; color:#ffffff; }")
+    $h.Add("    .stack { margin-top:16px; display:grid; gap:12px; }")
+    $h.Add("    .ticket-card { display:block; background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:12px 13px; color:inherit; text-decoration:none; box-shadow:var(--shadow); transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease; animation:slideup .28s ease both; }")
+    $h.Add("    .ticket-card:hover { transform:translateY(-1px); border-color:#93c5aa; box-shadow:0 16px 30px rgba(15,23,42,0.16); }")
+    $h.Add("    .ticket-title { font-weight:700; line-height:1.3; }")
+    $h.Add("    .ticket-meta { margin-top:5px; color:var(--muted); font-size:12px; }")
+    $h.Add("    .ticket-status { margin-top:7px; display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:800; background:#ccfbf1; color:#115e59; border:1px solid #5eead4; }")
+    $h.Add("    .empty { margin-top:14px; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:16px; color:var(--muted); box-shadow:var(--shadow); }")
+    $h.Add("    @keyframes slideup { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }")
+    $h.Add("    @media (max-width:700px) { .wrap { padding:18px 12px 26px; } .hero { border-radius:16px; padding:14px; } .kpi .value { font-size:19px; } }")
     $h.Add("  </style>")
     $h.Add("</head>")
-    $h.Add("<body><div class=`"wrap`">")
-    $techColor = Get-TechColor $Tech
-    $h.Add("<div class=`"card`" style=`"background:#e6f2fb; color:#111827; border-color:#cfe2f3`">")
-    $h.Add("<div><a class=`"nav-btn`" href=`"LatestReport.html`">Return to Summary</a></div>")
-    $h.Add("<div style=`"background:$techColor; color:#ffffff; font-weight:700; padding:8px 10px; border-radius:8px; margin-top:8px;`">$(Html-Encode($Tech)) - Closed Tickets (Last Work Week)</div>")
-    $h.Add("<div style=`"background:#0077c0; color:#ffffff; padding:6px 10px; border-radius:8px; margin-top:6px; display:inline-block;`">Week: $(Html-Encode($startUtc.ToString('yyyy-MM-dd'))) → $(Html-Encode($endUtc.AddSeconds(-1).ToString('yyyy-MM-dd')))</div>")
-    $h.Add("<div style=`"background:#0077c0; color:#ffffff; padding:6px 10px; border-radius:8px; margin-top:6px; display:inline-block;`">Total closed: $(@($Tickets).Count)</div>")
+    $h.Add("<body>")
+    $h.Add("<div class=`"wrap`">")
+    $h.Add("<section class=`"hero`">")
+    $h.Add("<div class=`"hero-top`"><a class=`"nav-btn`" href=`"LatestReport.html`">Return to Summary</a></div>")
+    $h.Add("<div class=`"tech-name`">$(Html-Encode($Tech))</div>")
+    $h.Add("<p class=`"hero-sub`">Resolved work during the selected reporting window.</p>")
+    $h.Add("<div class=`"kpis`">")
+    $h.Add("<div class=`"kpi`"><div class=`"label`">Closed Tickets</div><div class=`"value`">$(@($Tickets).Count)</div></div>")
+    $h.Add("<div class=`"kpi`"><div class=`"label`">Window Start</div><div class=`"value`" style=`"font-size:15px`">$(Html-Encode($startUtc.ToString('yyyy-MM-dd')))</div></div>")
+    $h.Add("<div class=`"kpi`"><div class=`"label`">Window End</div><div class=`"value`" style=`"font-size:15px`">$(Html-Encode($endUtc.AddSeconds(-1).ToString('yyyy-MM-dd')))</div></div>")
     $h.Add("</div>")
+    $h.Add("</section>")
 
     if (@($Tickets).Count -gt 0) {
+        $h.Add("<section class=`"stack`">")
+        $i = 0
         foreach ($t in ($Tickets | Sort-Object { Parse-Utc $_.UpdatedAt } -Descending)) {
-            $cust = if ($t.Customer) { $t.Customer } else { "Unknown Customer" }
-            $prio = if ($t.Priority) { $t.Priority } else { "" }
+            $i++
+            $delay = $i * 30
+            $cust = if ($t.Customer) { [string]$t.Customer } else { "Unknown Customer" }
+            $prio = if ($t.Priority) { [string]$t.Priority } else { "" }
             $prioTxt = if ($prio) { "($prio) " } else { "" }
             $updated = if ($t.UpdatedAt) { (Parse-Utc $t.UpdatedAt).ToString('yyyy-MM-dd HH:mm') + " UTC" } else { "Unknown" }
-            $line = "#$($t.Number) [Resolved] $prioTxt$($t.Subject) — $cust (Closed $updated) | Tech: $Tech"
+            $title = "#$($t.Number) $prioTxt$($t.Subject)"
+            $meta = "$cust | Closed $updated"
             $ticketUrl = Get-TicketUrl $subdomain $t.TicketId
             if ($ticketUrl) {
-                $h.Add("<a class=`"ticket-card`" style=`"border-left:4px solid $(Get-StatusColor 'Resolved')`" href=`"$(Html-Encode($ticketUrl))`" target=`"_blank`">$(Html-Encode($line))</a>")
+                $h.Add("<a class=`"ticket-card`" style=`"animation-delay:${delay}ms; border-left:4px solid $(Get-StatusColor 'Resolved')`" href=`"$(Html-Encode($ticketUrl))`" target=`"_blank`">")
             } else {
-                $h.Add("<div class=`"ticket-card`" style=`"border-left:4px solid $(Get-StatusColor 'Resolved')`">$(Html-Encode($line))</div>")
+                $h.Add("<div class=`"ticket-card`" style=`"animation-delay:${delay}ms; border-left:4px solid $(Get-StatusColor 'Resolved')`">")
             }
+            $h.Add("<div class=`"ticket-title`">$(Html-Encode($title))</div>")
+            $h.Add("<div class=`"ticket-meta`">$(Html-Encode($meta))</div>")
+            $h.Add("<span class=`"ticket-status`">Resolved</span>")
+            if ($ticketUrl) { $h.Add("</a>") } else { $h.Add("</div>") }
         }
+        $h.Add("</section>")
     } else {
-        $h.Add("<div class=`"muted`">No closed tickets.</div>")
+        $h.Add("<div class=`"empty`">No closed tickets in this window.</div>")
     }
 
-    $h.Add("</div></body></html>")
+    $h.Add("</div>")
+    $h.Add("</body>")
+    $h.Add("</html>")
     ($h -join "`r`n") | Out-File -FilePath $p -Encoding UTF8
 }
 
@@ -1120,59 +1217,60 @@ $html.Add("  <meta charset=`"utf-8`" />")
 $html.Add("  <meta name=`"viewport`" content=`"width=device-width, initial-scale=1`" />")
 $html.Add("  <title>Syncro Tech Summary</title>")
 $html.Add("  <style>")
-    $html.Add("    :root { --ink:#0f172a; --muted:#64748b; --panel:#ffffff; --outline:#e2e8f0; --accent:#0b4aa2; --accent-2:#0f6fb3; --bg1:#071b35; --bg2:#0b4aa2; --bg3:#0f6fb3; }")
-$html.Add("    body { margin:0; font-family:`"Manrope`",`"Avenir Next`",`"Trebuchet MS`",sans-serif; background:linear-gradient(140deg,var(--bg1),var(--bg2) 42%,var(--bg3) 90%); color:var(--ink); background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size:18px 18px; }")
-$html.Add("    .wrap { max-width:1240px; margin:0 auto; padding:28px 24px 44px; }")
-    $html.Add("    .header { position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:10px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); border-radius:18px; padding:18px 18px 14px; box-shadow:0 18px 40px rgba(7,18,36,0.35); }")
+    $html.Add("    :root { --ink:#111827; --muted:#4b5563; --panel:#ffffff; --line:#d9e2ec; --accent:#2563eb; --canvas:#f3f4f6; --shadow:0 12px 30px rgba(17,24,39,0.12); }")
+$html.Add("    * { box-sizing:border-box; }")
+$html.Add("    body { margin:0; font-family:`"Sora`",`"Avenir Next`",`"Trebuchet MS`",sans-serif; color:var(--ink); background:radial-gradient(1200px 620px at -10% -25%, rgba(245,158,11,0.16), transparent 62%), radial-gradient(1000px 560px at 112% -20%, rgba(59,130,246,0.14), transparent 62%), linear-gradient(162deg,var(--canvas),#f8fafc 45%,#eef2f7 100%); }")
+$html.Add("    .wrap { max-width:1240px; margin:0 auto; padding:28px 22px 44px; }")
+    $html.Add("    .header { position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:10px; background:linear-gradient(130deg,#111827 0%,#1f2937 58%,#374151 100%); border:1px solid rgba(255,255,255,0.18); border-radius:20px; padding:18px 18px 14px; box-shadow:0 20px 46px rgba(17,24,39,0.34); overflow:hidden; }")
+    $html.Add("    .header:before { content:''; position:absolute; width:340px; height:340px; border-radius:50%; right:-120px; top:-200px; background:radial-gradient(circle at center, rgba(245,158,11,0.34), rgba(245,158,11,0)); }")
     $html.Add("    .logo { height:68px; width:auto; }")
-    $html.Add("    .logo-wrap { width:100%; }")
+    $html.Add("    .logo-wrap { width:100%; position:relative; z-index:1; }")
     $html.Add("    .logo-wrap .logo { display:block; margin-left:0; }")
-    $html.Add("    h1 { margin:0; font-size:28px; letter-spacing:0.02em; }")
-    $html.Add("    .meta { color:#e2e8f0; margin:14px 0 18px; text-align:left; display:inline-flex; gap:10px; align-items:center; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.2); padding:6px 12px; border-radius:999px; }")
-$html.Add("    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin-bottom:24px; }")
-    $html.Add("    .card { background:var(--panel); border-radius:16px; padding:14px 16px; box-shadow:0 10px 30px rgba(15,23,42,0.12); border:1px solid rgba(226,232,240,0.9); }")
+    $html.Add("    h1 { margin:0; font-size:29px; letter-spacing:0.02em; }")
+    $html.Add("    .meta { color:#111827; margin:14px 0 18px; text-align:left; display:inline-flex; gap:10px; align-items:center; background:#ffffff; border:1px solid #e5e7eb; padding:7px 12px; border-radius:999px; font-weight:600; }")
+$html.Add("    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-bottom:24px; }")
+    $html.Add("    .card { background:var(--panel); border-radius:12px; padding:14px 15px; box-shadow:var(--shadow); border:1px solid var(--line); }")
     $html.Add("    .card-link { display:block; color:inherit; text-decoration:none; }")
     $html.Add("    .card-link:hover .card { border-color:#94a3b8; transform:translateY(-1px); }")
 $html.Add("    .card .label { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.12em; }")
-$html.Add("    .card .value { font-size:22px; font-weight:700; margin-top:8px; }")
-$html.Add("    .card.accent-blue { border-color:#bfdbfe; background:linear-gradient(135deg,#f8fafc,#eff6ff); }")
-$html.Add("    .card.accent-green { border-color:#bbf7d0; background:linear-gradient(135deg,#f8fafc,#ecfccb); }")
-$html.Add("    .card.accent-red { border-color:#fecaca; background:linear-gradient(135deg,#fff1f2,#fee2e2); }")
-$html.Add("    .card.accent-orange { border-color:#fdba74; background:linear-gradient(135deg,#fff7ed,#ffedd5); }")
-$html.Add("    .card.accent-yellow { border-color:#fde68a; background:linear-gradient(135deg,#fffbeb,#fef3c7); }")
+$html.Add("    .card .value { font-size:24px; font-weight:800; margin-top:7px; }")
+$html.Add("    .card.accent-blue { border-color:#bfdbfe; background:linear-gradient(135deg,#ffffff,#eff6ff); }")
+$html.Add("    .card.accent-green { border-color:#86efac; background:linear-gradient(135deg,#ffffff,#dcfce7); }")
+$html.Add("    .card.accent-red { border-color:#fca5a5; background:linear-gradient(135deg,#ffffff,#fee2e2); }")
+$html.Add("    .card.accent-orange { border-color:#fdba74; background:linear-gradient(135deg,#ffffff,#ffedd5); }")
+$html.Add("    .card.accent-yellow { border-color:#fde68a; background:linear-gradient(135deg,#ffffff,#fef3c7); }")
 $html.Add("    .summary-card summary { list-style:none; cursor:pointer; }")
 $html.Add("    .summary-card summary::-webkit-details-marker { display:none; }")
 $html.Add("    .card-list { margin-top:8px; max-height:240px; overflow:auto; padding-right:4px; }")
 $html.Add("    .card-list ul { margin:6px 0 0 18px; }")
 $html.Add("    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; width:100%; }")
-$html.Add("    .chip { display:inline-flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 12px; border-radius:999px; font-size:12px; font-weight:700; border:1px solid rgba(226,232,240,0.9); background:#f8fafc; flex:1 1 190px; }")
-    $html.Add("    .chip { color:inherit; text-decoration:none; }")
+$html.Add("    .chip { display:inline-flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 12px; border-radius:999px; font-size:12px; font-weight:700; border:1px solid #dbe3ed; background:#f8fafc; flex:1 1 190px; color:inherit; text-decoration:none; }")
     $html.Add("    .chip-blue { border-color:#bfdbfe; background:#eff6ff; }")
-$html.Add("    .chip-green { border-color:#bbf7d0; background:#dcfce7; }")
-$html.Add("    .chip-red { border-color:#fecaca; background:#fee2e2; }")
+$html.Add("    .chip-green { border-color:#86efac; background:#dcfce7; }")
+$html.Add("    .chip-red { border-color:#fca5a5; background:#fee2e2; }")
 $html.Add("    .chip-orange { border-color:#fdba74; background:#ffedd5; }")
 $html.Add("    .chip-yellow { border-color:#fde68a; background:#fef3c7; }")
 $html.Add("    .chip-purple { border-color:#c4b5fd; background:#ede9fe; }")
 $html.Add("    .chip-gray { border-color:#cbd5e1; background:#f1f5f9; }")
-$html.Add("    details { background:var(--panel); border-radius:14px; padding:12px 14px; margin-bottom:12px; box-shadow:0 8px 18px rgba(15,23,42,0.1); border:1px solid rgba(226,232,240,0.9); }")
+$html.Add("    details { background:var(--panel); border-radius:12px; padding:12px 14px; margin-bottom:12px; box-shadow:var(--shadow); border:1px solid var(--line); }")
 $html.Add("    summary { cursor:pointer; font-weight:700; letter-spacing:0.02em; }")
-    $html.Add("    .header h1 { color:#ffffff; font-weight:700; }")
-    $html.Add("    .section-title { margin:22px 0 10px 0; font-size:13px; color:#e2e8f0; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; }")
+    $html.Add("    .header h1 { color:#ffffff; font-weight:800; position:relative; z-index:1; }")
+    $html.Add("    .section-title { margin:22px 0 10px 0; font-size:12px; color:#334155; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; }")
 $html.Add("    ul { margin:8px 0 0 20px; }")
     $html.Add("    .muted { color:var(--muted); }")
     $html.Add("    .badge { display:inline-block; padding:2px 8px; border-radius:999px; background:#e2e8f0; font-size:12px; margin-left:6px; }")
-    $html.Add("    .badge-long { background:#fecaca; border:1px solid #fca5a5; color:#7f1d1d; }")
+    $html.Add("    .badge-long { background:#ffedd5; border:1px solid #fdba74; color:#7c2d12; }")
     $html.Add("    .bar-row { display:flex; align-items:center; gap:10px; margin:6px 0; }")
     $html.Add("    .bar-label { min-width:140px; font-size:12px; color:var(--muted); }")
     $html.Add("    .bar-track { flex:1; background:#e5e7eb; border-radius:999px; height:10px; overflow:hidden; }")
     $html.Add("    .bar-fill { height:100%; background:var(--accent); }")
     $html.Add("    .bar-val { width:40px; text-align:right; font-size:12px; color:var(--muted); }")
-    $html.Add("    .bar-link { display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; padding:8px 10px; border-radius:12px; transition:background .15s ease; }")
-    $html.Add("    .bar-link:hover { background:rgba(255,255,255,0.65); }")
+    $html.Add("    .bar-link { display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; padding:8px 10px; border-radius:10px; transition:background .15s ease; }")
+    $html.Add("    .bar-link:hover { background:#f1f5f9; }")
     $html.Add("    .tech-links { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 12px 0; }")
     $html.Add("    .tech-link { display:inline-block; padding:8px 12px; border-radius:999px; background:#f1f5f9; border:1px solid #e2e8f0; font-size:12px; text-decoration:none; color:inherit; font-weight:700; }")
 $html.Add("    .status-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }")
-$html.Add("    .status-col { background:rgba(255,255,255,0.95); border:1px solid rgba(226,232,240,0.9); border-radius:14px; padding:12px; box-shadow:0 8px 18px rgba(15,23,42,0.08); }")
+$html.Add("    .status-col { background:#ffffff; border:1px solid var(--line); border-radius:12px; padding:12px; box-shadow:var(--shadow); }")
 $html.Add("    .status-col h4 { margin:0 0 10px 0; font-size:14px; letter-spacing:0.02em; }")
 $html.Add("    .status-col ul { margin:0 0 0 18px; }")
 $html.Add("    .status-list { max-height:420px; overflow:auto; padding-right:4px; }")
@@ -1182,7 +1280,7 @@ $html.Add("    .status-customer { border-color:#ef4444; background:#fee2e2; }")
 $html.Add("    .status-resolved { border-color:#22c55e; background:#dcfce7; }")
 $html.Add("    .status-inprogress { border-color:#3b82f6; background:#dbeafe; }")
 $html.Add("    .status-quotebilling { border-color:#8b5cf6; background:#ede9fe; }")
-$html.Add("    .ticket-card { background:#ffffff; border:1px solid rgba(226,232,240,0.9); border-radius:12px; padding:10px 12px; margin:10px 0; box-shadow:0 6px 16px rgba(15,23,42,0.08); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }")
+$html.Add("    .ticket-card { background:#ffffff; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:10px 0; box-shadow:0 6px 14px rgba(15,23,42,0.08); transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }")
 $html.Add("    .ticket-card.status-customer { background:#fecaca; }")
 $html.Add("    .ticket-card.status-waiting { background:#fed7aa; }")
 $html.Add("    .ticket-card.status-inprogress { background:#bfdbfe; }")
@@ -1195,6 +1293,7 @@ $html.Add("    .ticket-title { font-weight:700; }")
 $html.Add("    .ticket-sub { color:var(--muted); font-size:12px; }")
 $html.Add("    .ticket-card:hover { border-color:#94a3b8; box-shadow:0 10px 20px rgba(15,23,42,0.12); transform:translateY(-1px); }")
 $html.Add("    .ticket-body { margin-top:6px; font-size:13px; }")
+$html.Add("    @media (max-width:700px) { .wrap { padding:18px 12px 28px; } .header { border-radius:16px; } h1 { font-size:24px; } .cards { grid-template-columns:1fr; } .meta { display:flex; } .bar-label { min-width:116px; } }")
 $html.Add("  </style>")
 $html.Add("</head>")
 $html.Add("<body>")
