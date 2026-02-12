@@ -3,3 +3,6 @@ output/*
 
 # Legacy folder name kept for compatibility on older clones.
 Logs/*
+
+# Local secret config override (never commit).
+config/Syncro-TechSummary.config.local.json

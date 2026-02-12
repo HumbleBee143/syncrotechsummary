@@ -8,6 +8,7 @@ $ErrorActionPreference = "Stop"
 $scriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 $projectRoot = Split-Path -Parent $scriptDir
 $configCandidates = @(
+    (Join-Path $projectRoot "config\Syncro-TechSummary.config.local.json"),
     (Join-Path $projectRoot "config\Syncro-TechSummary.config.json"),
     (Join-Path $scriptDir "Syncro-TechSummary.config.json"),
     (Join-Path $projectRoot "Syncro-TechSummary.config.json")
@@ -20,7 +21,8 @@ if (!(Test-Path $configPath)) { throw "Config not found: $configPath" }
 $config = Get-Content $configPath -Raw | ConvertFrom-Json
 
 $subdomain = [string]$config.Subdomain
-$apiKey    = [string]$config.ApiKey
+$apiKeyFromEnv = [string]$env:SYNCRO_API_KEY
+$apiKey    = if ([string]::IsNullOrWhiteSpace($apiKeyFromEnv)) { [string]$config.ApiKey } else { $apiKeyFromEnv }
 $daysBack  = if ($config.PSObject.Properties.Name -contains 'DaysBack') { [int]$config.DaysBack } else { 1 }
 
 $windowMode = "RollingDays"
@@ -98,7 +100,9 @@ if ($config.PSObject.Properties.Name -contains 'HardTickets' -and $config.HardTi
     if ($config.HardTickets.PSObject.Properties.Name -contains 'TopLevel') { $hardTopLevel = [int]$config.HardTickets.TopLevel }
 }
 if ([string]::IsNullOrWhiteSpace($subdomain)) { throw "Config.Subdomain is empty." }
-if ([string]::IsNullOrWhiteSpace($apiKey) -or $apiKey -like "PUT_*" -or $apiKey -like "PASTE_*") { throw "Config.ApiKey is not set." }
+if ([string]::IsNullOrWhiteSpace($apiKey) -or $apiKey -like "PUT_*" -or $apiKey -like "PASTE_*") {
+    throw "Syncro API key is not set. Set env var SYNCRO_API_KEY (recommended) or Config.ApiKey."
+}
 
 $baseDir = Split-Path -Parent $reportPath
 if (!(Test-Path $baseDir)) { New-Item -ItemType Directory -Path $baseDir -Force | Out-Null }

@@ -1,6 +1,7 @@
 $scriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 $projectRoot = Split-Path -Parent $scriptDir
 $cfgCandidates = @(
+    (Join-Path $projectRoot "config\Syncro-TechSummary.config.local.json"),
     (Join-Path $projectRoot "config\Syncro-TechSummary.config.json"),
     (Join-Path $scriptDir "Syncro-TechSummary.config.json"),
     (Join-Path $projectRoot "Syncro-TechSummary.config.json")
@@ -9,7 +10,12 @@ $cfgPath = $cfgCandidates | Where-Object { Test-Path $_ } | Select-Object -First
 if ([string]::IsNullOrWhiteSpace($cfgPath)) { throw "Config not found. Checked: $($cfgCandidates -join ', ')" }
 $cfg = Get-Content $cfgPath -Raw | ConvertFrom-Json
 $sub = $cfg.Subdomain
-$key = $cfg.ApiKey
+$keyFromEnv = [string]$env:SYNCRO_API_KEY
+$key = if ([string]::IsNullOrWhiteSpace($keyFromEnv)) { [string]$cfg.ApiKey } else { $keyFromEnv }
+$key = [string]$key
+if ([string]::IsNullOrWhiteSpace($key) -or $key -like "PUT_*" -or $key -like "PASTE_*") {
+    throw "Syncro API key is not set. Set env var SYNCRO_API_KEY (recommended) or Config.ApiKey."
+}
 $openStatuses = @($cfg.OpenTickets.Statuses)
 
 function Has-Prop($o,$n){($null -ne $o) -and ($null -ne $o.PSObject.Properties[$n])}

@@ -1,6 +1,6 @@
-﻿{
-    "Subdomain":  "bigfootnetworks",
-    "ApiKey":  "",
+{
+    "Subdomain":  "your-subdomain",
+    "ApiKey":  "your-syncro-api-key",
     "DaysBack":  7,
     "Window":  {
                    "Mode":  "LastWorkWeek"

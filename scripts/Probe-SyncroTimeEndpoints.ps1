@@ -4,6 +4,7 @@ $ErrorActionPreference = "Stop"
 $scriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 $projectRoot = Split-Path -Parent $scriptDir
 $configCandidates = @(
+  (Join-Path $projectRoot "config\Syncro-TechSummary.config.local.json"),
   (Join-Path $projectRoot "config\Syncro-TechSummary.config.json"),
   (Join-Path $scriptDir "Syncro-TechSummary.config.json"),
   (Join-Path $projectRoot "Syncro-TechSummary.config.json")
@@ -13,9 +14,12 @@ if ([string]::IsNullOrWhiteSpace($configPath)) { throw "Config not found. Checke
 $config = Get-Content $configPath -Raw | ConvertFrom-Json
 
 $sub = [string]$config.Subdomain
-$key = [string]$config.ApiKey
+$keyFromEnv = [string]$env:SYNCRO_API_KEY
+$key = if ([string]::IsNullOrWhiteSpace($keyFromEnv)) { [string]$config.ApiKey } else { $keyFromEnv }
 if ([string]::IsNullOrWhiteSpace($sub)) { throw "Config.Subdomain is empty." }
-if ([string]::IsNullOrWhiteSpace($key) -or $key -like "PUT_*" -or $key -like "PASTE_*") { throw "Config.ApiKey is not set." }
+if ([string]::IsNullOrWhiteSpace($key) -or $key -like "PUT_*" -or $key -like "PASTE_*") {
+  throw "Syncro API key is not set. Set env var SYNCRO_API_KEY (recommended) or Config.ApiKey."
+}
 
 $endpoints = @(
   "/api/v1/timelogs?api_key=$key&per_page=5&page=1",
