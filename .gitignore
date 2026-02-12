@@ -1,0 +1,5 @@
+output/*
+!output/.gitkeep
+
+# Legacy folder name kept for compatibility on older clones.
+Logs/*
