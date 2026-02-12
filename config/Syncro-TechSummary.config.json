@@ -6,7 +6,7 @@
                    "Mode":  "LastWorkWeek"
                },
     "Output":  {
-                   "ReportPath":  "C:\\Scripts\\SyncroTechSummary\\Logs\\LatestReport.txt"
+                   "ReportPath":  "output\\LatestReport.txt"
                },
     "TopTicketsPerTech":  10,
     "TopTimeTicketsPerTech":  5,

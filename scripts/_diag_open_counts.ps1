@@ -1,4 +1,13 @@
-﻿$cfg = Get-Content .\Syncro-TechSummary.config.json -Raw | ConvertFrom-Json
+$scriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
+$projectRoot = Split-Path -Parent $scriptDir
+$cfgCandidates = @(
+    (Join-Path $projectRoot "config\Syncro-TechSummary.config.json"),
+    (Join-Path $scriptDir "Syncro-TechSummary.config.json"),
+    (Join-Path $projectRoot "Syncro-TechSummary.config.json")
+)
+$cfgPath = $cfgCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+if ([string]::IsNullOrWhiteSpace($cfgPath)) { throw "Config not found. Checked: $($cfgCandidates -join ', ')" }
+$cfg = Get-Content $cfgPath -Raw | ConvertFrom-Json
 $sub = $cfg.Subdomain
 $key = $cfg.ApiKey
 $openStatuses = @($cfg.OpenTickets.Statuses)

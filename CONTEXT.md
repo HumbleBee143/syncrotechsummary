@@ -30,6 +30,6 @@ Weekly Syncro technician summary for Bigfoot Networks with last-work-week stats,
 - Validate UI on a few tech pages and adjust spacing/contrast if needed.
 
 ## Notes
-- Config: Syncro-TechSummary.config.json (OpenTickets.Statuses expanded).
-- Reports output: C:\Scripts\SyncroTechSummary\Logs\LatestReport.html and per-tech pages (Open_*.html, Closed_*.html).
-- Logo copied to Logs\logo.png during report generation.
+- Config: config\Syncro-TechSummary.config.json (OpenTickets.Statuses expanded).
+- Reports output: output\LatestReport.html (or Output.ReportPath in config) and per-tech pages (Open_*.html, Closed_*.html).
+- Logo copied to output\logo.png during report generation.

@@ -1,8 +1,21 @@
 #requires -Version 5.1
 $ErrorActionPreference = "Stop"
 
-$sub = "bigfootnetworks"
-$key = "REDACTED_SYNCRO_API_KEY"
+$scriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
+$projectRoot = Split-Path -Parent $scriptDir
+$configCandidates = @(
+  (Join-Path $projectRoot "config\Syncro-TechSummary.config.json"),
+  (Join-Path $scriptDir "Syncro-TechSummary.config.json"),
+  (Join-Path $projectRoot "Syncro-TechSummary.config.json")
+)
+$configPath = $configCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+if ([string]::IsNullOrWhiteSpace($configPath)) { throw "Config not found. Checked: $($configCandidates -join ', ')" }
+$config = Get-Content $configPath -Raw | ConvertFrom-Json
+
+$sub = [string]$config.Subdomain
+$key = [string]$config.ApiKey
+if ([string]::IsNullOrWhiteSpace($sub)) { throw "Config.Subdomain is empty." }
+if ([string]::IsNullOrWhiteSpace($key) -or $key -like "PUT_*" -or $key -like "PASTE_*") { throw "Config.ApiKey is not set." }
 
 $endpoints = @(
   "/api/v1/timelogs?api_key=$key&per_page=5&page=1",

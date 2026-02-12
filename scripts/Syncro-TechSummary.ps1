@@ -5,7 +5,17 @@ $ErrorActionPreference = "Stop"
 # -----------------------------
 # Load config
 # -----------------------------
-$configPath = "C:\Scripts\SyncroTechSummary\Syncro-TechSummary.config.json"
+$scriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
+$projectRoot = Split-Path -Parent $scriptDir
+$configCandidates = @(
+    (Join-Path $projectRoot "config\Syncro-TechSummary.config.json"),
+    (Join-Path $scriptDir "Syncro-TechSummary.config.json"),
+    (Join-Path $projectRoot "Syncro-TechSummary.config.json")
+)
+$configPath = $configCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+if ([string]::IsNullOrWhiteSpace($configPath)) {
+    throw "Config not found. Checked: $($configCandidates -join ', ')"
+}
 if (!(Test-Path $configPath)) { throw "Config not found: $configPath" }
 $config = Get-Content $configPath -Raw | ConvertFrom-Json
 
@@ -29,7 +39,12 @@ $reportPath =
 if (($config.PSObject.Properties.Name -contains 'Output') -and $config.Output -and ($config.Output.PSObject.Properties.Name -contains 'ReportPath')) {
     [string]$config.Output.ReportPath
 } else {
-    "C:\Scripts\SyncroTechSummary\Logs\LatestReport.txt"
+    Join-Path $projectRoot "output\LatestReport.txt"
+}
+if ([string]::IsNullOrWhiteSpace($reportPath)) {
+    $reportPath = Join-Path $projectRoot "output\LatestReport.txt"
+} elseif (-not [System.IO.Path]::IsPathRooted($reportPath)) {
+    $reportPath = Join-Path $projectRoot $reportPath
 }
 
 $topTicketsPerTech = if ($config.PSObject.Properties.Name -contains 'TopTicketsPerTech') { [int]$config.TopTicketsPerTech } else { 10 }
@@ -96,10 +111,16 @@ $commentBodiesPath = Join-Path $baseDir "TechCommentBodies.json"
 $techSummaryPath = Join-Path $baseDir "TechSummaries.txt"
 $htmlReportPath = Join-Path $baseDir "LatestReport.html"
 $htmlSummaryDir = $baseDir
-$logoSource = Join-Path (Split-Path -Parent $baseDir) "BIGFOOT_WHITE_B200.png"
 $logoTarget = Join-Path $baseDir "logo.png"
-if (Test-Path $logoSource) {
-    Copy-Item -Path $logoSource -Destination $logoTarget -Force
+foreach ($logoSource in @(
+    (Join-Path $projectRoot "assets\BIGFOOT_WHITE_B200.png"),
+    (Join-Path $scriptDir "BIGFOOT_WHITE_B200.png"),
+    (Join-Path (Split-Path -Parent $baseDir) "BIGFOOT_WHITE_B200.png")
+)) {
+    if (Test-Path $logoSource) {
+        Copy-Item -Path $logoSource -Destination $logoTarget -Force
+        break
+    }
 }
 
 Start-Transcript -Path $logPath | Out-Null
