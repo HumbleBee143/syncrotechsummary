@@ -1,35 +1,58 @@
-﻿# Context
+# Context
 
 ## Goal
-Weekly Syncro technician summary for Bigfoot Networks with last-work-week stats, current open ticket views, and per-tech drilldowns for team meetings.
+Generate a recurring HTML technician report from Syncro API data, including weekly ticket activity, current open workload, and technician drilldowns suitable for internal business use.
 
-## Last State
-- Report window set to last full work week (Mon–Fri local time).
-- Main HTML report (LatestReport.html) includes:
-  - Last Week and Current summary card sections (all cards clickable to summary pages).
-  - Per-tech open tickets bar chart with clickable tech chips and rows.
-  - Per-tech closed tickets (last work week) bar chart with clickable tech chips and rows.
-  - Tech colors applied to chips, bars, and grouped ticket lists.
-- Per-tech open pages:
-  - Status columns with colored headers and light-blue column backgrounds.
-  - Tickets grouped by status with status-colored borders and Syncro ticket links.
-  - Header card is light blue with tech-colored title strip.
-  - Info line: "Open: X | 14+ day open: Y" in blue inline block.
-  - "Return to Summary" button styled as a button.
-- Per-tech closed pages:
-  - Header card is light blue with tech-colored title strip.
-  - Week + total closed info in blue inline blocks.
-  - Closed tickets list with Syncro links; status color for Resolved.
-  - "Return to Summary" button styled as a button (same as open pages).
-- Logo: BIGFOOT_WHITE_B200.png used in header; background color set to #0077c0 across all pages.
-- Status colors added for key statuses; open statuses expanded to include Waiting on Supplier/Parts, Scheduled, Escalation.
+## Current State
+- Repository restructured for portability:
+  - `scripts/` runnable PowerShell scripts
+  - `config/` tracked config and local example
+  - `assets/` logos/images
+  - `output/` generated HTML/log/report artifacts
+- Entry point:
+  - `Run-SyncroTechSummary.ps1`
+- Scheduling/deployment assets:
+  - `scripts/Register-SyncroTechSummaryTask.ps1`
+  - `deployment/SyncroTechSummary.TaskTemplate.xml`
+  - `DEPLOYMENT_GUIDE.md`
+- Security hardening completed:
+  - API key is read from `SYNCRO_API_KEY` env var (preferred)
+  - tracked config is sanitized
+  - local secret config is git-ignored
+  - history was rewritten to remove previously exposed secret content
+- Reporting UI refreshed:
+  - main summary page redesigned
+  - technician open/closed pages redesigned
+  - summary detail pages (`Summary_*.html`) redesigned
+- Time tracking logic implemented/fixed:
+  - `ticket_timers` parsing updated for Syncro fields (`active_duration`, `billable_time`, `start_time`, `end_time`, etc.)
+  - timer paging updated to read latest pages (not only oldest)
+  - non-zero weekly timer totals confirmed in latest runs
+- Time display now includes:
+  - per-ticket `Actual` time (within current report window)
+  - per-ticket `Syncro Total` (from ticket `total_formatted_billable_time` when available)
+  - per-tech weekly totals on technician pages
+  - main page total card for actual time
+  - main page per-tech actual-time graph section
 
-## Next Steps
-- Decide deployment approach (SharePoint recommended for a live HTML page).
-- Optionally add automatic email delivery (link or attachment).
-- Validate UI on a few tech pages and adjust spacing/contrast if needed.
+## Known Constraints
+- Some Syncro endpoints can return limited shapes depending on API key permissions.
+- `/tickets/{id}` may not be accessible with all keys; report avoids hard dependency on that endpoint.
+- If timer records lack user names, the script resolves names via `/api/v1/users` and falls back to `UserId:*` when needed.
 
-## Notes
-- Config: config\Syncro-TechSummary.config.json (OpenTickets.Statuses expanded).
-- Reports output: output\LatestReport.html (or Output.ReportPath in config) and per-tech pages (Open_*.html, Closed_*.html).
-- Logo copied to output\logo.png during report generation.
+## Run/Deploy Notes
+- Config file:
+  - `config/Syncro-TechSummary.config.json`
+- Local secret override template:
+  - `config/Syncro-TechSummary.config.local.example.json`
+- Generated outputs:
+  - `output/LatestReport.html`
+  - `output/Summary_*.html`
+  - `output/Open_*.html`
+  - `output/Closed_*.html`
+  - `output/Run_*.log`
+
+## Suggested Next Steps
+- Validate publishing workflow on target host (SharePoint or internal web path).
+- Monitor scheduled runs for 1-2 weeks to confirm consistency.
+- Optionally add alerting on run failures (email/Teams/webhook).
