@@ -21,6 +21,33 @@ if (!(Test-Path $configPath)) { throw "Config not found: $configPath" }
 $config = Get-Content $configPath -Raw | ConvertFrom-Json
 
 $subdomain = [string]$config.Subdomain
+# Load optional local dotenv files (.env.local then .env) for secrets.
+# Existing process/user env vars always win.
+$dotenvCandidates = @(
+    (Join-Path $projectRoot ".env.local"),
+    (Join-Path $projectRoot ".env")
+)
+foreach ($dotenvPath in $dotenvCandidates) {
+    if (-not (Test-Path $dotenvPath)) { continue }
+    foreach ($rawLine in (Get-Content -Path $dotenvPath)) {
+        if ($null -eq $rawLine) { continue }
+        $line = [string]$rawLine
+        $trimmed = $line.Trim()
+        if ([string]::IsNullOrWhiteSpace($trimmed)) { continue }
+        if ($trimmed.StartsWith("#")) { continue }
+        if ($trimmed -notmatch '^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$') { continue }
+        $k = [string]$matches[1]
+        $v = [string]$matches[2]
+        if (($v.StartsWith('"') -and $v.EndsWith('"') -and $v.Length -ge 2) -or ($v.StartsWith("'") -and $v.EndsWith("'") -and $v.Length -ge 2)) {
+            $v = $v.Substring(1, $v.Length - 2)
+        }
+        $currentProcessEnv = [Environment]::GetEnvironmentVariable($k, "Process")
+        if ([string]::IsNullOrWhiteSpace($currentProcessEnv) -and -not [string]::IsNullOrWhiteSpace($v)) {
+            Set-Item -Path ("Env:{0}" -f $k) -Value $v
+        }
+    }
+}
+
 $apiKeyFromEnv = [string]$env:SYNCRO_API_KEY
 $apiKey    = if ([string]::IsNullOrWhiteSpace($apiKeyFromEnv)) { [string]$config.ApiKey } else { $apiKeyFromEnv }
 $daysBack  = if ($config.PSObject.Properties.Name -contains 'DaysBack') { [int]$config.DaysBack } else { 1 }

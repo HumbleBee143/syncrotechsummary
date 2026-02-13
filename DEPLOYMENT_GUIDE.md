@@ -22,7 +22,14 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
 ## 5. Configure API key
-Set the Syncro API key for the user account that will run the scheduled task:
+Recommended (per-repo, easiest):
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+Set `SYNCRO_API_KEY=YOUR_SYNCRO_API_KEY` and save.
+
+Alternative (per-user environment variable):
 ```powershell
 [Environment]::SetEnvironmentVariable("SYNCRO_API_KEY","YOUR_SYNCRO_API_KEY","User")
 ```
@@ -32,6 +39,7 @@ Close PowerShell and open a new window.
 ```powershell
 echo $env:SYNCRO_API_KEY
 ```
+If you used `.env`, this may be empty in shell until the script runs. That is normal.
 
 ## 7. Run once manually
 ```powershell

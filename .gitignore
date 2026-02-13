@@ -6,3 +6,7 @@ Logs/*
 
 # Local secret config override (never commit).
 config/Syncro-TechSummary.config.local.json
+
+# Local environment secrets (never commit).
+.env
+.env.local

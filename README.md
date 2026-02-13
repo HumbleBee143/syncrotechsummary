@@ -13,8 +13,16 @@
 
 ## Secrets
 - Preferred: set `SYNCRO_API_KEY` in your environment.
+- Easiest per-machine setup: copy `.env.example` to `.env` and set `SYNCRO_API_KEY`.
+- Script auto-load order for secrets: existing environment variable, then `.env.local`, then `.env`, then `config\Syncro-TechSummary.config.local.json`.
 - Optional local override file: `config\Syncro-TechSummary.config.local.json` (ignored by git).
 - Template: `config\Syncro-TechSummary.config.local.example.json`.
+
+Example (`.env` in repo root):
+```powershell
+Copy-Item .env.example .env
+# then edit .env and replace with your real key
+```
 
 Example (current PowerShell session only):
 ```powershell
